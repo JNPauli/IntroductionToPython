@@ -4,7 +4,7 @@ These pages are currently under construction and will be updated continuously.
 Please visit these pages again in the next few weeks for further information.
 ````
 
-![diler logo](static/Logo.jpg)
+![logo](static/Logo.jpg)
 
 ## Welcome!
 
