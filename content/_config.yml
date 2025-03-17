@@ -5,7 +5,7 @@
 
 #######################################################################################
 # Book settings
-title                       : "Mental image decoding - A student research project"  # The title of the book. Will be placed in the left navbar.
+title                       : "Introduction to Python"  # The title of the book. Will be placed in the left navbar.
 author                      : Janos Pauli based on the course template by Felix Koerber and Michael Ernst # The author of the book
 copyright                   : "2025"  # Copyright year to be placed in the footer
 logo                        : "static/logo.jpg"  # A path to the book logo
@@ -39,6 +39,9 @@ launch_buttons:
   notebook_interface        : "classic"  # The interface interactive links will activate ["classic", "jupyterlab"]
   binderhub_url             : "https://mybinder.org"  # The URL of the BinderHub (e.g., https://mybinder.org)
   thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
+
+#launch_buttons:
+ # colab_url: "https://colab.research.google.com"
 
 repository:
   url                       : https://github.com/JNPauli/IntroductionToPython/  # The URL to your book's repository
