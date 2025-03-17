@@ -23,7 +23,8 @@ We will always meet in this room: `213/EG/0.M01 (213 PC-Pool 0.M01)` Adress: Fra
 Please make sure to bring your own device for the course. All the programming lectures and task will happen on `Google Colab`. Google Colab is a cloud-based environment, that makes it possible to run Python Code in a Jupyter Notebook framework. It is completely free. All you need to do is create a google account beforehand (if you do not already have one!). If you have any concerns regarding data security and such, do not hesitate to contact me. In general, you will not share any personal information or more.
 
 The goal of this course is to get you used to programtic thinking and problem solving in general, using the Python language. If we have time and everyone is on board, we can also get in to realm of machine learning and deep learning. However, I strongly emphasize getting familiar with the Python framework, as this is the backbone of all subsequent work. 
-(<iframe src="https://giphy.com/embed/Dh5q0sShxgp13DwrvG" width="480" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/scaler-official-dogs-computer-typing-Dh5q0sShxgp13DwrvG">via GIPHY</a></p>)
+
+(<iframe src="https://giphy.com/embed/Dh5q0sShxgp13DwrvG" width="298" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/scaler-official-dogs-computer-typing-Dh5q0sShxgp13DwrvG">via GIPHY</a></p>)
 
 
 ## About Me
@@ -46,7 +47,7 @@ If you encounter any problems during the set-up please reach out to me via E-Mai
 
 ## Acknowledgments
 
-<iframe src="https://giphy.com/embed/xULW8v7LtZrgcaGvC0" width="480" height="480" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/justin-barnaby-xULW8v7LtZrgcaGvC0">via GIPHY</a></p>
+<iframe src="https://giphy.com/embed/xULW8v7LtZrgcaGvC0" width="298" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/justin-barnaby-xULW8v7LtZrgcaGvC0">via GIPHY</a></p>
 
 I always strive to follow the "Credit where credit is due" sentiment. 
 
