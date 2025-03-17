@@ -1,4 +1,4 @@
-root: index
+root: Introduction
 format: jb-book
 #chapters:
 #- file: general_information/Research_question.md
