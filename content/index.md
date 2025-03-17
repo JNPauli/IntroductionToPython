@@ -3,6 +3,9 @@
 These pages are currently under construction and will be updated continuously.
 Please visit these pages again in the next few weeks for further information.
 ````
+
+![diler logo](static/Logo.jpg)
+
 ## Welcome!
 
 Hello everybody! Welcome to this years "Introduction to Python Course", taught at the University of Cologne. Great to see you!
