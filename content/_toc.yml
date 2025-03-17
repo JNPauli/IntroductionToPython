@@ -1,7 +1,8 @@
-root: Introduction
+root: index
 format: jb-book
-#chapters:
-#- file: general_information/Research_question.md
+chapters:
+- file: CoC.md
+- file: DEI.md
 #- file: general_information/Data_and_Projectmanagment.md
  # sections:
   #- file: open_lab_notebook/Documentation.md
