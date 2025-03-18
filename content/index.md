@@ -27,7 +27,7 @@ Please make sure to bring your own device for the course. All the programming le
 
 The goal of this course is to get you used to programtic thinking and problem solving in general, using the Python language. If we have time and everyone is on board, we can also get in to realm of machine learning and deep learning. However, I strongly emphasize getting familiar with the Python framework, as this is the backbone of all subsequent work. 
 
-(<iframe src="https://giphy.com/embed/Dh5q0sShxgp13DwrvG" width="298" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/scaler-official-dogs-computer-typing-Dh5q0sShxgp13DwrvG">via GIPHY</a></p>)
+<iframe src="https://giphy.com/embed/Dh5q0sShxgp13DwrvG" width="298" height="298" style="" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/scaler-official-dogs-computer-typing-Dh5q0sShxgp13DwrvG">via GIPHY</a></p>
 
 
 ## About Me
@@ -56,9 +56,9 @@ I always strive to follow the "Credit where credit is due" sentiment.
 
 Hence, I'd like to shout out the following persons:
 
-Dr. Robert Ennis, because he got me into programming and I got inspiration from his course material to include in this course
+[Dr. Robert Ennis](https://www.allpsych.uni-giessen.de/rob/index.html), because he got me into programming and I got inspiration from his course material to include in this course
 
-Prof. Peer Herholz, because he got me into Python programming and I, again, got a lot of inspiration from his course material
+[Prof. Peer Herholz](https://peerherholz.github.io/), because he got me into Python programming and I, again, got a lot of inspiration from his course material
 
-Prof. Benjamin Gagl, because he did this course the previous years and I am able to use some of his materials
+[Prof. Benjamin Gagl](https://www.hf.uni-koeln.de/42148) because he actually taught this course the previous years and I am able to use some of his materials
 

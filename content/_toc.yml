@@ -3,6 +3,7 @@ format: jb-book
 chapters:
 - file: CoC.md
 - file: DEI.md
+- file: BasicConcepts.md
 #- file: general_information/Data_and_Projectmanagment.md
  # sections:
   #- file: open_lab_notebook/Documentation.md
