@@ -74,3 +74,22 @@ Here are a list of cool projects coded in python (In no particular order!)
 ![alt text](image.png)
 
 And there are of course many more!
+
+## How do I get help?
+
+Before finally starting with our first coding exercise, there should be some things mentioned.
+
+First of all, you should be aware that programming can be hard and frustrating. Feeling that way is completely normal! Learning a new skill is always a ambitious endeavour and programming definitely counts in to that. So what should you do when you feel frustrated? I recommend to take a brief walk, enjoy a beverage of your choice or just take your mind off of things. Or watch funny youtube videos (but dont get stuck and just end up funny youtube videos). Most importantly, remind yourself that whatever you are trying to learn is not easy nor trivial. And trying to learn programming is already really cool, so go you!  Programming is not really like "hollywood" likes to depict it. It is pretty cool, but for most of us mortal folks, it does not involve hacking into the goverment database, while typing your code *flawless* at lightning speed. So try to be aware of that and set yourself some realistic expectations.
+
+![alt text](1707282050354.jpg)
+
+
+Besides these minor psychological interventions, there are of course practical ones.
+
+For example yes, you are not only allowed to google stuff, you are actually **encouraged** to do so. The internet has many many great resources to offer to you when it comes to programming. It is actually very common, that you google your specific coding problem and see that someone else has actually posed the same question before you! There are many forums in which coding problems are discussed, most prominently that is [stackoverflow](https://stackoverflow.com/questions/tagged/python). People in the programming community are usually really nice people, as long as you are kind and respectful. So do not ever hesitate to reach out for help there! Minor caveat: The common language in these forums is English. So you will have better luck finding your answers if you pose your question in english aswell.
+
+To adress the elephant in the room, yes, you are also *technically* allowed to use Large Language Models (LLMs) like ChatGPT. I'd say not using them nowdays is pretty foolish. However, there is a distinction between letting ChatGPT do your stuff or it actually helping you to understand your coding problem. Of course, you can solve most basic demands trivially with these LLMs. However, once their website is down or whatever, you are pretty much stuck. Thats why it is really important to build a solid foundation **first** and *then* look in to the options of using LLMs. Really try to think for yourself and only use these models as a last resort. I would always prefer using a resource like stackoverflow (or the holy grail, the code documentation base for the `module` you are using) over LLMs, especially when you are just learning the language. So try to keep that in mind! You are absolutely free to use it and it can be very helpful in explaining some basic concepts to you. Yet, these models can make mistakes aswell.
+
+A better option could be to talk with your course instructor (Me) or with your fellows (other students).
+
+TLDR: Be mindful about using LLMs, always try to deepen your understanding first. 
