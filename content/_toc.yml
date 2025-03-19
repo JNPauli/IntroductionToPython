@@ -4,7 +4,9 @@ chapters:
 - file: CoC.md
 - file: DEI.md
 - file: BasicConcepts.md
-- file: Introduction/PythonBasics.ipynb
+- file: Introduction/CourseExplain.md
+  sections: 
+  - file: Introduction/PythonBasics.ipynb
  # sections:
   #- file: open_lab_notebook/Documentation.md
 #- file: data/Dataset_Exploration.ipynb

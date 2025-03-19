@@ -58,3 +58,19 @@ It is not only pretty popular, it is also a beginner friendly language. It has a
 Besides, it has a very active community, so should you encounter any difficulties, you are very likely to find a neat `documentation` or `thread` in which some has already discussed your problem (or, you just open a thread yourself!; for example: [stackoverflow](https://stackoverflow.com/questions/tagged/python)). Further, Python is **open source**. That means, that anybody that has a laptop can actually run it. You do not need to pay a dime for it. 
 
 If you are interested in machine learning and deep learning, python is also the best language to learn. Most models are actually coded in python. 
+
+Here are a list of cool projects coded in python (In no particular order!)
+
+1. [Automatic Water Gun attack on pigeons](https://maxnagy.com/posts/pigeons/)
+<div style="display: flex; align-items: center;">
+    <img src="static/water_gun.jpg" alt="WaterGun" width="500">
+    <img src="static/pigeons.jpg" alt="Pigeon" width="450">
+</div>
+
+2. [Using Python to explore outer space](https://github.com/readme/featured/webb-telescope-astropy)
+
+![James](static/PythonJamesWebb.jpg)
+
+3. [Reconstructing images from our brain to pixels](https://journals.plos.org/ploscompbiol/article/file?id=10.1371%2Fjournal.pcbi.1006633&type=printable)
+
+![alt text](image.png)
