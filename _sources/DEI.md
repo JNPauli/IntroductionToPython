@@ -1,7 +1,3 @@
-# Disclaimer
-
-The following information on Diversity, Equity and Inclusion is 1:1 based on the template provided by [Peer Herholz](https://peerherholz.github.io/)
-
 ## Diversity, Equity and Inclusion
 
 Let's rip one band-aid off right away: the current scientific and academic system is incredibly flawed and tremendously biased. Unfortunately, most students are not brought into contact with the respective issues during their studies and thus quite often perceive the present inequalities as "normal" and a given. This lead to the proliferation of exceptionally unfair "standards" and practices towards minorities and underrepresented groups. What's needed to combat these things are Universities, Departments, Lecturers, etc. that address these issues, as well as inform and enable students to actively engage in the process towards increasing [Diversity, Equity and Inclusion](https://en.wikipedia.org/wiki/Diversity_(business)) ([#DEI](https://twitter.com/hashtag/DEI?src=hashtag_click)) at all levels. 
@@ -102,3 +98,7 @@ The [Queer in Neuro](https://queerinneuro.com/) initiative is currently under de
 The goal of [Letters to a Pre-Scientist](https://prescientist.org/) is to "inspire all students to explore a future in STEM" via connecting "students with real scientists to demystify STEM careers and empower all students to see themselves as future STEM professionals".
 
 <iframe width="560" height="315" src="https://prescientist.org/ " title="prescientist" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Disclaimer
+
+The following information on Diversity, Equity and Inclusion is 1:1 based on the template provided by [Peer Herholz](https://peerherholz.github.io/)
