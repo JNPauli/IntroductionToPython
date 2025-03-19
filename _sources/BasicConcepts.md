@@ -62,10 +62,8 @@ If you are interested in machine learning and deep learning, python is also the 
 Here are a list of cool projects coded in python (In no particular order!)
 
 1. [Automatic Water Gun attack on pigeons](https://maxnagy.com/posts/pigeons/)
-<div style="display: flex; align-items: center;">
-    <img src="static/water_gun.jpg" alt="WaterGun" width="500">
-    <img src="static/pigeons.jpg" alt="Pigeon" width="450">
-</div>
+
+![WaterPigeons](static/waterandpigeons.png)
 
 2. [Using Python to explore outer space](https://github.com/readme/featured/webb-telescope-astropy)
 
@@ -74,3 +72,5 @@ Here are a list of cool projects coded in python (In no particular order!)
 3. [Reconstructing images from our brain to pixels](https://journals.plos.org/ploscompbiol/article/file?id=10.1371%2Fjournal.pcbi.1006633&type=printable)
 
 ![alt text](image.png)
+
+And there are of course many more!
