@@ -512,7 +512,7 @@ For detailed information, start <a class="reference external" href="https://www.
 </div>
 <p><strong>Exercise</strong>: Think of a calculation and write the operation in the cell below.</p>
 <p><strong>Functions</strong></p>
-<p>Functions allow combining multiple operations so that more complex processes can be implemented clearly. Often functions are part of a library. In the following example, we use the <code class="docutils literal notranslate"><span class="pre">log</span></code> function from the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> library.</p>
+<p>Functions allow combining multiple operations so that more complex processes can be implemented clearly. Often functions are part of a library. In the following example, we use the <code class="docutils literal notranslate"><span class="pre">log</span></code> function from the <a class="reference external" href="https://numpy.org/"><code class="docutils literal notranslate"><span class="pre">NumPy</span></code></a> library. We will talk about libraries in python later on. Right now its enough to know, that there are different libraries for different purposes with different functions (Like NumPy, which can be used for numerical operations, and one function of numpy is the log transformation)</p>
 <p>Later we will define functions ourselves, where we customize the integrated processes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -643,6 +643,14 @@ Dear Anton, how are you?
 <p><code class="docutils literal notranslate"><span class="pre">float</span></code> indicates that stored information is a number with decimals.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">str</span></code> indicates that the variable stores string information. Strings are basically just text characters</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -653,6 +661,7 @@ Dear Anton, how are you?
 </div>
 </div>
 </div>
+<p><code class="docutils literal notranslate"><span class="pre">Bool</span></code> stands for <code class="docutils literal notranslate"><span class="pre">boolean</span></code> they can be used to evaluate two variables. Python == Good Programming Language should return <code class="docutils literal notranslate"><span class="pre">True</span></code>, whereas SPSS == Good Programming Language should return <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">logical</span><span class="p">)</span>
@@ -762,7 +771,7 @@ True
 </div>
 <p><strong>Exercise</strong>: Define a new variable and use an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to define if it is larger or smaller than z.</p>
 <p><strong>Variables that include multiple items</strong>:</p>
-<p>One can store multiple pieces of information in one variable.</p>
+<p>One can store multiple pieces of information in one variable. This is what we call a <code class="docutils literal notranslate"><span class="pre">List</span></code>. A list is a vanilla python datatype. You can store all kinds of information in it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
@@ -865,6 +874,8 @@ True
 </div>
 </div>
 </div>
+<p>Think!:</p>
+<p>Did you expect l[1] to return the value 19? What index will give you the value 10?</p>
 <p>Another way to check specific items in a list would be based on <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements. Here the operator <code class="docutils literal notranslate"><span class="pre">in</span></code> is central.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -897,7 +908,7 @@ True
 </div>
 </div>
 <p><strong>Exercise</strong>: Use a <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code> and <code class="docutils literal notranslate"><span class="pre">l_4</span></code>.</p>
-<p>Bonus: Can you think of an even simpler way to check if the value is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code>and <code class="docutils literal notranslate"><span class="pre">l_4</span></code></p>
+<p>Bonus: Can you think of an even simpler way to check if the value is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code>and <code class="docutils literal notranslate"><span class="pre">l_4</span></code> ?</p>
 <p><strong><code class="docutils literal notranslate"><span class="pre">for</span></code> loop</strong></p>
 <p>Loops allow repeating a process. This can be very helpful at times. In the first example, we take every item of <code class="docutils literal notranslate"><span class="pre">l_2</span></code>, add <code class="docutils literal notranslate"><span class="pre">10</span></code> to the value and print it.</p>
 <div class="cell docutils container">
