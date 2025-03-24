@@ -90,6 +90,6 @@ For example yes, you are not only allowed to google stuff, you are actually **en
 
 To adress the elephant in the room, yes, you are also *technically* allowed to use Large Language Models (LLMs) like ChatGPT. I'd say not using them nowdays is pretty foolish. However, there is a distinction between letting ChatGPT do your stuff or it actually helping you to understand your coding problem. Of course, you can solve most basic demands trivially with these LLMs. However, once their website is down or whatever, you are pretty much stuck. Thats why it is really important to build a solid foundation **first** and *then* look in to the options of using LLMs. Really try to think for yourself and only use these models as a last resort. I would always prefer using a resource like stackoverflow (or the holy grail, the code documentation base for the `module` you are using) over LLMs, especially when you are just learning the language. So try to keep that in mind! You are absolutely free to use it and it can be very helpful in explaining some basic concepts to you. Yet, these models can make mistakes aswell.
 
-A better option could be to talk with your course instructor (Me) or with your fellows (other students).
+A better option could be to talk with your course instructor (Me) or with your fellows (other students). 
 
 TLDR: Be mindful about using LLMs, always try to deepen your understanding first. 
