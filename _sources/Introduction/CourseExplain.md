@@ -2,7 +2,9 @@
 
 For this course, we will do all the coding work in google colab. This has multiple advantages: You do not need to worry about installing any program on your device. You do not need to worry about specific `coding environments`.
 
-          In short: These environments are the holy grail to solve the "Works on my machine" problem. Since google colab is cloud based, we can intitialize these environments there and thus are worry free. For your future work, it is *highly* recommend to use these. If you are interested in how these things work, just let me know.
+In short: 
+
+These environments are the holy grail to solve the "Works on my machine" problem. Since google colab is cloud based, we can intitialize these environments there and thus are worry free. For your future work, it is *highly* recommend to use these. If you are interested in how these things work, just let me know.
 
 How do we start our python session? On the course website, you should see these icons on the top of your screen:
 
