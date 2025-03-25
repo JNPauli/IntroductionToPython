@@ -5,7 +5,6 @@ chapters:
 - file: DEI.md
 - file: BasicConcepts.md
 - file: Introduction/CourseExplain.md
-- file: test.md
   sections: 
   - file: Introduction/PythonBasics.ipynb
   - file: Introduction/Loops.ipynb
