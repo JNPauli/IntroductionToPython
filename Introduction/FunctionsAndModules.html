@@ -434,7 +434,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#think"><strong>Think</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-modules-and-libraries">Packages, Modules and libraries</a></li>
 </ul>
             </nav>
@@ -535,7 +541,9 @@ Too long!
 </div>
 </div>
 </div>
-<p>Think: Take a look at the function. What is missing here?</p>
+<section id="think">
+<h3><strong>Think</strong><a class="headerlink" href="#think" title="Link to this heading">#</a></h3>
+<p>Take a look at the function. What is missing here?</p>
 <p>And if we want too, we can make things now way cleaner and combine our knowledge of for loops with our newly created functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -548,6 +556,9 @@ Too long!
 </div>
 </div>
 </div>
+</section>
+<section id="exercise">
+<h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
 <p>Fill in the gaps below. The loop should iterate through each list in <em>combined_list</em> and apply the <em>CompareLength</em> function.</p>
 <p>Try to manipulate the <code class="docutils literal notranslate"><span class="pre">max_length</span></code> argument, so it compares the list length against a different number.</p>
 <div class="cell docutils container">
@@ -581,7 +592,10 @@ Too long!
 </div>
 </div>
 </div>
-<p>Obviously, we dont get too much here. So lets change that and add a Document String!</p>
+</section>
+<section id="id1">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Obviously, we dont get too much information here. So lets change that and add a Document String!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">CompareLength</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">max_length</span><span class="p">):</span>
@@ -601,6 +615,9 @@ Too long!
 </div>
 </div>
 <p>That is already better, is it not? Now we can confidently share this function with our peers and they will still get an idea of what we actually did in our function.</p>
+</section>
+<section id="id2">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Try now to add some documentation to the for loop we defined earlier.</p>
 <p>Within Code cells, you usually want to use # to document your code.</p>
 <div class="cell docutils container">
@@ -612,13 +629,14 @@ Too long!
 </div>
 </div>
 </div>
-<p>Lets and this section with one last task. Try to create your very own function, that takes the <code class="docutils literal notranslate"><span class="pre">age</span></code> as its input and <code class="docutils literal notranslate"><span class="pre">returns</span></code> a brief categorization decision (I.e, does the age belong rather to a <em>young person</em> or to a <em>older person</em>). The way you define young and old does not matter at all. What matters is, that your functions returns this categorization. The output (returned value) should be a string, where as the input should be an integer.</p>
+<p>Lets finish this section with one last task. Try to create your very own function, that takes the <code class="docutils literal notranslate"><span class="pre">age</span></code> as its input and <code class="docutils literal notranslate"><span class="pre">returns</span></code> a brief categorization decision (I.e, does the age belong rather to a <em>young person</em> or to a <em>older person</em>). The way you define young and old does not matter at all. What matters is, that your functions returns this categorization. The output (returned value) should be a string, where as the input should be an integer.</p>
 <p>Add a doc string to your function.</p>
 <p>If you have troubles with the task, try to treat it like a cooking recipe:</p>
 <p>List down the equipment (for example, how you name your function, and what the arguments are), the ingredients (for example, the input), what you should do with these ingredients (for example, what is happening inside your function) and what the end-product should look like (the output).</p>
 <p>Bonus:</p>
 <p>What would you do to make sure, that your function only works if the age input is an integer? Do you have an idea, how you could penalize someone that tries to use a float value (e.g., 23.2) to the function?</p>
 <p><img alt="Questions" src="../_images/questions.gif" /></p>
+</section>
 </section>
 <section id="packages-modules-and-libraries">
 <h2>Packages, Modules and libraries<a class="headerlink" href="#packages-modules-and-libraries" title="Link to this heading">#</a></h2>
@@ -711,7 +729,13 @@ Too long!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions">Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#think"><strong>Think</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-modules-and-libraries">Packages, Modules and libraries</a></li>
 </ul>
   </nav></div>
