@@ -435,10 +435,16 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -452,6 +458,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="loops">
 <h1>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h1>
+<section id="for-loops">
+<h2>For Loops<a class="headerlink" href="#for-loops" title="Link to this heading">#</a></h2>
 <p>You briefly saw an example of a <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loop</span></code> before</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      for i in range(100):
                 os.mdkir(f&quot;MyNewFolder_{i}&quot;)
@@ -466,18 +474,14 @@ document.write(`
 </div>
 <p>You now want to use your knowledge on if else loops to check, if each element in this list is <em>smaller</em> than the school average. Lets say, the school average is 2.8.</p>
 <section id="exercise">
-<h2><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
 <p>Think! Based on your knowledge so far, how would you solve this comparison? You dont actually have to code this, this is more about building a basic understanding on how to approach this.</p>
 <p>If you are already familiar with the concepts of loops, please dont spoil the answer to your fellows, as this might hinder their learning process :)</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<p>The solution is in the cell below, so please dont click it yet!</p>
+<div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">school_average</span> <span class="o">=</span> <span class="mf">2.8</span>
-<span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">]</span>
 
 <span class="k">for</span> <span class="n">grade</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
           <span class="k">if</span> <span class="n">grade</span> <span class="o">&lt;</span> <span class="n">school_average</span><span class="p">:</span>
@@ -487,23 +491,12 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This grade is above average
-This grade is above average
-This grade is below average
-This grade is below average
-This grade is below average
-This grade is below average
-This grade is below average
-</pre></div>
 </div>
-</div>
-</div>
+<p>Explaination below:</p>
 <div class="toggle docutils container">
 <p>The logic:</p>
-<p>for each value in our list <code class="docutils literal notranslate"><span class="pre">grades</span></code>, check if that grade is smaller than the school average and print that it is above average, else print that it is below average.</p>
-<p>With out for loop we would have to do</p>
+<p>for each value in our list <code class="docutils literal notranslate"><span class="pre">grades</span></code>, check if that grade is smaller than the school average and print if it is above average, else print that it is below average.</p>
+<p>Without for loop we would have to do</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      if grades[0] &lt; school_average,else
       if grades[1] &lt; school_average,else
       ...
@@ -512,7 +505,7 @@ This grade is below average
 <p>So this concept saves us a lot of time. We can go through each single element in our list, apply what ever operation we want to it and proceed.</p>
 </div>
 <p>As you see, this can be really really helpful.</p>
-<p>Before we deepen our knowdledge on for loops, I want to highlight a cool feature of the <code class="docutils literal notranslate"><span class="pre">list</span></code> datatype.</p>
+<p>Before we deepen our knowledge on for loops, I want to highlight a cool feature of the <code class="docutils literal notranslate"><span class="pre">list</span></code> datatype.</p>
 <p>You can actually add or remove elements from a list, using python lingo we would call these data types <code class="docutils literal notranslate"><span class="pre">mutable</span></code>, wheras the opposite is called <code class="docutils literal notranslate"><span class="pre">immutable</span></code>. For a detailed description, please see <a class="reference external" href="https://realpython.com/python-mutable-vs-immutable-types/">here</a>.</p>
 <p>Most commonly, to add further elements to your list we use this expression <code class="docutils literal notranslate"><span class="pre">List.append(&quot;My</span> <span class="pre">Value&quot;)</span></code>, if you want to remove elements from your list, you can use <code class="docutils literal notranslate"><span class="pre">List.remove(&quot;My</span> <span class="pre">Value&quot;)</span></code></p>
 <p>Next thing to know is, that we can also create <code class="docutils literal notranslate"><span class="pre">empty</span></code> lists</p>
@@ -522,8 +515,8 @@ This grade is below average
 <p>This can be useful if you want to extract elements from one list and add these elements to a different list.</p>
 </section>
 <section id="id1">
-<h2><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
-<p>Complete the code cell below. Intiate two new lists called above_average and below_average. Append elements from the <code class="docutils literal notranslate"><span class="pre">grades</span></code> list to these lists, accordingly.</p>
+<h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Complete the code cell below. Initiate two new lists called above_average and below_average. Append elements from the <code class="docutils literal notranslate"><span class="pre">grades</span></code> list to these lists, accordingly.</p>
 <p>Remove the <code class="docutils literal notranslate"><span class="pre">raise</span> <span class="pre">Exception(&quot;Solution</span> <span class="pre">Missing&quot;)</span></code> statements once you entered your solution.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -540,7 +533,6 @@ This grade is below average
 </div>
 </div>
 </div>
-<p>Now thats not the only cool thing that we can do with for loops.</p>
 <p>The last for loop feature I want to talk about is the <a class="reference external" href="https://www.geeksforgeeks.org/enumerate-in-python/"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a> function. What does enumerate do? It is essentially a <code class="docutils literal notranslate"><span class="pre">counter</span></code> variable, that helps you keep track of the elements you have looped through.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -561,13 +553,17 @@ This grade is below average
 </div>
 </div>
 </div>
-<p>So this is pretty useful of keeping track. Enumerate can be helpful, if you are interested in the position of a target element.</p>
-<p>For example, if you want to know, if a grade is below or above average.</p>
+<p>So this is pretty useful of keeping track. Enumerate can be helpful, if you are interested in the position of a target element.
+For example, if you want to know, if a grade is below or above average.</p>
 </section>
 <section id="id2">
-<h2><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
+<h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Try now to loop through the grades list again. If an element is below average, display (print) the index.</p>
 <p><img alt="Questions" src="../_images/questions.gif" /></p>
+</section>
+</section>
+<section id="while-loops">
+<h2>While Loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h2>
 <p>Next to for loops, we also have <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">loops</span></code>. Since <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loops</span></code> are more common than while loops (and while loops can lead to unexpected results, if not used properly), I dont want to spend too much time on them.</p>
 <p>The general logic is that <code class="docutils literal notranslate"><span class="pre">while</span></code> something is <code class="docutils literal notranslate"><span class="pre">True</span></code>, do something.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      while Tired:
@@ -629,16 +625,16 @@ Some water please
 </div>
 </div>
 </div>
-</section>
 <section id="id3">
-<h2><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
-<p>Calculate the number of friends that you can invite to the cinema using a while-loop</p>
+<h3><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Calculate the number of friends that you can invite to the cinema using a while-loop (This Exercise was stolen from <a class="reference external" href="https://peerherholz.github.io/Python_for_Psychologists_Winter2021/introduction/intro_python_III.html#while-loops">Peer Herholz</a>)</p>
 <p>Remember:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>money = 43
 
 ticket_price = 10
 </pre></div>
 </div>
+</section>
 </section>
 </section>
 
@@ -706,10 +702,16 @@ ticket_price = 10
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
