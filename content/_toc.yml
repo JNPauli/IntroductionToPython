@@ -9,6 +9,10 @@ chapters:
   - file: Introduction/PythonBasics.ipynb
   - file: Introduction/Loops.ipynb
   - file: Introduction/FunctionsAndModules.ipynb
+- file: FirstSummary.md
+  sections:
+  - file: Introduction/PythonBasics.ipynb
+  - file: DEI.md
  # sections:
   #- file: open_lab_notebook/Documentation.md
 #- file: data/Dataset_Exploration.ipynb
