@@ -545,7 +545,9 @@ For detailed information, start <a class="reference external" href="https://www.
 </div>
 </div>
 <p><strong>Variables</strong></p>
-<p>Variables can store numbers, text, or more complex structures. Here are two examples. <code class="docutils literal notranslate"><span class="pre">numeric</span></code> holds a number, <code class="docutils literal notranslate"><span class="pre">character</span></code> stores a text, and <code class="docutils literal notranslate"><span class="pre">logical</span></code> holds either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The <code class="docutils literal notranslate"><span class="pre">=</span></code> sign allows to assign the variable with a piece of information. The <code class="docutils literal notranslate"><span class="pre">print</span></code> function allows us to display the stored information of a variable.</p>
+<p>Variables can store numbers, text, or more complex structures. Here are two examples. <code class="docutils literal notranslate"><span class="pre">numeric</span></code> holds a number, <code class="docutils literal notranslate"><span class="pre">character</span></code> stores a text, and <code class="docutils literal notranslate"><span class="pre">logical</span></code> holds either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The <code class="docutils literal notranslate"><span class="pre">=</span></code> sign allows to assign the variable with a piece of information.</p>
+<p><strong>Very important distinction</strong>: This does not mean, that numeric is equal to 10, for example. This simply means, that numerics <em>has</em> the value 10!</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> function allows us to display the stored information of a variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric</span> <span class="o">=</span> <span class="mi">10</span>
@@ -770,7 +772,10 @@ True
 </div>
 </div>
 </div>
-<p><strong>Exercise</strong>: Define a new variable and use an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to define if it is larger or smaller than z.</p>
+<p><strong>Exercise</strong>: Define a new variable called “current_time” and assign to it an integer of your choice (should be between 0 and 23).</p>
+<p>Define another variable called “bed_time” and assign to it an integer that corresponds to your usual bedtime (again, 0-23 works best here). Atlast, define a variable called time_to_go_to_sleep. It should be the difference between current_time and bed_time.</p>
+<p>Then Define an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement, where you check for three conditions: If time to go to sleep is 0, print <code class="docutils literal notranslate"><span class="pre">Its</span> <span class="pre">time</span> <span class="pre">to</span> <span class="pre">sleep</span></code>, Else if the difference is smaller than 1, print <code class="docutils literal notranslate"><span class="pre">Its</span> <span class="pre">time</span> <span class="pre">to</span> <span class="pre">prepare</span> <span class="pre">for</span> <span class="pre">bed</span></code>,
+conclude a last check, if the difference is larger than 1 and print <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">bedtime</span> <span class="pre">yet</span></code>. Of course, you can define the condition statements based on your personal preference :)</p>
 <p><strong>Variables that include multiple items</strong>:</p>
 <p>One can store multiple pieces of information in one variable. This is what we call a <code class="docutils literal notranslate"><span class="pre">List</span></code>. A list is a vanilla python datatype. You can store all kinds of information in it.</p>
 <div class="cell docutils container">
@@ -865,7 +870,7 @@ True
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -876,8 +881,11 @@ True
 </div>
 </div>
 <p>Think!:</p>
-<p>Did you expect l[1] to return the value 19? What index will give you the value 10?</p>
-<p>Another way to check specific items in a list would be based on <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements. Here the operator <code class="docutils literal notranslate"><span class="pre">in</span></code> is central.</p>
+<p>Did you expect l_4[1] to return “z”? What index will give you the value “x”?</p>
+<details>
+<summary></summary>
+<p><img alt="1_iJhMo_FJ6ka70UU1t_h1eQ.png" src="Introduction/attachment:1_iJhMo_FJ6ka70UU1t_h1eQ.png" /></p>
+</details><p>Another way to check specific items in a list would be based on <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements. Here the operator <code class="docutils literal notranslate"><span class="pre">in</span></code> is central.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l_2</span><span class="p">:</span>
