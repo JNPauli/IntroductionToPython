@@ -9,6 +9,7 @@ chapters:
   - file: Introduction/PythonBasics.ipynb
   - file: Introduction/Loops.ipynb
   - file: Introduction/FunctionsAndModules.ipynb
+  chapters:
 - file: FirstSummary.md
   sections:
   - file: DataStructure.ipynb
