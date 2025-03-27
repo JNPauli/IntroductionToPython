@@ -11,7 +11,7 @@ chapters:
   - file: Introduction/FunctionsAndModules.ipynb
 - file: FirstSummary.md
   sections:
-  - file: Introduction/DataStructure.ipynb
+  - file: DataStructure.ipynb
 
  # sections:
   #- file: open_lab_notebook/Documentation.md
