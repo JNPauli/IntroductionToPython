@@ -102,3 +102,4 @@ The goal of [Letters to a Pre-Scientist](https://prescientist.org/) is to "inspi
 ## Disclaimer
 
 The following information on Diversity, Equity and Inclusion is 1:1 based on the template provided by [Peer Herholz](https://peerherholz.github.io/)
+
