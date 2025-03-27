@@ -507,7 +507,14 @@ document.write(`
 <p>As you see, this can be really really helpful.</p>
 <p>Before we deepen our knowledge on for loops, I want to highlight a cool feature of the <code class="docutils literal notranslate"><span class="pre">list</span></code> datatype.</p>
 <p>You can actually add or remove elements from a list, using python lingo we would call these data types <code class="docutils literal notranslate"><span class="pre">mutable</span></code>, wheras the opposite is called <code class="docutils literal notranslate"><span class="pre">immutable</span></code>. For a detailed description, please see <a class="reference external" href="https://realpython.com/python-mutable-vs-immutable-types/">here</a>.</p>
-<p>Most commonly, to add further elements to your list we use this expression <code class="docutils literal notranslate"><span class="pre">List.append(&quot;My</span> <span class="pre">Value&quot;)</span></code>, if you want to remove elements from your list, you can use <code class="docutils literal notranslate"><span class="pre">List.remove(&quot;My</span> <span class="pre">Value&quot;)</span></code></p>
+<p>Most commonly, to add further elements to your list we use this expression</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      `List.append(&quot;My Value&quot;)`
+</pre></div>
+</div>
+<p>if you want to remove elements from your list, you can use</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       `List.remove(&quot;My Value&quot;)`
+</pre></div>
+</div>
 <p>Next thing to know is, that we can also create <code class="docutils literal notranslate"><span class="pre">empty</span></code> lists</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      MyList = []
 </pre></div>
@@ -554,7 +561,7 @@ document.write(`
 </div>
 </div>
 <p>So this is pretty useful of keeping track. Enumerate can be helpful, if you are interested in the position of a target element.
-For example, if you want to know, if a grade is below or above average.</p>
+For example, if you want to know, at what position a grade is below or above average. In the example of 5 values, you can just look it up, but if we talk about huge arrays ( &gt; 1000 elements) this wont work anymore.</p>
 </section>
 <section id="id2">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
@@ -564,8 +571,8 @@ For example, if you want to know, if a grade is below or above average.</p>
 </section>
 <section id="while-loops">
 <h2>While Loops<a class="headerlink" href="#while-loops" title="Link to this heading">#</a></h2>
-<p>Next to for loops, we also have <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">loops</span></code>. Since <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loops</span></code> are more common than while loops (and while loops can lead to unexpected results, if not used properly), I dont want to spend too much time on them.</p>
-<p>The general logic is that <code class="docutils literal notranslate"><span class="pre">while</span></code> something is <code class="docutils literal notranslate"><span class="pre">True</span></code>, do something.</p>
+<p>Next to for loops, we can also use <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">loops</span></code>. Since <code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">loops</span></code> are more common than while loops (and while loops can lead to unexpected results, if not used properly), I dont want to spend too much time on them.</p>
+<p>The general logic behind these loops is, that <code class="docutils literal notranslate"><span class="pre">while</span></code> something is <code class="docutils literal notranslate"><span class="pre">True</span></code>, do something.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      while Tired:
                 drink(coffee)
 </pre></div>
@@ -628,12 +635,13 @@ Some water please
 <section id="id3">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Calculate the number of friends that you can invite to the cinema using a while-loop (This Exercise was stolen from <a class="reference external" href="https://peerherholz.github.io/Python_for_Psychologists_Winter2021/introduction/intro_python_III.html#while-loops">Peer Herholz</a>)</p>
-<p>Remember:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>money = 43
 
 ticket_price = 10
 </pre></div>
 </div>
+<p><strong>Hint</strong>: If you struggle approaching this, try to break the problem down step by step:</p>
+<p>You have 43 euros/dollars/… and want to invite as many friends as you can. Each ticket costs 10 euros. You can only invite friends <em>while</em> you have enough money to pay for the ticket, e.g. while you have more money than the ticket should cost.</p>
 </section>
 </section>
 </section>
