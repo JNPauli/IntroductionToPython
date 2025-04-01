@@ -476,15 +476,12 @@ After the <code class="docutils literal notranslate"><span class="pre">Function<
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  plus_two(&quot;Hello&quot;).
 </pre></div>
 </div>
-<p>If that makes sense, well thats up to you.</p>
+<p>But this will give you an error, since strings and numbers cannot be added.</p>
 <p>Most importantly, we add the keyword <code class="docutils literal notranslate"><span class="pre">return</span></code> to the function. Return is CRUCIAL if we actually want to extract an output from our function. Without the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword in our function, something like:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  MyNewNumber = plus_two(0)
 </pre></div>
 </div>
-<p>would return</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  `Null`
-</pre></div>
-</div>
+<p>would return <code class="docutils literal notranslate"><span class="pre">nothing</span></code>.</p>
 <p>Functions are a key tool to use in your programming scripts. It allows you to speed up your programming, make your scripts more clearer and communicate them better to your fellows (if applied properly).</p>
 <p>Now, when should you actually create and use your own function? It makes sense to use functions when you repeat the same operation multiple times in your scripts. This way, you act accordingly to the DRY (<strong>D</strong>ont <strong>R</strong>epeat <strong>Y</strong>ourself) principle.</p>
 <p>Lets imagine, you want to show off your freshly acquired programming skills to your fellow friends, families or pets.</p>
@@ -520,8 +517,9 @@ Too long!
 </div>
 </div>
 </div>
-<p>While this scripts of course works, you may get the impression already, that its a bit crowed and hard to read. Making your code easy to read is a major challenge in programming, but we will talk more about that later on.</p>
-<p>Anyway, eventhough the comparison you apply here is not extremly complicated, it can happen quite fast that you do multiple operations in multiple cells and your notebook is pretty long. This is where you should use functions. They clear up your notebook very well and can make things easier.</p>
+<p>While this scripts of course works, you may get the impression already, that its a bit crowed and hard to read. Making your code easy to read is a major challenge in programming!</p>
+<p>Eventhough the comparison you apply here is not extremly complicated, it can happen quite fast that you do multiple, complex operations in multiple cells and your notebook gets really long. This is where you should use functions. They clear up your notebook and can make things easier to read and understand.</p>
+<p>Your goal should be to make your code understandable for others and for yourself (!) in the future.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">CompareLength</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">max_length</span><span class="p">):</span>
@@ -548,6 +546,7 @@ Too long!
 <section id="think">
 <h3><strong>Think</strong><a class="headerlink" href="#think" title="Link to this heading">#</a></h3>
 <p>Take a look at the function. What is missing here?</p>
+<p><strong>Type your Answer</strong></p>
 <p>And if we want too, we can make things now way cleaner and combine our knowledge of for loops with our newly created functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -568,7 +567,7 @@ Too long!
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="o">...</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
-          <span class="o">...</span>
+          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -577,36 +576,22 @@ Too long!
 <p>Now while all of this is very important, we violated one of the most important principles (I wrote this three times now, maybe I should plug this into a function) so far, the holy grail of programming across languages, the tool that helps us maintain and transfer knowledge across generations and yada yada.</p>
 <p>You might have guessed already, I am talking about documentation</p>
 <p><img alt="doc" src="../_images/DocumentationMeme.jpg" /></p>
-<p>Documenting your code in a proper way is really really important. If you dont add documentation to your code, you will very likely forget what you exactly tried to do and other that will look at your code will have no idea what you have done.</p>
+<p>Documenting your code in a proper way is really really important. If you dont add documentation to your code, you will very likely forget what you tried to do and others that will look at your code will have no idea what you have done.</p>
 <p>This is unfortunately very common, but its a fallacy that is easy to fix.</p>
 <p>Lets start with adding some documentation to our function CompareLength. For our Python functions, we can add something called <a class="reference external" href="https://peps.python.org/pep-0257/"><code class="docutils literal notranslate"><span class="pre">DocString</span></code></a>.</p>
 <p>What does a DocString do? Why should we care? Lets think of a scenario. Your colleague sends you his new fancy function he designed to facilitate your experiment workflow. You import the function from a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, and then try to run it. Lets say, you get an <code class="docutils literal notranslate"><span class="pre">RunTime</span> <span class="pre">Error</span></code> back. Your first impuls is to see, if you maybe put the wrong arguments to your colleagues function. In Python, you can do something super cool and inspect all the important information of your function by typing <em>YourFunction?</em> in your code cell. Try that with our <em>CompareLength</em> Function.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>CompareLength<span class="o">?</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Signature:</span> CompareLength<span class=" -Color -Color-Bold -Color-Bold-Yellow">(</span>List<span class=" -Color -Color-Bold -Color-Bold-Yellow">,</span> max_length<span class=" -Color -Color-Bold -Color-Bold-Yellow">)</span>
-<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span> &lt;no docstring&gt;
-<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>      c:\users\janos\appdata\local\temp\ipykernel_21816\1916278839.py
-<span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>      function
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 <section id="id1">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
-<p>Obviously, we dont get too much information here. So lets change that and add a Document String!</p>
+<p>Obviously, we dont get too much information here, because there is not DocString <em>yet</em>. So lets change that and add a Document String!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">CompareLength</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">max_length</span><span class="p">):</span>
 <span class="w">          </span><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">          Type your document string here. Try to very briefly describe, what your function actually does.</span>
 
-<span class="sd">          Dont forget to say add information about our arguments(keywords) that our function takes</span>
+<span class="sd">          Dont forget to add information about our arguments(keywords) that our function takes.</span>
+<span class="sd">          People should know what to expect from your function, just based on the doc string</span>
 <span class="sd">          List = ...</span>
 <span class="sd">          Max_length = ...</span>
 <span class="sd">          &#39;&#39;&#39;</span>
@@ -623,7 +608,8 @@ Too long!
 <section id="id2">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Try now to add some documentation to the for loop we defined earlier.</p>
-<p>Within Code cells, you usually want to use # to document your code.</p>
+<p>Within Code cells, you usually want to use # to document your code. This enables you to write text without worrying about Syntax Errors coming your way.</p>
+<p>You usually want to very briefly explain, what your code cell actually does.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your brief description of what this cell actually does</span>
@@ -633,7 +619,8 @@ Too long!
 </div>
 </div>
 </div>
-<p>Lets finish this section with one last task. Try to create your very own function, that takes the <code class="docutils literal notranslate"><span class="pre">age</span></code> as its input and <code class="docutils literal notranslate"><span class="pre">returns</span></code> a brief categorization decision (I.e, does the age belong rather to a <em>young person</em> or to a <em>older person</em>). The way you define young and old does not matter at all. What matters is, that your functions returns this categorization. The output (returned value) should be a string, where as the input should be an integer.</p>
+<p>Lets finish this section with one last task. Try to create your very own function, that takes the <code class="docutils literal notranslate"><span class="pre">age</span></code> as its input and <code class="docutils literal notranslate"><span class="pre">returns</span></code> a brief categorization decision (I.e, does the age belong rather to a <em>young person</em> or to a <em>older person</em>). <strong>Hint:</strong> <code class="docutils literal notranslate"><span class="pre">If/Else</span> <span class="pre">clauses</span></code> come in handy here.</p>
+<p>The way you define young and old does not matter at all. What matters is, that your functions returns this categorization. The output (returned value) should be a string, where as the input should be an integer.</p>
 <p>Add a doc string to your function.</p>
 <p>If you have troubles with the task, try to treat it like a cooking recipe:</p>
 <p>List down the equipment (for example, how you name your function, and what the arguments are), the ingredients (for example, the input), what you should do with these ingredients (for example, what is happening inside your function) and what the end-product should look like (the output).</p>
@@ -647,14 +634,18 @@ Too long!
 <p>Okay okay, you might be wondering, why is python the most popular programming language if you need to write all these functions yourself? Well, truth is, most of the time you dont have to. The beauty of python is something we call <code class="docutils literal notranslate"><span class="pre">Packages</span></code>. Just for your information: Packages are often used interchangable with the term <code class="docutils literal notranslate"><span class="pre">Library</span></code>.</p>
 <p>Now what is a package? It is a collection of <code class="docutils literal notranslate"><span class="pre">modules</span></code> that contain related bits of code, e.g. functions.</p>
 <p>Lets break this down:</p>
-<p>We already mentioned the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package. Numpy is a huge python project, that has multiple modules to its name. Modules are basically organization tools, in which you can store corresponding functions. For example, there is the <code class="docutils literal notranslate"><span class="pre">Numpy.polynomial</span></code> module, that has several functions to manipulate polynomials.</p>
+<p>We already heard about the <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> package. Numpy is a huge python project, that has multiple modules to its name. Modules are basically organization tools, in which you can store corresponding functions. For example, there is the <code class="docutils literal notranslate"><span class="pre">Numpy.polynomial</span></code> module, that has several functions to manipulate polynomials.</p>
 <p>So we have Packages that have modules and these modules have functions we can call.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      from cookbook import italian_receipes
+      italian_receipes.make_pasta()
+</pre></div>
+</div>
 <p>Python packages can make our life <em>extremly</em> easy.</p>
 <p>Lets say, you have a list with different values :</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      MyList = [0,1,3,5,6,7,2,6,8,2,7,9]
 </pre></div>
 </div>
-<p>You now want to take the average of that list. You could do several things. Since we know, that the average of a list is just the sum of its elements divided by the number of elements in that list, we can say</p>
+<p>You now want to take the average of that list. You can approach this from different angles. Since we know, that the average of a list is just the sum of its elements divided by the number of elements in that list, we can say</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      sum(MyList) / len(MyList)
 </pre></div>
 </div>
