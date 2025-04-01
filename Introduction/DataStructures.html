@@ -649,7 +649,7 @@ This also means, that we can now load it into a pandas dataframe. The function w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_20188\3993917279.py:1: DtypeWarning: Columns (5,9) have mixed types. Specify dtype option on import or set low_memory=False.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_17140\3993917279.py:1: DtypeWarning: Columns (5,9) have mixed types. Specify dtype option on import or set low_memory=False.
   Ufo = pd.read_csv(&quot;https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/scrubbed.csv&quot;)
 </pre></div>
 </div>
@@ -849,34 +849,159 @@ This also means, that we can now load it into a pandas dataframe. The function w
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-Int64Index: 80331 entries, 0 to 80331
+RangeIndex: 80332 entries, 0 to 80331
 Data columns (total 11 columns):
  #   Column                Non-Null Count  Dtype  
 ---  ------                --------------  -----  
- 0   datetime              80331 non-null  object 
- 1   city                  80331 non-null  object 
- 2   state                 74534 non-null  object 
+ 0   datetime              80332 non-null  object 
+ 1   city                  80332 non-null  object 
+ 2   state                 74535 non-null  object 
  3   country               70662 non-null  object 
- 4   shape                 78399 non-null  object 
- 5   duration (seconds)    80331 non-null  object 
- 6   duration (hours/min)  80331 non-null  object 
- 7   comments              80316 non-null  object 
- 8   date posted           80331 non-null  object 
- 9   latitude              80331 non-null  float64
- 10  longitude             80331 non-null  float64
-dtypes: float64(2), object(9)
-memory usage: 7.4+ MB
+ 4   shape                 78400 non-null  object 
+ 5   duration (seconds)    80332 non-null  object 
+ 6   duration (hours/min)  80332 non-null  object 
+ 7   comments              80317 non-null  object 
+ 8   date posted           80332 non-null  object 
+ 9   latitude              80332 non-null  object 
+ 10  longitude             80332 non-null  float64
+dtypes: float64(1), object(10)
+memory usage: 6.7+ MB
 </pre></div>
 </div>
 </div>
 </div>
+<p>This method gives us information about the number and names of columns, the <code class="docutils literal notranslate"><span class="pre">Non-Null</span> <span class="pre">Count</span></code>, the datatype (Dtype) for each column and how many entries (rows) there are. This is super helpful to get an idea, with what kind of data we are dealing with.</p>
+<p>However, returned datatype refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. The datatype of the column itself are <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
+<p>To access a column of the dataframe, we have two options.</p>
+<p>The first one being <code class="docutils literal notranslate"><span class="pre">df.column</span></code>. However this only works, if you column name has no spaces or extra characters!</p>
+<p>So we could use <code class="docutils literal notranslate"><span class="pre">Ufo.datetime</span></code> but to access the <code class="docutils literal notranslate"><span class="pre">duration</span> <span class="pre">(seconds)</span></code> column, we need to use Ufo[“duration (seconds)”]. The output of these operations is equivalent.</p>
+<p><img alt="Series" src="../_images/01_table_series.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">Ufo</span><span class="o">.</span><span class="n">datetime</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">Ufo</span><span class="p">[</span><span class="s2">&quot;duration (seconds)&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(pandas.core.series.Series, pandas.core.series.Series)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can seperately extract the column names by using the <code class="docutils literal notranslate"><span class="pre">dataframe.columns</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;datetime&#39;, &#39;city&#39;, &#39;state&#39;, &#39;country&#39;, &#39;shape&#39;, &#39;duration (seconds)&#39;,
+       &#39;duration (hours/min)&#39;, &#39;comments&#39;, &#39;date posted&#39;, &#39;latitude&#39;,
+       &#39;longitude &#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also directly convert them to a <code class="docutils literal notranslate"><span class="pre">list</span></code> by calling the <code class="docutils literal notranslate"><span class="pre">to_list()</span></code> method!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_list</span> <span class="o">=</span> <span class="n">Ufo</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>And in principle, we can now use this list to get a subset of our dataframe, extracting only the first two columns.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span><span class="p">[</span><span class="n">columns_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>datetime</th>
+      <th>city</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>10/10/1949 20:30</td>
+      <td>san marcos</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>10/10/1949 21:00</td>
+      <td>lackland afb</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>10/10/1955 17:00</td>
+      <td>chester (uk/england)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>10/10/1956 21:00</td>
+      <td>edna</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>10/10/1960 20:00</td>
+      <td>kaneohe</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>80327</th>
+      <td>9/9/2013 21:15</td>
+      <td>nashville</td>
+    </tr>
+    <tr>
+      <th>80328</th>
+      <td>9/9/2013 22:00</td>
+      <td>boise</td>
+    </tr>
+    <tr>
+      <th>80329</th>
+      <td>9/9/2013 22:00</td>
+      <td>napa</td>
+    </tr>
+    <tr>
+      <th>80330</th>
+      <td>9/9/2013 22:20</td>
+      <td>vienna</td>
+    </tr>
+    <tr>
+      <th>80331</th>
+      <td>9/9/2013 23:00</td>
+      <td>edmond</td>
+    </tr>
+  </tbody>
+</table>
+<p>80332 rows × 2 columns</p>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
