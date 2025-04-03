@@ -435,7 +435,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">Numpy Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-15-0"><strong>Exercise 15.0</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>
@@ -474,8 +474,8 @@ document.write(`
 <p>Lets start with the <code class="docutils literal notranslate"><span class="pre">numpy.random.rand</span></code> function.</p>
 <p>They key arguments we need to pass to the function are the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the array we want to create. Lets start by creating a 1-Dimensional Array first.</p>
 <p>The first argument determines the number of <em>rows</em> we want our array to have, where as the second argument determines the number of columns.</p>
-<section id="exercise">
-<h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<section id="exercise-15-0">
+<h3><strong>Exercise 15.0</strong><a class="headerlink" href="#exercise-15-0" title="Link to this heading">#</a></h3>
 <p>Create a 1-D numpy array using the <code class="docutils literal notranslate"><span class="pre">rand</span></code> function from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module (from the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package). Use it to create a numpy array with <strong>1</strong> Row and <strong>20</strong> Columns.</p>
 <p>Assign your array to a variable called “RandomArray”.</p>
 <div class="cell docutils container">
@@ -631,34 +631,67 @@ Pandas dataframes are basically like a excel sheet, but way, way better.</p>
 <p>The code we are using to obtain this data is not in <code class="docutils literal notranslate"><span class="pre">python</span></code> but <a class="reference external" href="https://wiki.ubuntuusers.de/Bash/"><code class="docutils literal notranslate"><span class="pre">bash</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>curl<span class="w"> </span>url<span class="w"> </span>https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/scrubbed.csv
-</pre></div>
-</div>
-</div>
-</div>
-<p>We now have temporarily download the <code class="docutils literal notranslate"><span class="pre">scrubbed.csv</span></code> file in our google colab session.
-This also means, that we can now load it into a pandas dataframe. The function we want to use for that is called</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      pd.read_csv(yourfilename)
-</pre></div>
-</div>
-<p>So use that this function to read the <code class="docutils literal notranslate"><span class="pre">scrubbed.csv</span></code> file. Store it in a dataframe called Ufo.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/scrubbed.csv&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>curl<span class="w"> </span>url<span class="w"> </span>https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/Stadt_Koeln_Statistischer_Datenkatalog.csv
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_17140\3993917279.py:1: DtypeWarning: Columns (5,9) have mixed types. Specify dtype option on import or set low_memory=False.
-  Ufo = pd.read_csv(&quot;https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/scrubbed.csv&quot;)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;html&gt;&lt;body&gt;&lt;h1&gt;400 Bad request&lt;/h1&gt;
+Your browser sent an invalid request.
+&lt;/body&gt;&lt;/html&gt;
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0curl: (6) Could not resolve host: url
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100    90  100    90    0     0    290      0 --:--:-- --:--:-- --:--:--   294
 </pre></div>
 </div>
 </div>
 </div>
-<p>We can display our newly obtained by either simply typing and running Ufo in a code cell. If you are only interested in viewing the <em>n-th</em> first or last elements of your dataframe, you can use <code class="docutils literal notranslate"><span class="pre">df.head(n=n)</span></code> or <code class="docutils literal notranslate"><span class="pre">df.tail(n=n)</span></code>, respectively.</p>
+<p>We now have temporarily download the <code class="docutils literal notranslate"><span class="pre">Stadt_Koeln_Statistischer_Datenkatalog.csv</span></code> file in our google colab session.
+This also means, that we can now load it into a pandas dataframe. The function we want to use for that is called</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      pd.read_csv(yourfilename)
+</pre></div>
+</div>
+<p>So use that this function to read the <code class="docutils literal notranslate"><span class="pre">Stadt_Koeln_Statistischer_Datenkatalog.csv</span></code> file. Store it in a dataframe called <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
+<p>Sometimes, when reading in a .csv file, we need to pass the <code class="docutils literal notranslate"><span class="pre">sep</span></code> argument. This helps us from preventing that all columns will end up in a single one, thus rendering the dataframe useless. The <code class="docutils literal notranslate"><span class="pre">sep</span></code> argument tells pandas, based on what seperator it should read in the columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+          <span class="s2">&quot;https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/Stadt_Koeln_Statistischer_Datenkatalog.csv&quot;</span><span class="p">,</span>
+                    <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_12532\2696070930.py:1: DtypeWarning: Columns (9,11,13,15,17,19,23,24,26,28,30,31,33,34,38,42,43,45,47,49,50,52,53,56,62,64,66,67,69,72,77,78,79,82,87,89,91,98,101,102,105,106,107,108,110,113,115,118,119,123,124,125,126,127,128,129,136,137,138,139,140,141,143,145,146,158,159,160,161,167,168,169,170,171,173,174) have mixed types. Specify dtype option on import or set low_memory=False.
+  koeln_stats = pd.read_csv(&quot;https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/Stadt_Koeln_Statistischer_Datenkatalog.csv&quot;,sep=&quot;;&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Because the column descriptions of the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe are not informative at all, we also need to download the descriptions df and read it into a pandas dataframe called <code class="docutils literal notranslate"><span class="pre">koeln_stats_description</span></code>. This will be useful later on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats_description</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+          <span class="s2">&quot;https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/Beschreibung_Statistischer_Datenkatalog.csv&quot;</span><span class="p">,</span>
+          <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can display our newly obtained by either simply typing and running koeln_stats in a code cell. If you are only interested in viewing the <em>n-th</em> first or last elements of your dataframe, you can use <code class="docutils literal notranslate"><span class="pre">df.head(n=n)</span></code> or <code class="docutils literal notranslate"><span class="pre">df.tail(n=n)</span></code>, respectively.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -681,209 +714,307 @@ This also means, that we can now load it into a pandas dataframe. The function w
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>datetime</th>
-      <th>city</th>
-      <th>state</th>
-      <th>country</th>
-      <th>shape</th>
-      <th>duration (seconds)</th>
-      <th>duration (hours/min)</th>
-      <th>comments</th>
-      <th>date posted</th>
-      <th>latitude</th>
-      <th>longitude</th>
+      <th>S_JAHR</th>
+      <th>S_RAUM</th>
+      <th>RAUM</th>
+      <th>S_RAUMEBENE</th>
+      <th>RAUMEBENE</th>
+      <th>A0002A</th>
+      <th>A0002P</th>
+      <th>A0022S</th>
+      <th>A0025A</th>
+      <th>A0027A</th>
+      <th>...</th>
+      <th>H0051S</th>
+      <th>H0052S</th>
+      <th>B0003A</th>
+      <th>B0004A</th>
+      <th>B0009A</th>
+      <th>B0022S</th>
+      <th>B0023S</th>
+      <th>B0025A</th>
+      <th>B0026P</th>
+      <th>B0026A</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>10/10/1949 20:30</td>
-      <td>san marcos</td>
-      <td>tx</td>
-      <td>us</td>
-      <td>cylinder</td>
-      <td>2700</td>
-      <td>45 minutes</td>
-      <td>This event took place in early fall around 194...</td>
-      <td>4/27/2004</td>
-      <td>29.8830556</td>
-      <td>-97.941111</td>
+      <td>2012</td>
+      <td>0</td>
+      <td>0 / Stadt Köln</td>
+      <td>0</td>
+      <td>Gesamtstadt</td>
+      <td>180415.0</td>
+      <td>17,271948</td>
+      <td>41,90013762</td>
+      <td>1044555.0</td>
+      <td>46426</td>
+      <td>...</td>
+      <td>87,059374</td>
+      <td>483,255</td>
+      <td>5944</td>
+      <td>2941</td>
+      <td>3114</td>
+      <td>39,40239241</td>
+      <td>75,57050842</td>
+      <td>544630.0</td>
+      <td>7,522905</td>
+      <td>40972</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>10/10/1949 21:00</td>
-      <td>lackland afb</td>
-      <td>tx</td>
-      <td>NaN</td>
-      <td>light</td>
-      <td>7200</td>
-      <td>1-2 hrs</td>
-      <td>1949 Lackland AFB&amp;#44 TX.  Lights racing acros...</td>
-      <td>12/16/2005</td>
-      <td>29.38421</td>
-      <td>-98.581082</td>
+      <td>2012</td>
+      <td>1</td>
+      <td>1 / Innenstadt</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>21712.0</td>
+      <td>16,985457</td>
+      <td>40,86903262</td>
+      <td>127827.0</td>
+      <td>4428</td>
+      <td>...</td>
+      <td>93,269732</td>
+      <td>458,447</td>
+      <td>566</td>
+      <td>296</td>
+      <td>193</td>
+      <td>40,39537813</td>
+      <td>63,87377692</td>
+      <td>80841.0</td>
+      <td>2,508628</td>
+      <td>2028</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>10/10/1955 17:00</td>
-      <td>chester (uk/england)</td>
-      <td>NaN</td>
-      <td>gb</td>
-      <td>circle</td>
-      <td>20</td>
-      <td>20 seconds</td>
-      <td>Green/Orange circular disc over Chester&amp;#44 En...</td>
-      <td>1/21/2008</td>
-      <td>53.2</td>
-      <td>-2.916667</td>
+      <td>2012</td>
+      <td>2</td>
+      <td>2 / Rodenkirchen</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>14788.0</td>
+      <td>14,337793</td>
+      <td>43,45253054</td>
+      <td>103140.0</td>
+      <td>5331</td>
+      <td>...</td>
+      <td>91,860767</td>
+      <td>569,468</td>
+      <td>1187</td>
+      <td>450</td>
+      <td>348</td>
+      <td>44,27280396</td>
+      <td>85,89885062</td>
+      <td>53159.0</td>
+      <td>3,397355</td>
+      <td>1806</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>10/10/1956 21:00</td>
-      <td>edna</td>
-      <td>tx</td>
-      <td>us</td>
-      <td>circle</td>
-      <td>20</td>
-      <td>1/2 hour</td>
-      <td>My older brother and twin sister were leaving ...</td>
-      <td>1/17/2004</td>
-      <td>28.9783333</td>
-      <td>-96.645833</td>
+      <td>2012</td>
+      <td>3</td>
+      <td>3 / Lindenthal</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>14132.0</td>
+      <td>9,872231</td>
+      <td>42,06031943</td>
+      <td>143149.0</td>
+      <td>6787</td>
+      <td>...</td>
+      <td>91,920257</td>
+      <td>525,04</td>
+      <td>1172</td>
+      <td>689</td>
+      <td>848</td>
+      <td>45,80771085</td>
+      <td>82,08048668</td>
+      <td>79889.0</td>
+      <td>1,126563</td>
+      <td>900</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>10/10/1960 20:00</td>
-      <td>kaneohe</td>
-      <td>hi</td>
-      <td>us</td>
-      <td>light</td>
-      <td>900</td>
-      <td>15 minutes</td>
-      <td>AS a Marine 1st Lt. flying an FJ4B fighter/att...</td>
-      <td>1/22/2004</td>
-      <td>21.4180556</td>
-      <td>-157.803611</td>
+      <td>2012</td>
+      <td>4</td>
+      <td>4 / Ehrenfeld</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>19811.0</td>
+      <td>18,779445</td>
+      <td>40,54831047</td>
+      <td>105493.0</td>
+      <td>3935</td>
+      <td>...</td>
+      <td>83,775698</td>
+      <td>449,053</td>
+      <td>439</td>
+      <td>365</td>
+      <td>293</td>
+      <td>36,15031329</td>
+      <td>69,38747475</td>
+      <td>54961.0</td>
+      <td>12,57437</td>
+      <td>6911</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>10/10/1961 19:00</td>
-      <td>bristol</td>
-      <td>tn</td>
-      <td>us</td>
-      <td>sphere</td>
-      <td>300</td>
-      <td>5 minutes</td>
-      <td>My father is now 89 my brother 52 the girl wit...</td>
-      <td>4/27/2007</td>
-      <td>36.5950000</td>
-      <td>-82.188889</td>
+      <td>2012</td>
+      <td>5</td>
+      <td>5 / Nippes</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>20676.0</td>
+      <td>18,145597</td>
+      <td>42,27830898</td>
+      <td>113945.0</td>
+      <td>5154</td>
+      <td>...</td>
+      <td>84,574078</td>
+      <td>491,482</td>
+      <td>214</td>
+      <td>52</td>
+      <td>114</td>
+      <td>37,56269253</td>
+      <td>71,26460647</td>
+      <td>60059.0</td>
+      <td>7,341114</td>
+      <td>4409</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>10/10/1965 21:00</td>
-      <td>penarth (uk/wales)</td>
-      <td>NaN</td>
-      <td>gb</td>
-      <td>circle</td>
-      <td>180</td>
-      <td>about 3 mins</td>
-      <td>penarth uk  circle  3mins  stayed 30ft above m...</td>
-      <td>2/14/2006</td>
-      <td>51.434722</td>
-      <td>-3.180000</td>
+      <td>2012</td>
+      <td>6</td>
+      <td>6 / Chorweiler</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>14892.0</td>
+      <td>18,409049</td>
+      <td>42,06668212</td>
+      <td>80895.0</td>
+      <td>3493</td>
+      <td>...</td>
+      <td>84,421093</td>
+      <td>499,165</td>
+      <td>319</td>
+      <td>113</td>
+      <td>189</td>
+      <td>37,27096854</td>
+      <td>87,33156645</td>
+      <td>34524.0</td>
+      <td>23,473525</td>
+      <td>8104</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>10/10/1965 23:45</td>
-      <td>norwalk</td>
-      <td>ct</td>
-      <td>us</td>
-      <td>disk</td>
-      <td>1200</td>
-      <td>20 minutes</td>
-      <td>A bright orange color changing to reddish colo...</td>
-      <td>10/2/1999</td>
-      <td>41.1175000</td>
-      <td>-73.408333</td>
+      <td>2012</td>
+      <td>7</td>
+      <td>7 / Porz</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>16613.0</td>
+      <td>15,235833</td>
+      <td>43,36416022</td>
+      <td>109039.0</td>
+      <td>5084</td>
+      <td>...</td>
+      <td>84,779095</td>
+      <td>553,792</td>
+      <td>453</td>
+      <td>147</td>
+      <td>316</td>
+      <td>39,70796687</td>
+      <td>82,05816466</td>
+      <td>52764.0</td>
+      <td>5,069744</td>
+      <td>2675</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>10/10/1966 20:00</td>
-      <td>pell city</td>
-      <td>al</td>
-      <td>us</td>
-      <td>disk</td>
-      <td>180</td>
-      <td>3  minutes</td>
-      <td>Strobe Lighted disk shape object observed clos...</td>
-      <td>3/19/2009</td>
-      <td>33.5861111</td>
-      <td>-86.286111</td>
+      <td>2012</td>
+      <td>8</td>
+      <td>8 / Kalk</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>29259.0</td>
+      <td>25,468077</td>
+      <td>40,73158448</td>
+      <td>114885.0</td>
+      <td>5163</td>
+      <td>...</td>
+      <td>82,43595</td>
+      <td>377,211</td>
+      <td>915</td>
+      <td>441</td>
+      <td>417</td>
+      <td>35,27169778</td>
+      <td>73,36004852</td>
+      <td>55237.0</td>
+      <td>12,618353</td>
+      <td>6970</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>10/10/1966 21:00</td>
-      <td>live oak</td>
-      <td>fl</td>
-      <td>us</td>
-      <td>disk</td>
-      <td>120</td>
-      <td>several minutes</td>
-      <td>Saucer zaps energy from powerline as my pregna...</td>
-      <td>5/11/2005</td>
-      <td>30.2947222</td>
-      <td>-82.984167</td>
+      <td>2012</td>
+      <td>9</td>
+      <td>9 / Mülheim</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>28532.0</td>
+      <td>19,518135</td>
+      <td>41,96456415</td>
+      <td>146182.0</td>
+      <td>7051</td>
+      <td>...</td>
+      <td>81,935198</td>
+      <td>420,681</td>
+      <td>679</td>
+      <td>388</td>
+      <td>396</td>
+      <td>36,80407985</td>
+      <td>73,50256845</td>
+      <td>73196.0</td>
+      <td>9,794251</td>
+      <td>7169</td>
     </tr>
   </tbody>
 </table>
+<p>10 rows × 175 columns</p>
 </div></div></div>
 </div>
 <p>As you can see here, a dataframe looks strikingly similar to a file you would expect in a excel sheet. It has a bunch of rows and columns, and in each column there is some information stored.</p>
 <p>We can further examine the type and shape (rows and columns) of our dataframe by using the <code class="docutils literal notranslate"><span class="pre">df.info</span></code> method.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 80332 entries, 0 to 80331
-Data columns (total 11 columns):
- #   Column                Non-Null Count  Dtype  
----  ------                --------------  -----  
- 0   datetime              80332 non-null  object 
- 1   city                  80332 non-null  object 
- 2   state                 74535 non-null  object 
- 3   country               70662 non-null  object 
- 4   shape                 78400 non-null  object 
- 5   duration (seconds)    80332 non-null  object 
- 6   duration (hours/min)  80332 non-null  object 
- 7   comments              80317 non-null  object 
- 8   date posted           80332 non-null  object 
- 9   latitude              80332 non-null  object 
- 10  longitude             80332 non-null  float64
-dtypes: float64(1), object(10)
-memory usage: 6.7+ MB
+RangeIndex: 8208 entries, 0 to 8207
+Columns: 175 entries, S_JAHR to B0026A
+dtypes: float64(27), int64(7), object(141)
+memory usage: 11.0+ MB
 </pre></div>
 </div>
 </div>
 </div>
-<p>This method gives us information about the number and names of columns, the <code class="docutils literal notranslate"><span class="pre">Non-Null</span> <span class="pre">Count</span></code>, the datatype (Dtype) for each column and how many entries (rows) there are. This is super helpful to get an idea, with what kind of data we are dealing with.</p>
-<p>However, returned datatype refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. The datatype of the column itself are <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
+<p>This method gives us information about the number of columns, the datatype (Dtype) for each column and how many entries (rows) there are. This is super helpful to get an idea, with what kind of data we are dealing with.</p>
+<p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'pandas.core.frame.DataFrame'&gt;</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. The datatype of a column <em>itself</em> is <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
 <p>To access a column of the dataframe, we have two options.</p>
 <p>The first one being <code class="docutils literal notranslate"><span class="pre">df.column</span></code>. However this only works, if you column name has no spaces or extra characters!</p>
-<p>So we could use <code class="docutils literal notranslate"><span class="pre">Ufo.datetime</span></code> but to access the <code class="docutils literal notranslate"><span class="pre">duration</span> <span class="pre">(seconds)</span></code> column, we need to use Ufo[“duration (seconds)”]. The output of these operations is equivalent.</p>
+<p>So we could use <code class="docutils literal notranslate"><span class="pre">koeln_stats.RAUM</span></code> but we can also use koeln_stats[“RAUM”]. The output of these operations is equivalent.</p>
 <p><img alt="Series" src="../_images/01_table_series.svg" /></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">Ufo</span><span class="o">.</span><span class="n">datetime</span><span class="p">),</span><span class="nb">type</span><span class="p">(</span><span class="n">Ufo</span><span class="p">[</span><span class="s2">&quot;duration (seconds)&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the datatype of the column RAUM is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">RAUM</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(pandas.core.series.Series, pandas.core.series.Series)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the datatype of the column RAUM is &lt;class &#39;pandas.core.series.Series&#39;&gt;
 </pre></div>
 </div>
 </div>
@@ -891,15 +1022,17 @@ memory usage: 6.7+ MB
 <p>We can seperately extract the column names by using the <code class="docutils literal notranslate"><span class="pre">dataframe.columns</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">columns</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;datetime&#39;, &#39;city&#39;, &#39;state&#39;, &#39;country&#39;, &#39;shape&#39;, &#39;duration (seconds)&#39;,
-       &#39;duration (hours/min)&#39;, &#39;comments&#39;, &#39;date posted&#39;, &#39;latitude&#39;,
-       &#39;longitude &#39;],
-      dtype=&#39;object&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;S_JAHR&#39;, &#39;S_RAUM&#39;, &#39;RAUM&#39;, &#39;S_RAUMEBENE&#39;, &#39;RAUMEBENE&#39;, &#39;A0002A&#39;,
+       &#39;A0002P&#39;, &#39;A0022S&#39;, &#39;A0025A&#39;, &#39;A0027A&#39;,
+       ...
+       &#39;H0051S&#39;, &#39;H0052S&#39;, &#39;B0003A&#39;, &#39;B0004A&#39;, &#39;B0009A&#39;, &#39;B0022S&#39;, &#39;B0023S&#39;,
+       &#39;B0025A&#39;, &#39;B0026P&#39;, &#39;B0026A&#39;],
+      dtype=&#39;object&#39;, length=175)
 </pre></div>
 </div>
 </div>
@@ -907,7 +1040,7 @@ memory usage: 6.7+ MB
 <p>We can also directly convert them to a <code class="docutils literal notranslate"><span class="pre">list</span></code> by calling the <code class="docutils literal notranslate"><span class="pre">to_list()</span></code> method!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_list</span> <span class="o">=</span> <span class="n">Ufo</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_list</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -915,7 +1048,7 @@ memory usage: 6.7+ MB
 <p>And in principle, we can now use this list to get a subset of our dataframe, extracting only the first two columns.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span><span class="p">[</span><span class="n">columns_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="p">[</span><span class="n">columns_list</span><span class="p">[:</span><span class="mi">2</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -938,35 +1071,35 @@ memory usage: 6.7+ MB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>datetime</th>
-      <th>city</th>
+      <th>S_JAHR</th>
+      <th>S_RAUM</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>10/10/1949 20:30</td>
-      <td>san marcos</td>
+      <td>2012</td>
+      <td>0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>10/10/1949 21:00</td>
-      <td>lackland afb</td>
+      <td>2012</td>
+      <td>1</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>10/10/1955 17:00</td>
-      <td>chester (uk/england)</td>
+      <td>2012</td>
+      <td>2</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>10/10/1956 21:00</td>
-      <td>edna</td>
+      <td>2012</td>
+      <td>3</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>10/10/1960 20:00</td>
-      <td>kaneohe</td>
+      <td>2012</td>
+      <td>4</td>
     </tr>
     <tr>
       <th>...</th>
@@ -974,48 +1107,38 @@ memory usage: 6.7+ MB
       <td>...</td>
     </tr>
     <tr>
-      <th>80327</th>
-      <td>9/9/2013 21:15</td>
-      <td>nashville</td>
+      <th>8203</th>
+      <td>2023</td>
+      <td>908030001</td>
     </tr>
     <tr>
-      <th>80328</th>
-      <td>9/9/2013 22:00</td>
-      <td>boise</td>
+      <th>8204</th>
+      <td>2023</td>
+      <td>909010001</td>
     </tr>
     <tr>
-      <th>80329</th>
-      <td>9/9/2013 22:00</td>
-      <td>napa</td>
+      <th>8205</th>
+      <td>2023</td>
+      <td>909030001</td>
     </tr>
     <tr>
-      <th>80330</th>
-      <td>9/9/2013 22:20</td>
-      <td>vienna</td>
+      <th>8206</th>
+      <td>2023</td>
+      <td>909030002</td>
     </tr>
     <tr>
-      <th>80331</th>
-      <td>9/9/2013 23:00</td>
-      <td>edmond</td>
+      <th>8207</th>
+      <td>2023</td>
+      <td>909030003</td>
     </tr>
   </tbody>
 </table>
-<p>80332 rows × 2 columns</p>
+<p>8208 rows × 2 columns</p>
 </div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span> <span class="o">=</span> <span class="n">Ufo</span><span class="p">[</span><span class="n">Ufo</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;33q.200088&quot;</span><span class="p">]</span>
-<span class="n">Ufo</span><span class="o">.</span><span class="n">latitude</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">Ufo</span><span class="o">.</span><span class="n">latitude</span><span class="p">)</span>
-<span class="n">Ufo</span><span class="p">[</span><span class="s2">&quot;duration (seconds)&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">Ufo</span><span class="p">[</span><span class="s2">&quot;duration (seconds)&quot;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
-<span class="n">Ufo</span> <span class="o">=</span> <span class="n">Ufo</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;duration (seconds)&quot;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ufo</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1038,62 +1161,225 @@ memory usage: 6.7+ MB
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>duration (seconds)</th>
-      <th>latitude</th>
-      <th>longitude</th>
+      <th>S_JAHR</th>
+      <th>S_RAUM</th>
+      <th>S_RAUMEBENE</th>
+      <th>A0002A</th>
+      <th>A0025A</th>
+      <th>A0109A</th>
+      <th>A0153A</th>
+      <th>A0213A</th>
+      <th>A0267A</th>
+      <th>A0273A</th>
+      <th>...</th>
+      <th>A0368A</th>
+      <th>A0371A</th>
+      <th>A0372A</th>
+      <th>D0011A</th>
+      <th>E0001A</th>
+      <th>H0001A</th>
+      <th>H0028A</th>
+      <th>H0035A</th>
+      <th>H0037A</th>
+      <th>B0025A</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>count</th>
-      <td>8.032800e+04</td>
-      <td>80328.000000</td>
-      <td>80328.000000</td>
+      <td>8208.000000</td>
+      <td>8.208000e+03</td>
+      <td>8208.000000</td>
+      <td>8196.000000</td>
+      <td>8.196000e+03</td>
+      <td>8196.000000</td>
+      <td>8196.000000</td>
+      <td>8196.000000</td>
+      <td>8196.000000</td>
+      <td>8196.000000</td>
+      <td>...</td>
+      <td>8196.000000</td>
+      <td>8196.000000</td>
+      <td>8196.000000</td>
+      <td>7521.000000</td>
+      <td>3585.000000</td>
+      <td>8208.000000</td>
+      <td>8208.000000</td>
+      <td>8208.000000</td>
+      <td>8208.000000</td>
+      <td>1152.000000</td>
     </tr>
     <tr>
       <th>mean</th>
-      <td>9.017336e+03</td>
-      <td>38.124963</td>
-      <td>-86.772015</td>
+      <td>2017.500000</td>
+      <td>4.189774e+08</td>
+      <td>2.869883</td>
+      <td>1628.660200</td>
+      <td>8.318157e+03</td>
+      <td>4065.875183</td>
+      <td>3316.983895</td>
+      <td>4252.281357</td>
+      <td>4305.391654</td>
+      <td>2170.981088</td>
+      <td>...</td>
+      <td>2091.822108</td>
+      <td>1544.880429</td>
+      <td>1929.161420</td>
+      <td>3121.976067</td>
+      <td>1914.584937</td>
+      <td>3569.965278</td>
+      <td>1145.536672</td>
+      <td>3678.312987</td>
+      <td>4162.920565</td>
+      <td>17469.364583</td>
     </tr>
     <tr>
       <th>std</th>
-      <td>6.202322e+05</td>
-      <td>10.469146</td>
-      <td>39.697805</td>
+      <td>3.452263</td>
+      <td>3.057064e+08</td>
+      <td>0.448253</td>
+      <td>10005.266938</td>
+      <td>5.364302e+04</td>
+      <td>26190.671566</td>
+      <td>20466.568673</td>
+      <td>27453.609225</td>
+      <td>28116.264634</td>
+      <td>14466.672940</td>
+      <td>...</td>
+      <td>13533.776996</td>
+      <td>9915.131324</td>
+      <td>12597.687426</td>
+      <td>20452.365737</td>
+      <td>8033.686600</td>
+      <td>23691.875428</td>
+      <td>7631.040179</td>
+      <td>24474.817459</td>
+      <td>27692.863611</td>
+      <td>58296.342893</td>
     </tr>
     <tr>
       <th>min</th>
-      <td>1.000000e-03</td>
-      <td>-82.862752</td>
-      <td>-176.658056</td>
+      <td>2012.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000e+00</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>...</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>15.000000</td>
+      <td>26.000000</td>
+      <td>5.000000</td>
+      <td>0.000000</td>
+      <td>7.000000</td>
+      <td>10.000000</td>
+      <td>477.000000</td>
     </tr>
     <tr>
       <th>25%</th>
-      <td>3.000000e+01</td>
-      <td>34.134722</td>
-      <td>-112.073333</td>
+      <td>2014.750000</td>
+      <td>1.050100e+08</td>
+      <td>3.000000</td>
+      <td>213.750000</td>
+      <td>1.557000e+03</td>
+      <td>757.000000</td>
+      <td>494.000000</td>
+      <td>799.000000</td>
+      <td>794.750000</td>
+      <td>332.000000</td>
+      <td>...</td>
+      <td>376.000000</td>
+      <td>277.000000</td>
+      <td>347.000000</td>
+      <td>577.000000</td>
+      <td>289.000000</td>
+      <td>582.000000</td>
+      <td>193.000000</td>
+      <td>583.000000</td>
+      <td>667.000000</td>
+      <td>3192.750000</td>
     </tr>
     <tr>
       <th>50%</th>
-      <td>1.800000e+02</td>
-      <td>39.412500</td>
-      <td>-87.903611</td>
+      <td>2017.500000</td>
+      <td>4.010400e+08</td>
+      <td>3.000000</td>
+      <td>343.000000</td>
+      <td>1.985500e+03</td>
+      <td>970.500000</td>
+      <td>724.000000</td>
+      <td>1011.000000</td>
+      <td>1036.000000</td>
+      <td>520.000000</td>
+      <td>...</td>
+      <td>498.000000</td>
+      <td>365.000000</td>
+      <td>460.000000</td>
+      <td>746.000000</td>
+      <td>489.000000</td>
+      <td>790.000000</td>
+      <td>280.000000</td>
+      <td>796.000000</td>
+      <td>910.000000</td>
+      <td>5510.000000</td>
     </tr>
     <tr>
       <th>75%</th>
-      <td>6.000000e+02</td>
-      <td>42.788333</td>
-      <td>-78.755000</td>
+      <td>2020.250000</td>
+      <td>7.062975e+08</td>
+      <td>3.000000</td>
+      <td>636.000000</td>
+      <td>2.547000e+03</td>
+      <td>1258.000000</td>
+      <td>1250.000000</td>
+      <td>1300.000000</td>
+      <td>1347.000000</td>
+      <td>791.000000</td>
+      <td>...</td>
+      <td>670.250000</td>
+      <td>517.000000</td>
+      <td>613.000000</td>
+      <td>997.000000</td>
+      <td>1240.000000</td>
+      <td>1218.500000</td>
+      <td>406.000000</td>
+      <td>1263.250000</td>
+      <td>1438.250000</td>
+      <td>10561.500000</td>
     </tr>
     <tr>
       <th>max</th>
-      <td>9.783600e+07</td>
-      <td>72.700000</td>
-      <td>178.441900</td>
+      <td>2023.000000</td>
+      <td>9.090300e+08</td>
+      <td>4.000000</td>
+      <td>228555.000000</td>
+      <td>1.095520e+06</td>
+      <td>535040.000000</td>
+      <td>463966.000000</td>
+      <td>560480.000000</td>
+      <td>571643.000000</td>
+      <td>295808.000000</td>
+      <td>...</td>
+      <td>280662.000000</td>
+      <td>201187.000000</td>
+      <td>262040.000000</td>
+      <td>444241.000000</td>
+      <td>112580.000000</td>
+      <td>491747.000000</td>
+      <td>158808.000000</td>
+      <td>523797.000000</td>
+      <td>585118.000000</td>
+      <td>572090.000000</td>
     </tr>
   </tbody>
 </table>
+<p>8 rows × 34 columns</p>
 </div></div></div>
 </div>
 </section>
@@ -1155,7 +1441,7 @@ memory usage: 6.7+ MB
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">Numpy Arrays</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-15-0"><strong>Exercise 15.0</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>

@@ -435,8 +435,22 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-0"><strong>Exercise 1.0</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions"><strong>Functions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables"><strong>Variables</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-0"><strong>Exercise 2.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-0"><strong>Exercise 3.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-that-include-multiple-items-lists"><strong>Variables that include multiple items (Lists)</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-0-think"><strong>Exercise 4.0: Think!</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-0"><strong>Exercise 5.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-formatting"><strong>String formatting</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -522,8 +536,12 @@ For detailed information, start <a class="reference external" href="https://www.
 </div>
 </div>
 </div>
-<p><strong>Exercise</strong>: Think of a calculation and write the operation in the cell below.</p>
-<p><strong>Functions</strong></p>
+<section id="exercise-1-0">
+<h2><strong>Exercise 1.0</strong><a class="headerlink" href="#exercise-1-0" title="Link to this heading">#</a></h2>
+<p>Think of a calculation and write the operation in the cell below.</p>
+</section>
+<section id="functions">
+<h2><strong>Functions</strong><a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
 <p>Functions allow combining multiple operations so that more complex processes can be implemented clearly. Often functions are part of a library. In the following example, we use the <code class="docutils literal notranslate"><span class="pre">log</span></code> function from the <a class="reference external" href="https://numpy.org/"><code class="docutils literal notranslate"><span class="pre">NumPy</span></code></a> library. We will talk about libraries in python later on. Right now its enough to know, that there are different libraries for different purposes with different functions (Like NumPy, which can be used for numerical operations, and one function of numpy is the log transformation)</p>
 <p>Later we will define functions ourselves, where we customize the integrated processes.</p>
 <div class="cell docutils container">
@@ -555,7 +573,9 @@ For detailed information, start <a class="reference external" href="https://www.
 </div>
 </div>
 </div>
-<p><strong>Variables</strong></p>
+</section>
+<section id="variables">
+<h2><strong>Variables</strong><a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
 <p>Variables can store numbers, text, or more complex structures. Here are two examples. <code class="docutils literal notranslate"><span class="pre">numeric</span></code> holds a number, <code class="docutils literal notranslate"><span class="pre">character</span></code> stores a text, and <code class="docutils literal notranslate"><span class="pre">logical</span></code> holds either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The <code class="docutils literal notranslate"><span class="pre">=</span></code> sign allows to assign the variable with a piece of information.</p>
 <p><strong>Very important distinction</strong>: This does not mean, that numeric is equal to 10, for example. This simply means, that numerics <em>has</em> the value 10!</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> function allows us to display the stored information of a variable.</p>
@@ -693,10 +713,13 @@ Dear Anton, how are you?
 <p>a = 10 (not really informative)</p>
 <p>AVariableThatICreatedAtTheBeginningOfMyScript = 10 (Non informative and way too long)</p>
 <p>ExperimentalResults = 10 (On point!)</p>
-<section id="exercise">
-<h2><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
+<section id="exercise-2-0">
+<h3><strong>Exercise 2.0</strong><a class="headerlink" href="#exercise-2-0" title="Link to this heading">#</a></h3>
 <p>Define two variables and manipulate them.</p>
-<p><strong>Logical operators</strong>:</p>
+</section>
+</section>
+<section id="logical-operators">
+<h2><strong>Logical operators</strong>:<a class="headerlink" href="#logical-operators" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code>  for less than</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>  for greater than</p></li>
@@ -790,14 +813,16 @@ True
 </div>
 </div>
 </div>
-</section>
-<section id="id1">
-<h2><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<section id="exercise-3-0">
+<h3><strong>Exercise 3.0</strong><a class="headerlink" href="#exercise-3-0" title="Link to this heading">#</a></h3>
 <p>Define a new variable called “current_time” and assign to it an integer of your choice (should be between 0 and 23).</p>
 <p>Define another variable called “bed_time” and assign to it an integer that corresponds to your usual bedtime (again, 0-23 works best here). Atlast, define a variable called time_to_go_to_sleep. It should be the difference between current_time and bed_time.</p>
 <p>Then Define an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement, where you check for three conditions: If time to go to sleep is 0, print <code class="docutils literal notranslate"><span class="pre">Its</span> <span class="pre">time</span> <span class="pre">to</span> <span class="pre">sleep</span></code>, Else if the difference is smaller than 1, print <code class="docutils literal notranslate"><span class="pre">Its</span> <span class="pre">time</span> <span class="pre">to</span> <span class="pre">prepare</span> <span class="pre">for</span> <span class="pre">bed</span></code>,
 conclude a last check, if the difference is larger than 1 and print <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">bedtime</span> <span class="pre">yet</span></code>. Of course, you can define the condition statements based on your personal preference :)</p>
-<p><strong>Variables that include multiple items</strong>:</p>
+</section>
+</section>
+<section id="variables-that-include-multiple-items-lists">
+<h2><strong>Variables that include multiple items (Lists)</strong>:<a class="headerlink" href="#variables-that-include-multiple-items-lists" title="Link to this heading">#</a></h2>
 <p>One can store multiple pieces of information in one variable. This is what we call a <code class="docutils literal notranslate"><span class="pre">List</span></code>. A list is a vanilla python datatype. You can store all kinds of information in it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -901,7 +926,8 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 </div>
 </div>
 </div>
-<p>Think!:</p>
+<section id="exercise-4-0-think">
+<h3><strong>Exercise 4.0: Think!</strong><a class="headerlink" href="#exercise-4-0-think" title="Link to this heading">#</a></h3>
 <p>Did you expect l_4[1] to return “z”? What index will give you the value “x”?</p>
 <p>In most programming languages, indexing starts at 0!
 This means, that the <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">element</span></code> in your array, list (…) is always the <code class="docutils literal notranslate"><span class="pre">0th</span></code> element by index.</p>
@@ -936,8 +962,42 @@ This means, that the <code class="docutils literal notranslate"><span class="pre
 </div>
 </div>
 </div>
-<p><strong>Exercise</strong>: Use a <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code> and <code class="docutils literal notranslate"><span class="pre">l_4</span></code>.</p>
+</section>
+<section id="exercise-5-0">
+<h3><strong>Exercise 5.0</strong><a class="headerlink" href="#exercise-5-0" title="Link to this heading">#</a></h3>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code> and <code class="docutils literal notranslate"><span class="pre">l_4</span></code>.</p>
 <p>Bonus: Can you think of an even simpler way to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code>and <code class="docutils literal notranslate"><span class="pre">l_4</span></code> ?</p>
+</section>
+</section>
+<section id="string-formatting">
+<h2><strong>String formatting</strong><a class="headerlink" href="#string-formatting" title="Link to this heading">#</a></h2>
+<p>To finish this section, we will talk about the concept of <a class="reference external" href="https://www.w3schools.com/python/ref_string_format.asp"><code class="docutils literal notranslate"><span class="pre">string</span> <span class="pre">formatting</span></code></a></p>
+<p>String formatting refers to mixing both <code class="docutils literal notranslate"><span class="pre">numerical</span></code> and <code class="docutils literal notranslate"><span class="pre">string</span></code> information in your code. This can be super helpful, when wanting to display both datatypes.</p>
+<p>There are two ways to do this. The first method is called the <code class="docutils literal notranslate"><span class="pre">F-String</span></code>. With the f-string we can format selected parts of our string variable.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      f&quot;MyString {Information I want to format}&quot;
+</pre></div>
+</div>
+<p>We can also call the <code class="docutils literal notranslate"><span class="pre">.format</span></code> method of our string. The outcome is basically the same, although the use-cases might differ. For the sake of this course you should just know that there are two ways to do this, but we will only practice the <code class="docutils literal notranslate"><span class="pre">f-string</span></code> later on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">target_list</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I am using the f-string method to display the target value </span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> in our list called target_list&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">target_list</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am using the .format method to display the target value </span><span class="si">{}</span><span class="s2"> in our list called target_list&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I am using the f-string method to display the target value 4 in our list called target_list
+I am using the .format method to display the target value 4 in our list called target_list
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1005,8 +1065,22 @@ This means, that the <code class="docutils literal notranslate"><span class="pre
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-0"><strong>Exercise 1.0</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions"><strong>Functions</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables"><strong>Variables</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-0"><strong>Exercise 2.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-0"><strong>Exercise 3.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-that-include-multiple-items-lists"><strong>Variables that include multiple items (Lists)</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-0-think"><strong>Exercise 4.0: Think!</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-0"><strong>Exercise 5.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#string-formatting"><strong>String formatting</strong></a></li>
 </ul>
   </nav></div>
 
