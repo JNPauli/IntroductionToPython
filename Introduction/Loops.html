@@ -62,7 +62,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Functions and Modules" href="FunctionsAndModules.html" />
-    <link rel="prev" title="Introduction into python" href="PythonBasics.html" />
+    <link rel="prev" title="Introduction to python" href="PythonBasics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -436,6 +436,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-0-think"><strong>Exercise 6.0: Think!</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-0"><strong>Exercise 7.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-0"><strong>Exercise 8.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-exercise"><strong>Bonus Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus Exercise</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">
@@ -474,29 +476,6 @@ document.write(`
 <h3><strong>Exercise 6.0: Think!</strong><a class="headerlink" href="#exercise-6-0-think" title="Link to this heading">#</a></h3>
 <p>Based on your knowledge so far, how would you solve this comparison? You dont actually have to code this, this is more about building a basic understanding on how to approach this.</p>
 <p>If you are already familiar with the concepts of loops, please dont spoil the answer to your fellows, as this might hinder their learning process :)</p>
-<p>The solution is in the cell below, so please dont click it yet!</p>
-<p><strong>Type your answer here</strong></p>
-<div class="toggle docutils container">
-<p>school_average = 2.8
-grades = [1.0, 1.1, 4.4, 5.0, 3.7, 3.9]</p>
-<p>for grade in grades:
-if grade &lt; school_average:
-print(“This grade is above average”)
-else:
-print(“This grade is below average”)</p>
-</div>
-<p>Explaination below:</p>
-<div class="toggle docutils container">
-<p>The logic:</p>
-<p>for each value in our list <code class="docutils literal notranslate"><span class="pre">grades</span></code>, check if that grade is smaller than the school average and print if it is above average, else print that it is below average.</p>
-<p>Without for loop we would have to do</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      if grades[0] &lt; school_average,else
-      if grades[1] &lt; school_average,else
-      ...
-</pre></div>
-</div>
-<p>So this concept saves us a lot of time. We can go through each single element in our list, apply what ever operation we want to it and proceed.</p>
-</div>
 <p>As you see, this can be really really helpful.</p>
 <p>Before we deepen our knowledge on for loops, I want to highlight a cool feature of the <code class="docutils literal notranslate"><span class="pre">list</span></code> datatype.</p>
 <p>You can actually add or remove elements from a list, using python lingo we would call these data types <code class="docutils literal notranslate"><span class="pre">mutable</span></code>, wheras the opposite is called <code class="docutils literal notranslate"><span class="pre">immutable</span></code>. For a detailed description, please see <a class="reference external" href="https://realpython.com/python-mutable-vs-immutable-types/">here</a>.</p>
@@ -533,6 +512,25 @@ print(“This grade is below average”)</p>
 </div>
 </div>
 </div>
+<p>We can also use for loops to compute the sum of a list</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">grade</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
+<span class="w">          </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">          You can either sum = sum + grade OR sum+=grade. These operations are equivalent</span>
+<span class="sd">          &#39;&#39;&#39;</span>
+          <span class="nb">sum</span><span class="o">+=</span><span class="n">grade</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.099999999999998
+</pre></div>
+</div>
+</div>
+</div>
 <p>The last for loop feature I want to talk about is the <a class="reference external" href="https://www.geeksforgeeks.org/enumerate-in-python/"><code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a> function. What does enumerate do? It is essentially a <code class="docutils literal notranslate"><span class="pre">counter</span></code> variable, that helps you keep track of the elements you have looped through.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -559,6 +557,63 @@ For example, if you want to know, at what position a grade is below or above ave
 <section id="exercise-8-0">
 <h3><strong>Exercise 8.0</strong><a class="headerlink" href="#exercise-8-0" title="Link to this heading">#</a></h3>
 <p>Try now to loop through the grades list again. If an element is below average, display (print) the value and index using <code class="docutils literal notranslate"><span class="pre">f-string</span> <span class="pre">formatting</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;f-string formatting Reminder</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="n">number</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I am using f-string formatting to display the number </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I am using f-string formatting to display the number 20
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="bonus-exercise">
+<h3><strong>Bonus Exercise</strong><a class="headerlink" href="#bonus-exercise" title="Link to this heading">#</a></h3>
+<p>Using a for loop, re-create the following output pattern</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      1
+      1,2
+      1,2,3
+      1,2,3,4
+      1,2,3,4,5
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h3><strong>Bonus Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Using a for loop, print the Fibonacci series up to 10 numbers. The first number should be a 0</p>
+<p>The output should look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      0,1,2,3,5,8,13,21,34
+
+      The logic = (0 + 1 ) = 1; (2+1) = 3; (2+3) = 5;...
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p><img alt="Questions" src="../_images/questions.gif" /></p>
 </section>
 </section>
@@ -610,7 +665,7 @@ For example, if you want to know, at what position a grade is below or above ave
           <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One more beer please&quot;</span><span class="p">)</span>
           <span class="n">beer</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">else</span><span class="p">:</span>
-          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Some water please&quot;</span><span class="p">)</span>
+          <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Some water please, I already had </span><span class="si">{</span><span class="n">beer</span><span class="si">}</span><span class="s2"> beer!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -620,7 +675,7 @@ One more beer please
 One more beer please
 One more beer please
 One more beer please
-Some water please
+Some water please, I already had 5 beer!
 </pre></div>
 </div>
 </div>
@@ -635,6 +690,15 @@ ticket_price = 10
 </div>
 <p><strong>Hint</strong>: If you struggle approaching this, try to break the problem down step by step:</p>
 <p>You have 43 euros/dollars/… and want to invite as many friends as you can. Each ticket costs 10 euros. You can only invite friends <em>while</em> you have enough money to pay for the ticket, e.g. while you have more money than the ticket should cost.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="o">....</span><span class="p">:</span>
+          <span class="o">....</span>
+          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -675,7 +739,7 @@ ticket_price = 10
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Introduction into python</p>
+        <p class="prev-next-title">Introduction to python</p>
       </div>
     </a>
     <a class="right-next"
@@ -707,6 +771,8 @@ ticket_price = 10
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-0-think"><strong>Exercise 6.0: Think!</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-0"><strong>Exercise 7.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-0"><strong>Exercise 8.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-exercise"><strong>Bonus Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus Exercise</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">

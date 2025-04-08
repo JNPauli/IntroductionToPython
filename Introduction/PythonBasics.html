@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction into python &#8212; Introduction to Python</title>
+    <title>Introduction to python &#8212; Introduction to Python</title>
   
   
   
@@ -422,7 +422,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction into python</h1>
+    <h1>Introduction to python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -433,17 +433,17 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-0"><strong>Exercise 1.0</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions"><strong>Functions</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables"><strong>Variables</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-0"><strong>Exercise 2.0</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-0"><strong>Exercise 3.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-that-include-multiple-items-lists"><strong>Variables that include multiple items (Lists)</strong>:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-0-think"><strong>Exercise 4.0: Think!</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-0"><strong>Exercise 4.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-0"><strong>Exercise 5.0</strong></a></li>
 </ul>
 </li>
@@ -459,9 +459,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-into-python">
-<h1>Introduction into python<a class="headerlink" href="#introduction-into-python" title="Link to this heading">#</a></h1>
-<p>Python is the gold standard programming language for data science and machine learning.
+  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-python">
+<h1>Introduction to python<a class="headerlink" href="#introduction-to-python" title="Link to this heading">#</a></h1>
+<p>Python is the gold standard programming language for data science and machine learning any many many more things.
 For detailed information, start <a class="reference external" href="https://www.w3schools.com/datascience/ds_python.asp">here</a>.</p>
 <p>You can use it for simple tasks like a pocket calculator but also very complex tasks like machine learning.</p>
 <p>Let’s start with some simple operations.</p>
@@ -537,45 +537,11 @@ For detailed information, start <a class="reference external" href="https://www.
 <h2><strong>Exercise 1.0</strong><a class="headerlink" href="#exercise-1-0" title="Link to this heading">#</a></h2>
 <p>Think of a calculation and write the operation in the cell below.</p>
 </section>
-<section id="functions">
-<h2><strong>Functions</strong><a class="headerlink" href="#functions" title="Link to this heading">#</a></h2>
-<p>Functions allow combining multiple operations so that more complex processes can be implemented clearly. Often functions are part of a library. In the following example, we use the <code class="docutils literal notranslate"><span class="pre">log</span></code> function from the <a class="reference external" href="https://numpy.org/"><code class="docutils literal notranslate"><span class="pre">NumPy</span></code></a> library. We will talk about libraries in python later on. Right now its enough to know, that there are different libraries for different purposes with different functions (Like NumPy, which can be used for numerical operations, and one function of numpy is the log transformation)</p>
-<p>Later we will define functions ourselves, where we customize the integrated processes.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="kn">import</span> <span class="n">log</span>
-
-<span class="n">log</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="c1"># this gives back the logarithm of 4</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3862943611198906
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plus_two</span><span class="p">(</span><span class="n">number</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">2</span>
-
-<span class="n">plus_two</span><span class="p">(</span><span class="mi">12110</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12112
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="variables">
 <h2><strong>Variables</strong><a class="headerlink" href="#variables" title="Link to this heading">#</a></h2>
 <p>Variables can store numbers, text, or more complex structures. Here are two examples. <code class="docutils literal notranslate"><span class="pre">numeric</span></code> holds a number, <code class="docutils literal notranslate"><span class="pre">character</span></code> stores a text, and <code class="docutils literal notranslate"><span class="pre">logical</span></code> holds either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. The <code class="docutils literal notranslate"><span class="pre">=</span></code> sign allows to assign the variable with a piece of information.</p>
-<p><strong>Very important distinction</strong>: This does not mean, that numeric is equal to 10, for example. This simply means, that numerics <em>has</em> the value 10!</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> function allows us to display the stored information of a variable.</p>
+<p>Assigning a varialbe simply means, that the variable <code class="docutils literal notranslate"><span class="pre">numeric</span></code> <em>has</em> the value 10!</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> function allows us then to display the stored information of a variable.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numeric</span> <span class="o">=</span> <span class="mi">10</span>
@@ -585,6 +551,7 @@ For detailed information, start <a class="reference external" href="https://www.
 <span class="nb">print</span><span class="p">(</span><span class="n">numeric</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">character</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">logical</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -627,12 +594,12 @@ False
 However, <code class="docutils literal notranslate"><span class="pre">'x'+character</span></code> will work. The critical difference here is that with the hyphen indicators, we do not use the variable named <code class="docutils literal notranslate"><span class="pre">x</span></code>, but the character x and extend the information stored in <code class="docutils literal notranslate"><span class="pre">character</span></code> with this additional character.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Gertrud&quot;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Xenia&quot;</span>
 <span class="n">begruessung</span> <span class="o">=</span> <span class="s2">&quot;Dear &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;, how are you?&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">begruessung</span><span class="p">)</span>
 
-<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Anton&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Joe&quot;</span>
 <span class="n">begruessung</span> <span class="o">=</span> <span class="s2">&quot;Dear &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;, how are you?&quot;</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">begruessung</span><span class="p">)</span>
@@ -707,9 +674,13 @@ Dear Anton, how are you?
 </div>
 </div>
 <p>This is probably a good time to talk about naming conventions for your variables. Naming your variables should be informative, while keeping things short. You really want to do that, because if you look at your scripts in the future, you will not remember the logic behind some abstract variable you named (Trust me on this one).</p>
-<p>a = 10 (not really informative)</p>
-<p>AVariableThatICreatedAtTheBeginningOfMyScript = 10 (Non informative and way too long)</p>
-<p>ExperimentalResults = 10 (On point!)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      a = 10 (not really informative)
+
+      AVariableThatICreatedAtTheBeginningOfMyScript = 10 (Non informative and way too long)
+
+      ExperimentalResults = 10 (On point!)
+</pre></div>
+</div>
 <section id="exercise-2-0">
 <h3><strong>Exercise 2.0</strong><a class="headerlink" href="#exercise-2-0" title="Link to this heading">#</a></h3>
 <p>Define two variables and manipulate them.</p>
@@ -812,10 +783,51 @@ True
 </div>
 <section id="exercise-3-0">
 <h3><strong>Exercise 3.0</strong><a class="headerlink" href="#exercise-3-0" title="Link to this heading">#</a></h3>
-<p>Define a new variable called “current_time” and assign to it an integer of your choice (should be between 0 and 23).</p>
-<p>Define another variable called “bed_time” and assign to it an integer that corresponds to your usual bedtime (again, 0-23 works best here). Atlast, define a variable called time_to_go_to_sleep. It should be the difference between current_time and bed_time.</p>
-<p>Then Define an <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement, where you check for three conditions: If time to go to sleep is 0, print <code class="docutils literal notranslate"><span class="pre">Its</span> <span class="pre">time</span> <span class="pre">to</span> <span class="pre">sleep</span></code>, Else if the difference is smaller than 1, print <code class="docutils literal notranslate"><span class="pre">Its</span> <span class="pre">time</span> <span class="pre">to</span> <span class="pre">prepare</span> <span class="pre">for</span> <span class="pre">bed</span></code>,
-conclude a last check, if the difference is larger than 1 and print <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">bedtime</span> <span class="pre">yet</span></code>. Of course, you can define the condition statements based on your personal preference :)</p>
+<p>Define a new variable called <code class="docutils literal notranslate"><span class="pre">temperature</span></code> and assign to it an integer or float between -10 and 40. This will represent the current temperature in Celsius.</p>
+<p>Now, write an <code class="docutils literal notranslate"><span class="pre">if/elif/else</span></code> block that checks the value of temperature and prints a message based on the temperature range.</p>
+<p>If the temperature is below 0, print: “It’s freezing!”</p>
+<p>If the temperature is between 0 (inclusive) and 15, print: “It’s a bit chilly”</p>
+<p>If the temperature is between 15 (inclusive) and 25, print: “Nice weather”</p>
+<p>If the temperature is between 25 (inclusive) and 35, print: “It’s getting hot”</p>
+<p>If the temperature is 35 or higher, print: “It’s boiling!”</p>
+<p>You can change the value of temperature to test different outputs and better understand how the if/elif/else structure works.</p>
+</section>
+<section id="bonus">
+<h3><strong>Bonus</strong><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h3>
+<p>We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling. We are in serious trouble if they are both smiling or if neither of them is smiling.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements, print “True” if we are in trouble.</p>
+<p>For this exercise you just need to paste in your solution to the <code class="docutils literal notranslate"><span class="pre">monkey_trouble</span></code> function.
+Make sure to add the <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">False</span></code> statements indentation after your solutions.</p>
+<p>Meaning:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      if my_solution:
+                return True
+      else other_solution:
+                return False
+</pre></div>
+</div>
+<p>We will talk later more about functions and the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword. For now, just try to fill in your solution.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">monkey_trouble</span><span class="p">(</span><span class="n">a_smile</span><span class="p">,</span> <span class="n">b_smile</span><span class="p">):</span>
+    
+          
+
+<span class="nb">print</span><span class="p">(</span><span class="n">monkey_trouble</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>   <span class="c1"># should return True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">monkey_trouble</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span> <span class="c1"># should return True</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">monkey_trouble</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>  <span class="c1"># should return False</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">monkey_trouble</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span> <span class="c1"># should return False</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+True
+False
+False
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="variables-that-include-multiple-items-lists">
@@ -823,8 +835,8 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 <p>One can store multiple pieces of information in one variable. This is what we call a <code class="docutils literal notranslate"><span class="pre">List</span></code>. A list is a vanilla python datatype. You can store all kinds of information in it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -836,8 +848,8 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
-<span class="n">l_2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">18</span><span class="p">]</span>
+<span class="n">list_2</span>
 </pre></div>
 </div>
 </div>
@@ -849,8 +861,8 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">78</span><span class="p">]</span>
-<span class="n">l_3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">78</span><span class="p">]</span>
+<span class="n">list_3</span>
 </pre></div>
 </div>
 </div>
@@ -862,8 +874,8 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_4</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="s2">&quot;78&quot;</span><span class="p">]</span>
-<span class="n">l_4</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_4</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">,</span><span class="s2">&quot;z&quot;</span><span class="p">,</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="s2">&quot;78&quot;</span><span class="p">]</span>
+<span class="n">list_4</span>
 </pre></div>
 </div>
 </div>
@@ -876,7 +888,7 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 <p>The <code class="docutils literal notranslate"><span class="pre">len</span></code> function can be used to count the number of items of a list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -888,7 +900,7 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">l_3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">list_3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -898,10 +910,10 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 </div>
 </div>
 </div>
-<p>When one wants to select one element out of a list, one can use a numeric index.</p>
+<p>We can use a numerical <code class="docutils literal notranslate"><span class="pre">index</span></code> to return a specific element from our list</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_4</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_4</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -913,25 +925,25 @@ conclude a last check, if the difference is larger than 1 and print <code class=
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l_4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_4</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;z&#39;
 </pre></div>
 </div>
 </div>
 </div>
-<section id="exercise-4-0-think">
-<h3><strong>Exercise 4.0: Think!</strong><a class="headerlink" href="#exercise-4-0-think" title="Link to this heading">#</a></h3>
+<section id="exercise-4-0">
+<h3><strong>Exercise 4.0</strong><a class="headerlink" href="#exercise-4-0" title="Link to this heading">#</a></h3>
 <p>Did you expect l_4[1] to return “z”? What index will give you the value “x”?</p>
 <p>In most programming languages, indexing starts at 0!
-This means, that the <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">element</span></code> in your array, list (…) is always the <code class="docutils literal notranslate"><span class="pre">0th</span></code> element by index.</p>
+This means, that the <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">element</span></code> in your array, list (…) is always the <code class="docutils literal notranslate"><span class="pre">0th</span></code> element by index. If you want to get the <code class="docutils literal notranslate"><span class="pre">last</span></code> element, you can always use <em>-1</em>.</p>
 <p>Another way to check specific items in a list would be based on <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements. Here the operator <code class="docutils literal notranslate"><span class="pre">in</span></code> is central.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l_2</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_2</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x is in the list l_2&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span> 
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x is not in the list l_2&quot;</span><span class="p">)</span>
@@ -946,7 +958,7 @@ This means, that the <code class="docutils literal notranslate"><span class="pre
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">l_3</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">list_3</span><span class="p">:</span>
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x is in the list l_3&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span> 
     <span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;x is not in the list l_3&quot;</span><span class="p">)</span>
@@ -962,8 +974,8 @@ This means, that the <code class="docutils literal notranslate"><span class="pre
 </section>
 <section id="exercise-5-0">
 <h3><strong>Exercise 5.0</strong><a class="headerlink" href="#exercise-5-0" title="Link to this heading">#</a></h3>
-<p>Use a <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code> and <code class="docutils literal notranslate"><span class="pre">l_4</span></code>.</p>
-<p>Bonus: Can you think of an even simpler way to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">l_3</span></code>and <code class="docutils literal notranslate"><span class="pre">l_4</span></code> ?</p>
+<p>Use a <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statement to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">list_3</span></code> and <code class="docutils literal notranslate"><span class="pre">list_4</span></code>.</p>
+<p>Bonus: Can you think of an even simpler way to check if the value 78 is in <code class="docutils literal notranslate"><span class="pre">list_3</span></code>and <code class="docutils literal notranslate"><span class="pre">list_4</span></code> ?</p>
 </section>
 </section>
 <section id="string-formatting">
@@ -1063,17 +1075,17 @@ I am using the .format method to display the target value 4 in our list called t
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-1-0"><strong>Exercise 1.0</strong></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#functions"><strong>Functions</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables"><strong>Variables</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-0"><strong>Exercise 2.0</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-0"><strong>Exercise 3.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#variables-that-include-multiple-items-lists"><strong>Variables that include multiple items (Lists)</strong>:</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-0-think"><strong>Exercise 4.0: Think!</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-4-0"><strong>Exercise 4.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-5-0"><strong>Exercise 5.0</strong></a></li>
 </ul>
 </li>
