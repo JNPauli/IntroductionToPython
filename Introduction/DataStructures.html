@@ -443,7 +443,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>Exercise</strong></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -535,9 +540,9 @@ document.write(`
 </div>
 </div>
 <p>Indexing a 1-Dimensional Numpy Array works similiar to <code class="docutils literal notranslate"><span class="pre">slicing</span></code> in lists.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      RandomArray[0] #element zero
-      RandomArray[0:10] #elements zero to 10
-      RandomArray[0:2:10]#elements zero to 10 in steps of 2
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      1D-Array[0] #element zero
+      1D-Array[0:10] #elements zero to 10
+      1D-Array[0:2:10]#elements zero to 10 in steps of 2
 </pre></div>
 </div>
 <p>Technically, our RandomArray is a 2-D matrix. To access the first 10 columns we need to index like this</p>
@@ -1485,6 +1490,34 @@ memory usage: 11.0+ MB
 <p>8 rows × 34 columns</p>
 </div></div></div>
 </div>
+<p>Indexing and masking in pandas dataframes works a bit like in a numpy array.</p>
+<p>We can also use <code class="docutils literal notranslate"><span class="pre">df.loc[rows,columns]</span></code> to index into our dataframe. <code class="docutils literal notranslate"><span class="pre">.loc</span></code> is used to index into the dataframe based on the <em>labels names</em>. Since rows are usually just numbers, we can pass an integer here.
+To get the column, we need to pass the column name as a string.</p>
+<section id="id4">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>Show the every <em>second</em> row of the first 16 rows of the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe for the column <code class="docutils literal notranslate"><span class="pre">S_RAUM</span></code>.</p>
+<p>To use integers for indexing, we need to use <code class="docutils literal notranslate"><span class="pre">df.iloc</span></code>. Now, we can simply pass integer values for both rows and columns.</p>
+</section>
+<section id="id5">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Define a random integer called <code class="docutils literal notranslate"><span class="pre">ran_col</span></code> using the <code class="docutils literal notranslate"><span class="pre">numpy.random.randin</span></code> function. It should not be larger than the number of columns in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
+<p>Define a second random integer called <code class="docutils literal notranslate"><span class="pre">ran_rows</span></code> using the same function. Make sure its not larger than the number of rows in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
+<p>Use these two integers to index in to the dataframe using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code></p>
+<p>We can also create a mask that is based on boolean values and use it to extract parts of the dataframe, where a given condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>mask = koeln_stats[“S_JAHR”] == 2012</p>
+<p>koeln_stats[mask].</p>
+</section>
+<section id="id6">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Create a new variable called <code class="docutils literal notranslate"><span class="pre">my_vedel</span></code>. Assign to it a <em>string</em> of the vedel you are living in (if you are comfortable with that, otherwise just use any other.)</p>
+<p>We now want to extract the data, that belongs to <code class="docutils literal notranslate"><span class="pre">my_vedel</span></code>.</p>
+<p>Since this information is stored in the <code class="docutils literal notranslate"><span class="pre">RAUM</span></code> column, we need to build the mask based on that column.</p>
+<p>Unfortunately, we cannot use simple <code class="docutils literal notranslate"><span class="pre">logical</span> <span class="pre">operator</span> <span class="pre">indexing</span></code>. So we need to use <code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code></p>
+<p>Create a variable called <code class="docutils literal notranslate"><span class="pre">mask</span></code>. Apply the method above.</p>
+<p>Create a new variable called <em>the name of your vedel</em>. This variable should have the masked values of your vedel</p>
+<p>my_vedel = “Ehrenfeld”
+koeln_stats[koeln_stats.RAUM.str.contains(my_vedel)]</p>
+</section>
 </section>
 </section>
 
@@ -1551,7 +1584,12 @@ memory usage: 11.0+ MB
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>Exercise</strong></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
