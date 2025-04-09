@@ -437,7 +437,8 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-0"><strong>Exercise 2.0</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-clauses"><strong><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-0"><strong>Exercise 3.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong></a></li>
 </ul>
@@ -559,6 +560,7 @@ For detailed information, start <a class="reference external" href="https://www.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
 Hi!
 False
+Hello World
 </pre></div>
 </div>
 </div>
@@ -607,8 +609,8 @@ However, <code class="docutils literal notranslate"><span class="pre">'x'+charac
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dear Gertrud, how are you?
-Dear Anton, how are you?
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dear Xenia, how are you?
+Dear Joe, how are you?
 </pre></div>
 </div>
 </div>
@@ -643,6 +645,11 @@ Dear Anton, how are you?
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>float
 </pre></div>
 </div>
 </div>
@@ -724,9 +731,18 @@ True
 </div>
 </div>
 <p>The result of a comparison is always a logical value (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>)</p>
-<p><strong><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> statements</strong></p>
+</section>
+<section id="if-else-clauses">
+<h2><strong><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses</strong><a class="headerlink" href="#if-else-clauses" title="Link to this heading">#</a></h2>
 <p>These statements are used to differentiate between values based on logical operators.</p>
-<p><code class="docutils literal notranslate"><span class="pre">if</span></code> indicates that if some statement is <code class="docutils literal notranslate"><span class="pre">True</span></code>, then do something.</p>
+<p><code class="docutils literal notranslate"><span class="pre">if</span></code> indicates that if some statement is <code class="docutils literal notranslate"><span class="pre">True</span></code>,  do something.</p>
+<p>The general syntax for these clauses (as well as loops, functions…) is based of indentations (Einrückungen).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      if ... :                                (Dont forget the `:`)
+                continue here                 (You can use `tab` after `:` to progress to the next level )
+                if 2nd level:
+                          continue here       (You can also apply `nested` structures, if you feel that is is neccessary)
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">:</span>
@@ -781,6 +797,41 @@ True
 </div>
 </div>
 </div>
+<p>We can also use logical operators to check if two conditions are true at the same time. Use the <code class="docutils literal notranslate"><span class="pre">and</span></code> keyword to combine this and check for two conditions in one line.</p>
+<p>To return <code class="docutils literal notranslate"><span class="pre">True</span></code>, both conditions need to be met.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Both x and z are greater than 5&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;This is false statement&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>This is false statement
+</pre></div>
+</div>
+</div>
+</div>
+<p>The keyword <code class="docutils literal notranslate"><span class="pre">or</span></code> can be used to check if one or another conditions is met</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Both x and z are greater than 5&quot;</span><span class="p">)</span>
+<span class="k">elif</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">10</span> <span class="ow">or</span> <span class="n">z</span> <span class="o">&gt;</span> <span class="mi">5</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;One of x and z is greater than 5&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;None of these statements hold true&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>One of x and z is greater than 5
+</pre></div>
+</div>
+</div>
+</div>
 <section id="exercise-3-0">
 <h3><strong>Exercise 3.0</strong><a class="headerlink" href="#exercise-3-0" title="Link to this heading">#</a></h3>
 <p>Define a new variable called <code class="docutils literal notranslate"><span class="pre">temperature</span></code> and assign to it an integer or float between -10 and 40. This will represent the current temperature in Celsius.</p>
@@ -795,7 +846,7 @@ True
 <section id="bonus">
 <h3><strong>Bonus</strong><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h3>
 <p>We have two monkeys, a and b, and the parameters a_smile and b_smile indicate if each is smiling. We are in serious trouble if they are both smiling or if neither of them is smiling.</p>
-<p>Using <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements, print “True” if we are in trouble.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements, return True if we are in trouble.</p>
 <p>For this exercise you just need to paste in your solution to the <code class="docutils literal notranslate"><span class="pre">monkey_trouble</span></code> function.
 Make sure to add the <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">True</span></code> and <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">False</span></code> statements indentation after your solutions.</p>
 <p>Meaning:</p>
@@ -806,10 +857,13 @@ Make sure to add the <code class="docutils literal notranslate"><span class="pre
 </pre></div>
 </div>
 <p>We will talk later more about functions and the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword. For now, just try to fill in your solution.</p>
+<p>If your solution is correct, you will see <code class="docutils literal notranslate"><span class="pre">True,</span> <span class="pre">True,</span> <span class="pre">False,</span> <span class="pre">False</span></code> printed below the <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">cell</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">monkey_trouble</span><span class="p">(</span><span class="n">a_smile</span><span class="p">,</span> <span class="n">b_smile</span><span class="p">):</span>
-    
+
+          <span class="n">Solution</span>
+                    
           
 
 <span class="nb">print</span><span class="p">(</span><span class="n">monkey_trouble</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>   <span class="c1"># should return True</span>
@@ -832,7 +886,7 @@ False
 </section>
 <section id="variables-that-include-multiple-items-lists">
 <h2><strong>Variables that include multiple items (Lists)</strong>:<a class="headerlink" href="#variables-that-include-multiple-items-lists" title="Link to this heading">#</a></h2>
-<p>One can store multiple pieces of information in one variable. This is what we call a <code class="docutils literal notranslate"><span class="pre">List</span></code>. A list is a vanilla python datatype. You can store all kinds of information in it.</p>
+<p>We can store multiple pieces of information in one variable. This is what we call a <code class="docutils literal notranslate"><span class="pre">List</span></code>. A list is a <code class="docutils literal notranslate"><span class="pre">vanilla</span> <span class="pre">python</span></code> datatype. You can store all kinds of information (diverse datatypes) in it.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span><span class="n">z</span><span class="p">]</span>
@@ -937,7 +991,7 @@ False
 </div>
 <section id="exercise-4-0">
 <h3><strong>Exercise 4.0</strong><a class="headerlink" href="#exercise-4-0" title="Link to this heading">#</a></h3>
-<p>Did you expect l_4[1] to return “z”? What index will give you the value “x”?</p>
+<p>Did you expect <code class="docutils literal notranslate"><span class="pre">l_4[1]?</span></code> to return “z”? What index will give you the value “x”, i.e the first element?</p>
 <p>In most programming languages, indexing starts at 0!
 This means, that the <code class="docutils literal notranslate"><span class="pre">first</span> <span class="pre">element</span></code> in your array, list (…) is always the <code class="docutils literal notranslate"><span class="pre">0th</span></code> element by index. If you want to get the <code class="docutils literal notranslate"><span class="pre">last</span></code> element, you can always use <em>-1</em>.</p>
 <p>Another way to check specific items in a list would be based on <code class="docutils literal notranslate"><span class="pre">if/else</span></code> statements. Here the operator <code class="docutils literal notranslate"><span class="pre">in</span></code> is central.</p>
@@ -1079,7 +1133,8 @@ I am using the .format method to display the target value 4 in our list called t
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-2-0"><strong>Exercise 2.0</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#logical-operators"><strong>Logical operators</strong>:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#if-else-clauses"><strong><code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code> clauses</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-3-0"><strong>Exercise 3.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong></a></li>
 </ul>
