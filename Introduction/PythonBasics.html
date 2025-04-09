@@ -688,6 +688,12 @@ Dear Joe, how are you?
       ExperimentalResults = 10 (On point!)
 </pre></div>
 </div>
+<p>Last but not least: You need to either define your variables using a structure like MyVariable, or my_variable, or whatever you like. You <code class="docutils literal notranslate"><span class="pre">cannot</span></code> do</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      My Variable = 5
+</pre></div>
+</div>
+<p>In principle, this could work for column names within dataframes (we will learn about these later on), but I highly suggest to always apply these conventions.</p>
+<p>Further, if you want to load files from your local device, and they do not follow this convention, things will get really tricky.</p>
 <section id="exercise-2-0">
 <h3><strong>Exercise 2.0</strong><a class="headerlink" href="#exercise-2-0" title="Link to this heading">#</a></h3>
 <p>Define two variables and manipulate them.</p>
@@ -964,6 +970,38 @@ False
 </div>
 </div>
 </div>
+<p>Next to <code class="docutils literal notranslate"><span class="pre">len</span></code>, there are other <code class="docutils literal notranslate"><span class="pre">built-in</span></code> functions that we can use with the list datatype</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">len()</span></code> calculate length of list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">max()</span></code> calculate max of list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">min()</span></code> calculate min of list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum()</span></code> calculate sum of list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sorted()</span></code> return a sorted list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list()</span></code> cast to type list – convert tuple to list or a generator to list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">any()</span></code> return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the truthiness of any value is <code class="docutils literal notranslate"><span class="pre">True</span></code> in the list</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all()</span></code> return <code class="docutils literal notranslate"><span class="pre">True</span></code> if the truthiness of all the values is <code class="docutils literal notranslate"><span class="pre">True</span></code> in the list</p></li>
+</ul>
+<p>We can also <code class="docutils literal notranslate"><span class="pre">slice</span></code> into our lists, returning different values</p>
+<ul>
+<li><p>List slicing allows you to pick out specific elements from a list. In oder to understand the list slicing, you need to know five things:</p>
+<ol class="arabic simple">
+<li><p>Start index – this is the index from which the slice of a list is taken. This index is included.</p></li>
+<li><p>End Index – this is the index to which the slice is taken up to but not including.</p></li>
+<li><p>Step size – you can specify a skip factor that allows you to skip certain number of values</p></li>
+<li><p>the colon is used separate start and end index and the step size.</p></li>
+<li><p>Start index, end index, and step size are all optional, but you need at least one</p></li>
+</ol>
+</li>
+<li><p>Here are some variations of slicing:</p>
+<ol class="arabic simple">
+<li><p>start index, but no end index – my_list[3:] – will take all elements from index 3 to the end of list, including the last value</p></li>
+<li><p>end index, but no start index – my_list[:10] – will take all elements from start of the of the list to index 10, but not include value at index 10</p></li>
+<li><p>both start and end index – my_list[3:10] – this will include all elements from index 3 all the way up to index 10, but not include index 10.</p></li>
+<li><p>start and end index and step size – my_list[3:10:2] – same as #3 but take every other element.</p></li>
+</ol>
+<p>Shot-out to: <a class="reference external" href="https://mkzia.github.io/eas503-book/chapters/05/lists.html">Mohammad Zia</a></p>
+</li>
+</ul>
 <p>We can use a numerical <code class="docutils literal notranslate"><span class="pre">index</span></code> to return a specific element from our list</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
