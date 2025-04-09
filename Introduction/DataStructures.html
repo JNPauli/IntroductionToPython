@@ -433,6 +433,10 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">Numpy Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-15-0"><strong>Exercise 15.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>
@@ -465,11 +469,12 @@ document.write(`
 </div>
 <p>What you can see in this example is actually nothing more than calling the <code class="docutils literal notranslate"><span class="pre">np.array()</span></code> function and passing a <code class="docutils literal notranslate"><span class="pre">list</span></code> [0,1,2,3] to it</p>
 <p>Within a numpy array, the stored datatypes must be <code class="docutils literal notranslate"><span class="pre">homogeneous</span></code> meaning that they all need to belong to the same data type. Numpy arrays are optimized to be used for numerical computations.</p>
+<p>Numpy arrays come with a <code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">size</span></code>!</p>
 <p>We will now start to explore the numpy environment and the numpy arrays.</p>
 <p>So first, start by <code class="docutils literal notranslate"><span class="pre">importing</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
 <p>We will not work with real data <em>yet</em>, but rather simulate our own numpy arrays to work with. Numpy offers some really useful functions we can use to generate our arrays.</p>
 <p>Lets start with the <code class="docutils literal notranslate"><span class="pre">numpy.random.rand</span></code> function.</p>
-<p>They key arguments we need to pass to the function are the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the array we want to create. Lets start by creating a 1-Dimensional Array first.</p>
+<p>They key argument we need to pass to the function is the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the array we want to create. Lets start by creating a 1-Dimensional Array first.</p>
 <p>The first argument determines the number of <em>rows</em> we want our array to have, where as the second argument determines the number of columns.</p>
 <section id="exercise-15-0">
 <h3><strong>Exercise 15.0</strong><a class="headerlink" href="#exercise-15-0" title="Link to this heading">#</a></h3>
@@ -489,6 +494,15 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We can also create arrays with zeros or ones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>The information about the <code class="docutils literal notranslate"><span class="pre">shape</span></code> (e.g, how many rows and colum we have) is actually stored within the array element itself. We can access it with <code class="docutils literal notranslate"><span class="pre">array.shape</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -502,22 +516,110 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Indexing a Numpy Array</p>
+<p>Now in numpy, we can use the multiple methods to easily extract information</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RandomArray</span><span class="p">[:,:]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RandomArray</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="c1">#min value</span>
+
+<span class="n">RandomArray</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="c1">#max value</span>
+
+<span class="n">RandomArray</span><span class="o">.</span><span class="n">argmin</span><span class="p">()</span> <span class="c1">#index of min value in that array</span>
+
+<span class="n">RandomArray</span><span class="o">.</span><span class="n">argmax</span><span class="p">()</span> <span class="c1">#index of max value in that array</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Indexing a 1-Dimensional Numpy Array works similiar to <code class="docutils literal notranslate"><span class="pre">slicing</span></code> in lists.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      RandomArray[0] #element zero
+      RandomArray[0:10] #elements zero to 10
+      RandomArray[0:2:10]#elements zero to 10 in steps of 2
+</pre></div>
+</div>
+<p>Technically, our RandomArray is a 2-D matrix. To access the first 10 columns we need to index like this</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">SlicedArray</span> <span class="o">=</span> <span class="n">RandomArray</span><span class="p">[:,:</span><span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      [: tells us, that we want to index into all rows of the array
+
+      ,:10] tells us, that we want to index into the first 10 columns of the matrix
+</pre></div>
+</div>
+<p>And we can also use the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function to create a numpy array with values in a given range</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">values</span><span class="p">,</span> <span class="n">values</span><span class="o">.</span><span class="n">dtype</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.48717182, 0.03035302, 0.30656875, 0.79526604, 0.93950624,
-        0.61541519, 0.79135653, 0.90462905, 0.12916138, 0.43791648,
-        0.12838649, 0.91423623, 0.41345175, 0.73463452, 0.02307464,
-        0.24663635, 0.81967195, 0.30473204, 0.67198669, 0.33036913]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]), dtype(&#39;int32&#39;))
 </pre></div>
 </div>
 </div>
 </div>
+<p>Since SlicedArray and values have the same shape, we can perform any mathematical operation with them.</p>
+<p>The operations are <code class="docutils literal notranslate"><span class="pre">element</span> <span class="pre">wise</span></code>. So first element of matrix 1 * first element of matrix 2 and so on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">*</span> <span class="n">SlicedArray</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.69557511, 0.36510263, 1.41646891, 2.48509708,
+        3.05685476, 5.22955394, 5.33026343, 0.56781218, 2.56540276]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also use logicals to compare and access numpy arrays</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">values</span> <span class="o">&gt;</span> <span class="n">SlicedArray</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[False,  True,  True,  True,  True,  True,  True,  True,  True,
+         True]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>This returns an array of <code class="docutils literal notranslate"><span class="pre">boolean</span></code> values, where the condition is either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</section>
+<section id="exercise">
+<h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
+<p>Create one numpy array with values from 1 to 511 in steps of 2 and assign it to a variable.</p>
+<p>Create another numpy array with values from 1 to 256 in steps of 1.</p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">mask</span></code> of boolen values, which should be True if the elements of the two arrays are equal, and False if not.</p>
+<p>Use this mask to index into the second array and create a new array with the extracted values. How does the new array differ from the latter ones?</p>
+</section>
+<section id="id1">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Create a numpy array of 9 numbers using <code class="docutils literal notranslate"><span class="pre">np.arange</span></code>. Reshape it to a 2D matrix of the shape (3,3).</p>
+<p><strong>Hint</strong>: Use the <code class="docutils literal notranslate"><span class="pre">np.array.reshape()</span></code> method.</p>
+</section>
+<section id="id2">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   array([[ 1,  2,  3,  4],
+          [ 5,  6,  7,  8],
+          [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+<p>What element woud you expect to see if we index into the array using (array[2,3]) ?</p>
+<p><strong>Type your answer here</strong></p>
+</section>
+<section id="id3">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Create a numpy array with random integers between 1 and 255, with the shape 64,64.</p>
+<p><strong>Hint</strong>: Use the <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> function</p>
 <p><img alt="pandas" src="../_images/Pandas.png" /></p>
 </section>
 </section>
@@ -1439,6 +1541,10 @@ memory usage: 11.0+ MB
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-arrays">Numpy Arrays</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-15-0"><strong>Exercise 15.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a></li>
