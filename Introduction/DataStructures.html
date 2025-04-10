@@ -447,8 +447,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>Exercise</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting"><strong>Plotting</strong></a></li>
 </ul>
             </nav>
         </div>
@@ -467,12 +469,12 @@ document.write(`
 <p><img alt="Numpy" src="../_images/Numpy.png" /></p>
 <section id="numpy-arrays">
 <h2>Numpy Arrays<a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h2>
-<p>An array is a datastructure we can use to store information in. Arrays can be n-dimensional, but typically they are 1- or 2-Dimensional.</p>
+<p>An array is a datastructure we can use to store <code class="docutils literal notranslate"><span class="pre">numerical</span></code> information in. Arrays can be n-dimensional, but typically they are 1- or 2-Dimensional. 2-Dimensional Arrays are very often used to represent images (images are only a combination of 0 (black values) and 255 (white values)). The typical structure of an 2-D Array is something we call a <code class="docutils literal notranslate"><span class="pre">row</span></code> and a <code class="docutils literal notranslate"><span class="pre">column</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      This is a 1-Dimensional Array
-      np.array([0,1,2,3])
+      np.array([0,1,2,3])                     (1 Row, 4 columns; Data from 1 dog that evaluated her favorite snack)
 
       This is a 2-Dimensional Array
-      np.array([[0,1,2,3],
+      np.array([[0,1,2,3],                    (2 Rows, 4 columns; Data from 2 dogs that evaluated their favorite snacks)
                 [4,5,6,7]])
 </pre></div>
 </div>
@@ -1109,12 +1111,12 @@ memory usage: 11.0+ MB
 </div>
 </div>
 </div>
-<p>This method gives us information about the number of columns, the datatype (Dtype) for each column and how many entries (rows) there are. This is super helpful to get an idea, with what kind of data we are dealing with.</p>
-<p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">&lt;class</span> <span class="pre">'pandas.core.frame.DataFrame'&gt;</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. The datatype of a column <em>itself</em> is <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
+<p>This method gives us information about the number of columns, the datatype (Dtype) for each column and how many entries (rows) there are. This is super helpful to get an idea with what kind of data we are dealing with.</p>
+<p><img alt="Series" src="../_images/01_table_series.svg" /></p>
+<p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">dtypes:</span> <span class="pre">float64(27),</span> <span class="pre">int64(7),</span> <span class="pre">object(141)</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. The datatype of a column <em>itself</em> is a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
 <p>To access a column of the dataframe, we have two options.</p>
 <p>The first one being <code class="docutils literal notranslate"><span class="pre">df.column</span></code>. However this only works, if you column name has no spaces or extra characters!</p>
-<p>So we could use <code class="docutils literal notranslate"><span class="pre">koeln_stats.RAUM</span></code> but we can also use koeln_stats[“RAUM”]. The output of these operations is equivalent.</p>
-<p><img alt="Series" src="../_images/01_table_series.svg" /></p>
+<p>So we could use <code class="docutils literal notranslate"><span class="pre">koeln_stats.RAUM</span></code> but we can also use <code class="docutils literal notranslate"><span class="pre">koeln_stats[&quot;RAUM&quot;]</span></code>. The output of these operations is equivalent.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the datatype of the column RAUM is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">RAUM</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1244,6 +1246,7 @@ memory usage: 11.0+ MB
 <p>8208 rows × 2 columns</p>
 </div></div></div>
 </div>
+<p>df.describe() can be used to get a numerical overview of all values in our dataframe</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
@@ -1496,6 +1499,7 @@ To get the column, we need to pass the column name as a string.</p>
 <section id="id4">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Show the every <em>second</em> row of the first 16 rows of the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe for the column <code class="docutils literal notranslate"><span class="pre">S_RAUM</span></code>.</p>
+<p><strong>Hint</strong>: Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> indexing. You can pass an integer to the row selection [row,column]. Use slicing <a class="reference external" href="https://www.datacamp.com/tutorial/python-slice">click here for a reminder</a> to get every 2nd row.</p>
 <p>To use integers for indexing, we need to use <code class="docutils literal notranslate"><span class="pre">df.iloc</span></code>. Now, we can simply pass integer values for both rows and columns.</p>
 </section>
 <section id="id5">
@@ -1504,20 +1508,76 @@ To get the column, we need to pass the column name as a string.</p>
 <p>Define a second random integer called <code class="docutils literal notranslate"><span class="pre">ran_rows</span></code> using the same function. Make sure its not larger than the number of rows in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
 <p>Use these two integers to index in to the dataframe using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code></p>
 <p>We can also create a mask that is based on boolean values and use it to extract parts of the dataframe, where a given condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">S_Jahr</span></code> are the corresponding <em>years</em> stored, when the statistic was collected.</p>
 <p>mask = koeln_stats[“S_JAHR”] == 2012</p>
 <p>koeln_stats[mask].</p>
+<p>This is equivalent to</p>
+<p>koeln_stats[koeln_stats.S_JAHR == 2012]</p>
 </section>
 <section id="id6">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
 <p>Create a new variable called <code class="docutils literal notranslate"><span class="pre">my_vedel</span></code>. Assign to it a <em>string</em> of the vedel you are living in (if you are comfortable with that, otherwise just use any other.)</p>
 <p>We now want to extract the data, that belongs to <code class="docutils literal notranslate"><span class="pre">my_vedel</span></code>.</p>
 <p>Since this information is stored in the <code class="docutils literal notranslate"><span class="pre">RAUM</span></code> column, we need to build the mask based on that column.</p>
-<p>Unfortunately, we cannot use simple <code class="docutils literal notranslate"><span class="pre">logical</span> <span class="pre">operator</span> <span class="pre">indexing</span></code>. So we need to use <code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code></p>
-<p>Create a variable called <code class="docutils literal notranslate"><span class="pre">mask</span></code>. Apply the method above.</p>
-<p>Create a new variable called <em>the name of your vedel</em>. This variable should have the masked values of your vedel</p>
-<p>my_vedel = “Ehrenfeld”
-koeln_stats[koeln_stats.RAUM.str.contains(my_vedel)]</p>
+<p>Unfortunately, we cannot use simple <code class="docutils literal notranslate"><span class="pre">logical</span> <span class="pre">operator</span> <span class="pre">indexing</span></code> here. So we need to use <code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code></p>
+<p>Create a variable called <code class="docutils literal notranslate"><span class="pre">mask</span></code>. Apply the method (<code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code>) above.</p>
+<p><strong>Hint</strong>: Replace df with the actual name of the dataframe and column with the the RAUM column.</p>
+<p>Create a new variable called <em>the name of your vedel</em>. This variable should have only the values of your vedel!</p>
+<p>For example, you want something like</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      mask = ....
+
+      ehrenfeld = koeln_stats[mask]
+</pre></div>
+</div>
 </section>
+<section id="id7">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">koeln_stats_description</span></code> dataframe, look up a column code that you think is interesting. Access that code in the <code class="docutils literal notranslate"><span class="pre">your</span> <span class="pre">vedel</span></code> or the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe.</p>
+<p><strong>Hint</strong>: Use koeln_stats_description.head(n=50) to see more column names stored in there.</p>
+<p>With that column in mind you can do some cool investigation. Maybe you are interested in, if the age of people above 80% differes between vedels?</p>
+<p>To get an idea of the mean <code class="docutils literal notranslate"><span class="pre">distribution</span></code> you can use the following syntax</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.groupby(&quot;Column you believe is interesting to sort by&quot;).&quot;OutComeColumn&quot;.mean()
+</pre></div>
+</div>
+<p>Try this now with your dataframe.</p>
+<p>But before that…</p>
+<p><img alt="Errors" src="static/Error.gif" /></p>
+<p>Yep. Some values are just messed up in this dataframe. This is completely normal with unknown datasources, unfortunately. If you get an error during your <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operation, try the code I listed below.</p>
+<p>Just type the name of your column into <code class="docutils literal notranslate"><span class="pre">your_column</span></code> and switch the variable <code class="docutils literal notranslate"><span class="pre">error</span></code> from False to True</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="c1"># Function to check if a value is numeric</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_numeric</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Try converting to float</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="k">if</span> <span class="n">error</span><span class="p">:</span>
+    <span class="n">your_column</span> <span class="o">=</span> <span class="s2">&quot;Type the name of the column you want to investigate here&quot;</span>
+    <span class="c1"># Apply the function to the column, keeping only valid numeric values</span>
+    <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">is_numeric</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="c1"># Drop rows where &#39;A0027A&#39; contains NaN values (i.e., invalid values)</span>
+    <span class="n">koeln_stats</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">your_column</span><span class="p">])</span>
+
+    <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]]</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="plotting">
+<h2><strong>Plotting</strong><a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
+<p>What is Plotting?</p>
+<p>Plotting in data science and programming refers to the visual representation of data using charts or graphs. It helps us understand patterns, relationships, and trends in data more clearly and efficiently than raw numbers alone. By turning data into visual formats, such as line graphs, bar charts, histograms, or scatter plots, we can make more informed decisions, identify outliers, and communicate insights to others.</p>
 </section>
 </section>
 
@@ -1588,8 +1648,10 @@ koeln_stats[koeln_stats.RAUM.str.contains(my_vedel)]</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>Exercise</strong></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting"><strong>Plotting</strong></a></li>
 </ul>
   </nav></div>
 
