@@ -443,12 +443,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-13-0"><strong>Exercise 13.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-14-0"><strong>Exercise 14.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong>:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus</strong>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-this-is-too-easy-for-you">If this is too easy for you:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Bonus</strong>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Bonus</strong>:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-modules-and-libraries">Packages, Modules and libraries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise 14.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise 14.0</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -476,7 +478,7 @@ return number + 2
 <p>Lets talk about the anatomy of a function:</p>
 <p><code class="docutils literal notranslate"><span class="pre">def</span></code> is the key word you want to use to <em>define</em> a new function.
 You leave one space between <code class="docutils literal notranslate"><span class="pre">def</span></code> and your <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">Name</span></code> (plus_two, in the example).
-After the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">Name</span></code> you put a Parenthese <code class="docutils literal notranslate"><span class="pre">()</span></code>. In that Paranthese you define the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> you want your function to take.</p>
+After the <code class="docutils literal notranslate"><span class="pre">Function</span> <span class="pre">Name</span></code> you put a Parenthese <code class="docutils literal notranslate"><span class="pre">()</span></code>. In that Parenthese you define the <code class="docutils literal notranslate"><span class="pre">arguments</span></code> you want your function to take.</p>
 <p>In the example, we name that argument <em>number</em>. So what our function does, is take the argument <em>number</em> and adds +2 to it. The argument alone does NOT specify the datatype(!). You could also do something like</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  plus_two(&quot;Hello&quot;).
 </pre></div>
@@ -522,8 +524,8 @@ Too long!
 </div>
 </div>
 </div>
-<p>While this scripts of course works, you may get the impression already, that its a bit crowed and hard to read. Making your code easy to read is a major challenge in programming!</p>
-<p>Eventhough the comparison you apply here is not extremly complicated, it can happen quite fast that you do multiple, complex operations in multiple cells and your notebook gets really long. This is where you should use functions. They clear up your notebook and can make things easier to read and understand.</p>
+<p>Eventhough this scripts of course works, you may get the impression already, that its a bit crowed and hard to read. Making your code easy to read is a major challenge in programming!</p>
+<p>Though the comparison you apply here is not extremly complicated, it can happen quite fast that you do multiple, complex operations in multiple cells and your notebook gets really long and crowdy. This is where you should use functions. They clear up your notebook and can make things easier to read and understand.</p>
 <p>Your goal should be to make your code understandable for others and for yourself (!) in the future.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -550,7 +552,7 @@ Too long!
 </div>
 <section id="exercise-10-0-think">
 <h3><strong>Exercise 10.0: Think!</strong><a class="headerlink" href="#exercise-10-0-think" title="Link to this heading">#</a></h3>
-<p>Take a look at the function <code class="docutils literal notranslate"><span class="pre">CompareLength</span></code>. What is missing here?</p>
+<p>Take a look at the function <code class="docutils literal notranslate"><span class="pre">CompareLength</span></code>. What is missing here? Why it still working?</p>
 <p><strong>Type your Answer</strong></p>
 </section>
 <section id="exercise-11-0">
@@ -579,7 +581,11 @@ Too long!
 <p>Documenting your code in a proper way is really really important. If you dont add documentation to your code, you will very likely forget what you tried to do and others that will look at your code will have no idea what you have done.</p>
 <p>This is unfortunately very common, but its a fallacy that is easy to fix.</p>
 <p>Lets start with adding some documentation to our function CompareLength. For our Python functions, we can add something called <a class="reference external" href="https://peps.python.org/pep-0257/"><code class="docutils literal notranslate"><span class="pre">DocString</span></code></a>.</p>
-<p>What does a DocString do? Why should we care? Lets think of a scenario. Your colleague sends you his new fancy function he designed to facilitate your experiment workflow. You import the function from a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, and then try to run it. Lets say, you get an <code class="docutils literal notranslate"><span class="pre">RunTime</span> <span class="pre">Error</span></code> back. Your first impuls is to see, if you maybe put the wrong arguments to your colleagues function. In Python, you can do something super cool and inspect all the important information of your function by typing <em>YourFunction?</em> in your code cell. Try that with our <em>CompareLength</em> Function.</p>
+<p>What does a DocString do? Why should we care? Lets think of a scenario. Your colleague sends you his new fancy function he designed to facilitate your experiment workflow. You import the function from a <code class="docutils literal notranslate"><span class="pre">.py</span></code> file, and then try to run it. Lets say, you get an <code class="docutils literal notranslate"><span class="pre">RunTime</span> <span class="pre">Error</span></code> back. Your first impuls is to see, if you maybe put the wrong arguments to your colleagues function. In Python, you can do something super cool and inspect all the important information of your function by typing</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>       *YourFunction?* 
+</pre></div>
+</div>
+<p>in your code cell. Try that with our <em>CompareLength</em> Function.</p>
 </section>
 <section id="exercise-12-0">
 <h3><strong>Exercise 12.0</strong><a class="headerlink" href="#exercise-12-0" title="Link to this heading">#</a></h3>
@@ -622,7 +628,7 @@ Too long!
 </section>
 <section id="exercise-14-0">
 <h3><strong>Exercise 14.0</strong><a class="headerlink" href="#exercise-14-0" title="Link to this heading">#</a></h3>
-<p>Lets finish this section with one last task. Try to create your very own function, that takes the <code class="docutils literal notranslate"><span class="pre">age</span></code> as its input and <code class="docutils literal notranslate"><span class="pre">returns</span></code> a brief categorization decision (I.e, does the age belong rather to a <em>young person</em> or to a <em>older person</em>). <strong>Hint:</strong> <code class="docutils literal notranslate"><span class="pre">If/Else</span> <span class="pre">clauses</span></code> come in handy here.</p>
+<p>Lets finish this section with one last task. Try to create your very own function (call it <code class="docutils literal notranslate"><span class="pre">age_categorization</span></code>), that takes the <code class="docutils literal notranslate"><span class="pre">age</span></code> as its input and <code class="docutils literal notranslate"><span class="pre">returns</span></code> a brief categorization decision (I.e, does the age belong rather to a <em>young person</em> or to a <em>older person</em>). <strong>Hint:</strong> <code class="docutils literal notranslate"><span class="pre">If/Else</span> <span class="pre">clauses</span></code> come in handy here.</p>
 <p>The way you define young and old does not matter at all. What matters is, that your functions returns this categorization. The output (returned value) should be a string, where as the input should be an integer.</p>
 <p>Add a doc string to your function.</p>
 <p>If you have troubles with the task, try to treat it like a cooking recipe:</p>
@@ -633,7 +639,29 @@ Too long!
 <p>What would you do to make sure, that your function only works if the age input is an integer? Do you have an idea, how you could penalize someone that tries to use a float value (e.g., 23.2) to the function?</p>
 </section>
 <section id="id1">
-<h3><strong>Bonus</strong>:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<h3><strong>Bonus</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The way the <code class="docutils literal notranslate"><span class="pre">age_categorization</span></code> function is now set up, it only takes a single values.</p>
+<p>Using this list:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      Ages = [15, 22, 75, 60, 45]
+</pre></div>
+</div>
+<p>loop through each of these age values and apply the categorization function here.</p>
+</section>
+<section id="if-this-is-too-easy-for-you">
+<h3>If this is too easy for you:<a class="headerlink" href="#if-this-is-too-easy-for-you" title="Link to this heading">#</a></h3>
+<p>Modify the function, so it no longer takes an integer as its input, but only a list. Implement a loop within your function, so it loops through this list and applies the categorization. Create two new lists called <code class="docutils literal notranslate"><span class="pre">young</span></code> and <code class="docutils literal notranslate"><span class="pre">old</span></code>. Append the categorized values to the respective list (young age should be appended to list called young and vice versa).</p>
+<p>Do no longer return a <code class="docutils literal notranslate"><span class="pre">string</span></code> but return these two lists.</p>
+<p>Evaluate your function based on the <code class="docutils literal notranslate"><span class="pre">Ages</span></code> list.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">45</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3><strong>Bonus</strong>:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Define a function called <code class="docutils literal notranslate"><span class="pre">calculation</span></code>. The function should take two arguments (two integers). Return both the product (muliplication) and the sum of these two integers</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -645,8 +673,8 @@ Too long!
 </div>
 </div>
 </section>
-<section id="id2">
-<h3><strong>Bonus</strong>:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3><strong>Bonus</strong>:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <p>Define a function called <code class="docutils literal notranslate"><span class="pre">count_evens</span></code>. The function should take a list as its input, and return the number of even elements in that list. Use any of the lists you defined earlier to test this function.</p>
 <p><strong>Hint</strong>: You can use the <code class="docutils literal notranslate"><span class="pre">modulo</span> <span class="pre">operator</span> <span class="pre">%</span></code> here. 5 % 2 == 0, 4 % 2 == 0.</p>
 <div class="cell docutils container">
@@ -706,8 +734,8 @@ Too long!
 </pre></div>
 </div>
 <p>You can put any thing you like instead of “np”, but “np” is extremly common and all other abbreviations will probably be very very confusing. So dont do that.</p>
-<section id="id3">
-<h3><strong>Exercise 14.0</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3><strong>Exercise 14.0</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Import <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> below and calculate the mean of the Lists we defined.</p>
 <p><strong>Hint</strong>: If you are unsure about which <code class="docutils literal notranslate"><span class="pre">arguments</span></code> to pass to the function, you can use <code class="docutils literal notranslate"><span class="pre">np.mean?</span></code> to get more information (i.e, the Docstring)</p>
 <p>So hopefully, you now have rough idea of what modules actually are. Remember: If you need to solve a problem and do not know, which module or function you should use, simply google it (“How to calculate the mean of a list in python”, “how to get the standard deviation of a list in python”…)
@@ -787,12 +815,14 @@ It is near impossible to list all possible functions and modules in any course, 
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-13-0"><strong>Exercise 13.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-14-0"><strong>Exercise 14.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong>:</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus</strong>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#if-this-is-too-easy-for-you">If this is too easy for you:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Bonus</strong>:</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Bonus</strong>:</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#packages-modules-and-libraries">Packages, Modules and libraries</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise 14.0</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise 14.0</strong></a></li>
 </ul>
 </li>
 </ul>
