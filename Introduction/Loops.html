@@ -439,6 +439,10 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-0-think"><strong>Exercise 6.0: Think!</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-0"><strong>Exercise 7.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">RECAP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-recap-exercise"><strong>Final recap exercise</strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-0"><strong>Exercise 8.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-exercise"><strong>Bonus Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus Exercise</strong></a></li>
@@ -508,17 +512,343 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">school_average</span> <span class="o">=</span> <span class="mf">2.8</span>
 <span class="n">grades</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">3.7</span><span class="p">,</span> <span class="mf">3.9</span><span class="p">]</span>
-
+<span class="n">below_average</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">above_average</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">grade</span> <span class="ow">in</span> <span class="n">grades</span><span class="p">:</span>
-          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
-                    
-                    
-          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
-                    
+          <span class="k">if</span> <span class="n">grade</span> <span class="o">&lt;</span> <span class="n">school_average</span><span class="p">:</span>
+                    <span class="n">above_average</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
+          <span class="k">elif</span> <span class="n">grade</span> <span class="o">&gt;</span> <span class="n">school_average</span><span class="p">:</span>
+                    <span class="n">below_average</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">grade</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="recap">
+<h2>RECAP<a class="headerlink" href="#recap" title="Link to this heading">#</a></h2>
+<p>So far, we have learned what variables and logical operators are, how to apply if/else clauses, what a for loop is and how to combine these concepts.</p>
+<p>Variables are like a box you can use to store things in for later. For example, you can create a box called <code class="docutils literal notranslate"><span class="pre">Age</span></code> and store in it the value 27. You use it at any time now, once you stored in the box (e.g., once you put Age = 25 in your code terminal and you clicked on <code class="docutils literal notranslate"><span class="pre">run</span></code> (or <code class="docutils literal notranslate"><span class="pre">str+enter</span></code>) in your code cell).</p>
+<p>Age is the name of that box, and 27 is the value that is stored in it. Once you told python about that box (meaning, you clicked on <code class="docutils literal notranslate"><span class="pre">run</span></code> in your code cell), python will now know about that box and its value. You can store any value you like in a box. You can also put text (this is what we call a <code class="docutils literal notranslate"><span class="pre">string</span></code>) in a box.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      Name = &quot;Janos&quot;
+</pre></div>
+</div>
+<p>Now python will know about that aswell, as long as you execute(run) the code cell.</p>
+<p>If you forgot what is inside your box, you have two options. You can use <code class="docutils literal notranslate"><span class="pre">print(box)</span></code> or simply type <code class="docutils literal notranslate"><span class="pre">box</span></code> in your cell and run it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Janos&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span>
+<span class="n">Name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Janos
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Janos&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>These two ways are equivalent! Importantly, if you want to use your box for a operation later on, you have to make sure that you told python about the box before.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="o">+</span> <span class="n">Name</span>
+<span class="n">hello</span> <span class="o">=</span> <span class="s1">&#39;Hi &#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [14],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">hello</span> <span class="o">+</span> <span class="n">Name</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">hello</span> <span class="o">=</span> <span class="s1">&#39;Hi &#39;</span>
+
+<span class="ne">NameError</span>: name &#39;hello&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<p>This will give you a <code class="docutils literal notranslate"><span class="pre">NameError</span></code>. The error message explicitly says: <em>name ‘hello’ is not defined</em>. Why? Because we first told python to use the variable (box) <code class="docutils literal notranslate"><span class="pre">Name</span></code>, add to it another variable called <code class="docutils literal notranslate"><span class="pre">hello</span></code>, before telling python, what <code class="docutils literal notranslate"><span class="pre">hello</span></code> actually is.</p>
+<p>So make always sure, to create and initiate (run your variable in a code cell, so python know that it should remember it) your variables, before using them in a subsequent operation.</p>
+<p>Python checks your code lines <code class="docutils literal notranslate"><span class="pre">line</span> <span class="pre">by</span> <span class="pre">line</span></code>. If any code line is faulty, it will break. Thats why in the example above, python will <em>never</em> reach</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      hello = &quot;Hi &quot;
+</pre></div>
+</div>
+<p>because it already fails at</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      hello + Name
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="o">=</span> <span class="s2">&quot;Hi &quot;</span>
+<span class="n">hello</span> <span class="o">+</span> <span class="n">Name</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hi Janos&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>These boxes are not <code class="docutils literal notranslate"><span class="pre">dependent</span></code> from a code cell. Meaning</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dog</span> <span class="o">=</span> <span class="s2">&quot;Amazing&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cat</span> <span class="o">=</span> <span class="s2">&quot;Scary&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dogs are </span><span class="si">{</span><span class="n">dog</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cats are </span><span class="si">{</span><span class="n">cat</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dogs are Amazing
+Cats are Scary
+</pre></div>
+</div>
+</div>
+</div>
+<p>This still works, eventhough we defined both <code class="docutils literal notranslate"><span class="pre">cat</span></code> and <code class="docutils literal notranslate"><span class="pre">dog</span></code> in seperate cells.</p>
+<p>Long story short:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      1. Be mindful of the variables you want to use, how you call them, and what type they should be (integer,float,string,list)
+
+      2. If you want to use these variables for subsequent operations, make sure to create them before!
+
+      3. Try to avoid accidently overwriting your variables
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Janos&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Janos
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span> <span class="o">=</span> <span class="s2">&quot;Ben&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Name</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ben
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lists can be used to store more than one value.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">banana</span> <span class="o">=</span> <span class="s2">&quot;banana&quot;</span>
+
+<span class="n">peanut_butter</span> <span class="o">=</span> <span class="s2">&quot;peanut butter&quot;</span>
+
+<span class="n">Pasta</span> <span class="o">=</span> <span class="s2">&quot;pasta&quot;</span>
+
+<span class="n">shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">banana</span><span class="p">,</span><span class="n">peanut_butter</span><span class="p">,</span><span class="n">Pasta</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shopping_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;banana&#39;, &#39;peanut butter&#39;, &#39;pasta&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>This works as well</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;banana&quot;</span><span class="p">,</span><span class="s2">&quot;peanut butter&quot;</span><span class="p">,</span><span class="s2">&quot;Pasta&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">shopping_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;banana&#39;, &#39;peanut butter&#39;, &#39;Pasta&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Logical operators are used to compare <code class="docutils literal notranslate"><span class="pre">variables,</span> <span class="pre">or</span> <span class="pre">values</span></code>. The most common ones are</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      &lt;         Something is smaller than something
+      &gt;         Something is larger than something
+      ==        Something is equal to something
+      !=        Something is NOT equal to something
+      =&gt;        Something is more or equal to something
+      &lt;=        Something is less or equal to something
+</pre></div>
+</div>
+<p>The output of these operators is always a <code class="docutils literal notranslate"><span class="pre">logical</span></code>, e.g. <code class="docutils literal notranslate"><span class="pre">True</span></code> if the condition is met or <code class="docutils literal notranslate"><span class="pre">False</span></code> if the condition is <strong>not</strong> met</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">3</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(True, False)
+</pre></div>
+</div>
+</div>
+</div>
+<p>If/else clauses can be used to further investigate these ideas of logical operators. They are valuable, when you want your computer to only do a certain thing (print something, do something…) <code class="docutils literal notranslate"><span class="pre">if</span></code> a condition is met (e.g., its logical value is <code class="docutils literal notranslate"><span class="pre">True</span></code>).</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      if KVB == Strike and weather == rainy:           (returns True, if the KVB is on strike and it is raining outside)
+                skip_classes()
+      elif weather == rainy:                            (Will only be checked if the first condition (KVB on strike and weather == rainy) is `False`; returns `True`, if it is raining)
+                use_KVB()
+      elif KVB == Strike:                               (Will only be checked, if neither if/elif statements are True.)
+                use_bike()     
+</pre></div>
+</div>
+<p>We do not need an else statement for this to work! Else should be used in situations, where you need a “fallback” action.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      if salary &gt; 3000:                                (If the salary is above 3000 euros, accept it)
+                accept_offer()
+      elif salary &gt; 2500:                              (If it is not above 3000 euros, but its still above 2500 euros, try to negotiate)
+                negotiate()
+      else:                                            (If its neither above 3000, nor above 2500, you dont see any point. You decline the offer.)
+                decline_offer()
+</pre></div>
+</div>
+<p>A for loop can be used to tell python, do something over and over again. For example, you can tell python to go over each individual element in <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code>.</p>
+<p>The alternative way (without using for loops) would be to do</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shopping_list</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">shopping_list</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">shopping_list</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;banana&#39;, &#39;peanut butter&#39;, &#39;Pasta&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>But with a for loop you can tell pythoh, go through each element that is stored in <code class="docutils literal notranslate"><span class="pre">shopping_list</span></code> and do something with it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">shopping_list</span><span class="p">:</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>banana
+peanut butter
+Pasta
+</pre></div>
+</div>
+</div>
+</div>
+<p>Lets break it down:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      for (tells python, that you start are starting a for-loop) 
+      item (the iterator. This is the name you give to each thing in the list as you loop through it. You can call it anything you want )
+      in shopping_list (Tells python: &quot;Look inside the list called shopping_list, and go through each item one by one&quot;)
+      print(item)       (Tells python, that you want to print each item, that you go through with your for loop)
+</pre></div>
+</div>
+<p>We can combine both if/else clauses and for loops</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">shopping_list</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;peanut butter&quot;</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Thats all I need&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Thats all I need
+</pre></div>
+</div>
+</div>
+</div>
+<p>Explaination:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      You tell python to go through each item in your shopping list. If that item is peanut butter you want to print something.
+</pre></div>
+</div>
+<p>And at last, we can also use our newly discovered list datatype to extract items from a for loop</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FoodICareAbout</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">FoodIDontCareAbout</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">shopping_list</span><span class="p">:</span>
+          <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="s2">&quot;peanut butter&quot;</span><span class="p">:</span>
+                    <span class="n">FoodICareAbout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+          <span class="k">else</span><span class="p">:</span>
+                    <span class="n">FoodIDontCareAbout</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Explaination:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      You tell python to go through each item in your shopping list. If that item is peanut butter you want to `append` (add) it to a list called `FoodICareAbout`.
+      If the item in shopping list is not peanut butter, you want to add that item to a list called `FoodIDontCareAbout`:
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I care about </span><span class="si">{</span><span class="n">FoodICareAbout</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I dont care about </span><span class="si">{</span><span class="n">FoodIDontCareAbout</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I care about [&#39;peanut butter&#39;]
+I dont care about [&#39;banana&#39;, &#39;Pasta&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FoodICareAbout</span><span class="p">,</span><span class="n">FoodIDontCareAbout</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>([&#39;peanut butter&#39;], [&#39;banana&#39;, &#39;Pasta&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="final-recap-exercise">
+<h3><strong>Final recap exercise</strong>:<a class="headerlink" href="#final-recap-exercise" title="Link to this heading">#</a></h3>
+<p>Create a list, and give it any name you like
+All these options work and are valid</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      Food = [] 
+      Hobbies = []
+      AList = []
+</pre></div>
+</div>
+<p>Add (type something in the [] brackets) any value you want to. For example, you could add your favorite breakfast/lunch/dessert options (in strings “”) or whatever you like and name your list <code class="docutils literal notranslate"><span class="pre">FoodIlike</span></code>.</p>
+<p>Then use a for loop to go through each item in that list. Try to come up with something that either involves <code class="docutils literal notranslate"><span class="pre">if/else</span></code> clauses or the <code class="docutils literal notranslate"><span class="pre">list.append</span></code> functionality. If you want to use the latter, make sure to create two new lists, so python knows where you want to store your items in !</p>
+<p><strong>Hint</strong>: Take a look at the solution from exercise 7.0, if you are stuck.</p>
+<p>Once your for loop is completed (the loop went through <strong>ALL</strong> values), add a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement that says “Loop finished”</p>
+<p><img alt="Questions" src="../_images/questions.gif" /></p>
 <p>We can also use for loops to compute the sum of a list</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -623,7 +953,7 @@ For example, if you want to know, at what position a grade is below or above ave
 </div>
 </div>
 </div>
-<p><img alt="Questions" src="../_images/questions.gif" /></p>
+<p><img alt="Otter" src="../_images/otter.gif" /></p>
 </section>
 </section>
 <section id="while-loops">
@@ -824,6 +1154,10 @@ Break
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-loops">For Loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-6-0-think"><strong>Exercise 6.0: Think!</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-7-0"><strong>Exercise 7.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recap">RECAP</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#final-recap-exercise"><strong>Final recap exercise</strong>:</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-8-0"><strong>Exercise 8.0</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus-exercise"><strong>Bonus Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Bonus Exercise</strong></a></li>
