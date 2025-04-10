@@ -450,8 +450,10 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-0"><strong>Exercise 9.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control"><strong>Flow Control</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Bonus</strong></a></li>
 </ul>
 </li>
 </ul>
@@ -1039,7 +1041,12 @@ ticket_price = 10
 </div>
 </div>
 </div>
-<p>We can also expand on this idea and use something called the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement.</p>
+</section>
+</section>
+<section id="flow-control">
+<h2><strong>Flow Control</strong><a class="headerlink" href="#flow-control" title="Link to this heading">#</a></h2>
+<p>We can also expand on this idea and use something called <code class="docutils literal notranslate"><span class="pre">flow</span> <span class="pre">control</span></code>.</p>
+<p><img alt="flow" src="../_images/python_break_continue_pass.png" /></p>
 <p><code class="docutils literal notranslate"><span class="pre">break</span></code> can be inserted in your loops, it will automatically stop your loop, eventhough the <code class="docutils literal notranslate"><span class="pre">while</span></code> condition is still true.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1063,26 +1070,45 @@ Break
 </div>
 </div>
 </div>
-</section>
-<section id="bonus">
-<h3><strong>Bonus</strong><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h3>
-<p>Use this feature and add it to the while loop from exercise 9.0. Since you are a greedy person, you only want to invite two of your friends. Include this in your loop.</p>
+<p>Continue can be used to stop a <code class="docutils literal notranslate"><span class="pre">current</span></code> iteration, but you still want to go through the remaining items</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">....</span><span class="p">:</span>
-           <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span><span class="n">A</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
+          <span class="c1">#print(&quot;Still true&quot;)</span>
+          <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+          <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I dont care about that value </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, just start over&quot;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+          <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I dont like that value </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">, stop the loop&quot;</span><span class="p">)</span>
+                    <span class="k">break</span>
+          <span class="k">elif</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;This does actually nothing at value </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I dont care about that value 1, just start over
+This does actually nothing at value 2
+I dont like that value 3, stop the loop
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="id2">
-<h3><strong>Bonus</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
-<p>Using a while loop, calculate a product , until the product is larger than 1000.</p>
-<p>Start with:</p>
-<p><code class="docutils literal notranslate"><span class="pre">product</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
-<p><code class="docutils literal notranslate"><span class="pre">num</span> <span class="pre">=</span> <span class="pre">1</span></code></p>
-<p><em>Hint</em>: Multiply <code class="docutils literal notranslate"><span class="pre">product</span> <span class="pre">by</span> <span class="pre">num</span></code> and update both num and product at each iteration!</p>
+<section id="bonus">
+<h3><strong>Bonus</strong><a class="headerlink" href="#bonus" title="Link to this heading">#</a></h3>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">break</span></code> feature and add it to the while loop from exercise 9.0. Since you are a greedy person, you only want to invite two of your friends. Include this in your loop.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">....</span><span class="p">:</span>
+           <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -1165,8 +1191,10 @@ Break
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#while-loops">While Loops</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-9-0"><strong>Exercise 9.0</strong></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow-control"><strong>Flow Control</strong></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bonus"><strong>Bonus</strong></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Bonus</strong></a></li>
 </ul>
 </li>
 </ul>
