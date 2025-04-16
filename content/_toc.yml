@@ -11,6 +11,7 @@ chapters:
   - file: Introduction/FunctionsAndModules.ipynb
   - file: Introduction/FirstSummary.md
   - file: Introduction/DataStructures.ipynb
+- file: Introduction/OptionalHomeWork.ipynb
   
 
  # sections:
