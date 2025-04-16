@@ -4,6 +4,7 @@ chapters:
 - file: CoC.md
 - file: DEI.md
 - file: BasicConcepts.md
+- file: LinksToNotebooks.md
 - file: Introduction/CourseExplain.md
   sections: 
   - file: Introduction/PythonBasics.ipynb
