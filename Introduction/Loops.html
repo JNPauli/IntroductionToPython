@@ -851,6 +851,26 @@ All these options work and are valid</p>
 <p>Then use a for loop to go through each item in that list. Try to come up with something that either involves <code class="docutils literal notranslate"><span class="pre">if/else</span></code> clauses or the <code class="docutils literal notranslate"><span class="pre">list.append</span></code> functionality. If you want to use the latter, make sure to create two new lists, so python knows where you want to store your items in !</p>
 <p><strong>Hint</strong>: Take a look at the solution from exercise 7.0, if you are stuck.</p>
 <p>Once your for loop is completed (the loop went through <strong>ALL</strong> values), add a <code class="docutils literal notranslate"><span class="pre">print</span></code> statement that says “Loop finished”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hobbies</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Prepare Python Course&quot;</span><span class="p">,</span><span class="s2">&quot;Sleep&quot;</span><span class="p">,</span><span class="s2">&quot;Run&quot;</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">hobby</span> <span class="ow">in</span> <span class="n">hobbies</span><span class="p">:</span>
+          <span class="k">if</span> <span class="s2">&quot;Python&quot;</span> <span class="ow">in</span> <span class="n">hobby</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">hobby</span><span class="si">}</span><span class="s2"> is a respectable hobby&quot;</span><span class="p">)</span>
+          <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Why even bother with </span><span class="si">{</span><span class="n">hobby</span><span class="si">}</span><span class="s2">?&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Prepare Python Course is a respectable hobby
+Why even bother with Sleep?
+Why even bother with Run?
+</pre></div>
+</div>
+</div>
+</div>
 <p><img alt="Questions" src="../_images/questions.gif" /></p>
 <p>We can also use for loops to compute the sum of a list</p>
 <div class="cell docutils container">
@@ -915,7 +935,17 @@ For example, if you want to know, at what position a grade is below or above ave
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">pos</span><span class="p">,</span><span class="n">grade</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">grades</span><span class="p">):</span>
+          <span class="k">if</span> <span class="n">grade</span> <span class="o">&gt;</span> <span class="n">school_average</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The grade </span><span class="si">{</span><span class="n">grade</span><span class="si">}</span><span class="s2"> at index </span><span class="si">{</span><span class="n">pos</span><span class="si">}</span><span class="s2"> is below average&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The grade 4.4 at index 2 is below average
+The grade 5.0 at index 3 is below average
+The grade 3.7 at index 4 is below average
+The grade 3.9 at index 5 is below average
 </pre></div>
 </div>
 </div>
@@ -934,7 +964,20 @@ For example, if you want to know, at what position a grade is below or above ave
 <p><strong>Hint</strong>: This gets easier if you use the list datatype</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+          <span class="nb">print</span><span class="p">(</span><span class="o">*</span><span class="n">l</span><span class="p">)</span>
+          <span class="n">l</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
 </pre></div>
 </div>
 </div>
@@ -951,7 +994,26 @@ For example, if you want to know, at what position a grade is below or above ave
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">first</span><span class="p">,</span><span class="n">second</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
+<span class="n">num</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">):</span>
+          <span class="nb">print</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+          <span class="n">num</span> <span class="o">=</span> <span class="n">first</span><span class="o">+</span><span class="n">second</span>
+          <span class="n">first</span> <span class="o">=</span> <span class="n">second</span>
+          <span class="n">second</span> <span class="o">=</span> <span class="n">num</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+1
+2
+3
+5
+8
+13
+21
+34
 </pre></div>
 </div>
 </div>
@@ -1035,9 +1097,27 @@ ticket_price = 10
 <p>You have 43 euros/dollars/… and want to invite as many friends as you can. Each ticket costs 10 euros. You can only invite friends <em>while</em> you have enough money to pay for the ticket, e.g. while you have more money than the ticket should cost.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span><span class="o">....</span><span class="p">:</span>
-          <span class="o">....</span>
-          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">friends</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">money</span> <span class="o">=</span> <span class="mi">43</span>
+<span class="n">ticket_price</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">while</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="n">ticket_price</span><span class="p">:</span>
+          
+          <span class="n">money</span><span class="o">-=</span><span class="n">ticket_price</span>
+          
+          <span class="k">if</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                    <span class="n">friends</span><span class="o">+=</span><span class="mi">1</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I already invited </span><span class="si">{</span><span class="n">friends</span><span class="si">}</span><span class="s2"> friends and I have </span><span class="si">{</span><span class="n">money</span><span class="si">}</span><span class="s2"> euros left&quot;</span><span class="p">)</span>
+          <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I have no more money to invite any of my friends&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I already invited 1 friends and I have 33 euros left
+I already invited 2 friends and I have 23 euros left
+I already invited 3 friends and I have 13 euros left
+I have no more money to invite any of my friends
 </pre></div>
 </div>
 </div>
@@ -1104,8 +1184,29 @@ I dont like that value 3, stop the loop
 <p>Use the <code class="docutils literal notranslate"><span class="pre">break</span></code> feature and add it to the while loop from exercise 9.0. Since you are a greedy person, you only want to invite two of your friends. Include this in your loop.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="o">....</span><span class="p">:</span>
-           <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">friends</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">money</span> <span class="o">=</span> <span class="mi">43</span>
+<span class="n">ticket_price</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="k">while</span> <span class="n">money</span> <span class="o">&gt;=</span> <span class="n">ticket_price</span><span class="p">:</span>
+          
+          <span class="n">money</span><span class="o">-=</span><span class="n">ticket_price</span>
+          
+          <span class="k">if</span> <span class="n">money</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">:</span>
+                    <span class="n">friends</span><span class="o">+=</span><span class="mi">1</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I already invited </span><span class="si">{</span><span class="n">friends</span><span class="si">}</span><span class="s2"> friends and I have </span><span class="si">{</span><span class="n">money</span><span class="si">}</span><span class="s2"> euros left&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">friends</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                              <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;I am greedy as hell!&quot;</span><span class="p">)</span>
+                              <span class="k">break</span>
+          <span class="k">else</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I have no more money to invite any of my friends&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I already invited 1 friends and I have 33 euros left
+I already invited 2 friends and I have 23 euros left
+I am greedy as hell!
 </pre></div>
 </div>
 </div>
