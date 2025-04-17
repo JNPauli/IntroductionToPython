@@ -453,7 +453,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>Exercise</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting"><strong>Plotting</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-plotting"><strong>Data Visualization and Plotting</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -579,8 +582,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.69557511, 0.36510263, 1.41646891, 2.48509708,
-        3.05685476, 5.22955394, 5.33026343, 0.56781218, 2.56540276]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.        , 0.27416264, 0.65348972, 2.38691933, 0.05090751,
+        4.33516312, 3.4804216 , 6.213112  , 3.76518539, 7.90406815]])
 </pre></div>
 </div>
 </div>
@@ -599,14 +602,101 @@ document.write(`
 </div>
 </div>
 </div>
-<p>This returns an array of <code class="docutils literal notranslate"><span class="pre">boolean</span></code> values, where the condition is either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+<p>This returns an array of <code class="docutils literal notranslate"><span class="pre">boolean</span></code> values, where the condition is either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.
+We can use this output of boolean values as a <code class="docutils literal notranslate"><span class="pre">mask</span></code>. Masks are basically an accelarated version of <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">element</span> <span class="pre">in</span> <span class="pre">list,</span> <span class="pre">append</span> <span class="pre">to</span> <span class="pre">another</span> <span class="pre">list,</span> <span class="pre">else</span> <span class="pre">append</span> <span class="pre">to</span> <span class="pre">another</span> <span class="pre">list</span></code> thing we practised before.</p>
+<p>Disadvantage: This mask performs the comparison element by element.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">values</span> <span class="o">&gt;</span> <span class="n">SlicedArray</span>
+<span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3, 4, 5, 6, 7, 8, 9])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">element</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
+          <span class="k">if</span> <span class="n">element</span> <span class="o">&gt;</span> <span class="n">SlicedArray</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">idx</span><span class="p">]:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+          <span class="k">else</span><span class="p">:</span>
+                    <span class="k">continue</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre></div>
+</div>
+</div>
+</div>
+<p>Another example for that</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">menu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;Espresso&quot;</span><span class="p">,</span> <span class="s2">&quot;Latte&quot;</span><span class="p">,</span> <span class="s2">&quot;Cappuccino&quot;</span><span class="p">,</span> <span class="s2">&quot;Americano&quot;</span><span class="p">,</span> <span class="s2">&quot;Mocha&quot;</span><span class="p">])</span>
+<span class="n">orders</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">menu</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orders_loop</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
+          <span class="n">ran</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">menu</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+          <span class="n">orders_loop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu</span><span class="p">[</span><span class="n">ran</span><span class="p">])</span>
+<span class="n">orders_loop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">orders_loop</span><span class="p">)</span>
+<span class="n">orders_loop</span><span class="p">,</span><span class="n">orders</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Latte&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Latte&#39;, &#39;Mocha&#39;,
+        &#39;Cappuccino&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;,
+        &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Mocha&#39;, &#39;Latte&#39;, &#39;Americano&#39;, &#39;Americano&#39;,
+        &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;,
+        &#39;Mocha&#39;, &#39;Espresso&#39;, &#39;Mocha&#39;, &#39;Mocha&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;,
+        &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Espresso&#39;,
+        &#39;Cappuccino&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;,
+        &#39;Latte&#39;, &#39;Cappuccino&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Cappuccino&#39;,
+        &#39;Latte&#39;, &#39;Cappuccino&#39;, &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;],
+       dtype=&#39;&lt;U10&#39;),
+ array([&#39;Mocha&#39;, &#39;Latte&#39;, &#39;Latte&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Cappuccino&#39;,
+        &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;,
+        &#39;Latte&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;,
+        &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Americano&#39;,
+        &#39;Cappuccino&#39;, &#39;Americano&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Americano&#39;,
+        &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Mocha&#39;,
+        &#39;Latte&#39;, &#39;Americano&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;,
+        &#39;Cappuccino&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;, &#39;Americano&#39;,
+        &#39;Cappuccino&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Americano&#39;,
+        &#39;Espresso&#39;, &#39;Cappuccino&#39;], dtype=&#39;&lt;U10&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+<p>So as you can see, its basically just a for loop, sort of! Most of numpy is actually written in the programming language <code class="docutils literal notranslate"><span class="pre">C</span></code>. TDLR: Python has the ability to call C functions (which are much faster, than vanilla Python Syntax). The C Functions are simply <code class="docutils literal notranslate"><span class="pre">wraped</span></code> in python functions, which makes them easy to use!</p>
 </section>
 <section id="exercise">
 <h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
-<p>Create one numpy array with values from 1 to 511 in steps of 2 and assign it to a variable.</p>
-<p>Create another numpy array with values from 1 to 256 in steps of 1.</p>
-<p>Create a <code class="docutils literal notranslate"><span class="pre">mask</span></code> of boolen values, which should be True if the elements of the two arrays are equal, and False if not.</p>
-<p>Use this mask to index into the second array and create a new array with the extracted values. How does the new array differ from the latter ones?</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function, create one numpy array with values from 1 to 512 in steps of 2 and call the variable “all_scores”.</p>
+<p>Create another numpy array with values from 1 to 257 in steps of 1 and call it high_scores.</p>
+<p>Your task is to find out, which values from <code class="docutils literal notranslate"><span class="pre">high_scores</span></code> are actually in <code class="docutils literal notranslate"><span class="pre">all_scores</span></code>.</p>
+<p>Create a <code class="docutils literal notranslate"><span class="pre">mask</span></code> of boolen values, which should be True if an element of high_scores is in all_scores, and False otherwise. Use the <code class="docutils literal notranslate"><span class="pre">np.isin(firstarray,secondarray)</span></code> function to create the mask.
+Which array should you pass as the first argument, and which as the second? Use <code class="docutils literal notranslate"><span class="pre">np.isin?</span></code> to find out!</p>
+<p>Use this mask to create a new array called <code class="docutils literal notranslate"><span class="pre">valid_high_scores</span></code>. How do these array differ in their shape and distribution (mean+standard deviation)?</p>
 </section>
 <section id="id1">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -633,14 +723,13 @@ document.write(`
 <section id="pandas">
 <h2>Pandas<a class="headerlink" href="#pandas" title="Link to this heading">#</a></h2>
 <p>So pandas is <em>the</em> python library you want to use for organizing, manipulating and analyzing your datasets. The standard datatype used in pandas are <code class="docutils literal notranslate"><span class="pre">dataframes</span></code>.
-Pandas dataframes are basically like a excel sheet, but way, way better.</p>
+Pandas dataframes are basically like an excel sheet, but way, way better.</p>
 <p>In this section, we will download a dataset and use this to explore dataframes and apply what we have learned so far.</p>
 <p>But first the basic import:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      import pandas as pd
 </pre></div>
 </div>
 <p>This is the way to go. Again, you can use what ever abbreviation you want to, but I dont think I saw any code where some just used <code class="docutils literal notranslate"><span class="pre">pandas.xyz</span></code> or <code class="docutils literal notranslate"><span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">p</span></code> or something strange like that.</p>
-<p>The dataset we will use is a up-to-date netflix meta-data one. (I was debating to use this one or one that is pokemon based)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -664,29 +753,24 @@ Pandas dataframes are basically like a excel sheet, but way, way better.</p>
 <span class="sd">The array needs to be reshaped into a 1-D Vector, so it can be passed to the pd.DataFrame() method.</span>
 
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="n">reaction_time_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Participant_number&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span>
-          <span class="s2">&quot;Reaction_times&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-
+<span class="n">coffee_order_dictionary</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Customer_ID&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">51</span><span class="p">),</span>
+    <span class="s2">&quot;Drink&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span>
+        <span class="p">[</span><span class="s2">&quot;Latte&quot;</span><span class="p">,</span> <span class="s2">&quot;Espresso&quot;</span><span class="p">,</span> <span class="s2">&quot;Cappuccino&quot;</span><span class="p">,</span> <span class="s2">&quot;Americano&quot;</span><span class="p">,</span> <span class="s2">&quot;Mocha&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span>
+    <span class="s2">&quot;Size&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;Small&quot;</span><span class="p">,</span> <span class="s2">&quot;Medium&quot;</span><span class="p">,</span> <span class="s2">&quot;Large&quot;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span> <span class="c1">#np.random.choice picks one element at a time at random</span>
+    <span class="s2">&quot;Time_to_prepare_sec&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="p">}</span>
-<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">reaction_time_dictionary</span><span class="p">)</span>
+<span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">coffee_order_dictionary</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>So the expected shape of our dataframe should look like this!</p>
 <p><img alt="df" src="../_images/pandas_table.svg" /></p>
-<p>You can again use the <code class="docutils literal notranslate"><span class="pre">?</span></code> here to gather more information about your dataframe.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dataframe<span class="o">?</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>We can use the <code class="docutils literal notranslate"><span class="pre">dataframe.head(n=n)</span></code> method to display the first n-entries of our dataframe.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dataframe</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -709,29 +793,214 @@ Pandas dataframes are basically like a excel sheet, but way, way better.</p>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Participant_number</th>
-      <th>Reaction_times</th>
+      <th>Customer_ID</th>
+      <th>Drink</th>
+      <th>Size</th>
+      <th>Time_to_prepare_sec</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>0</td>
-      <td>0.800368</td>
+      <td>1</td>
+      <td>Espresso</td>
+      <td>Small</td>
+      <td>92</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1</td>
-      <td>0.514193</td>
+      <td>2</td>
+      <td>Americano</td>
+      <td>Small</td>
+      <td>89</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2</td>
-      <td>0.186876</td>
+      <td>3</td>
+      <td>Cappuccino</td>
+      <td>Large</td>
+      <td>198</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>Cappuccino</td>
+      <td>Large</td>
+      <td>223</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>Cappuccino</td>
+      <td>Large</td>
+      <td>286</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>6</td>
+      <td>Cappuccino</td>
+      <td>Large</td>
+      <td>102</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>7</td>
+      <td>Latte</td>
+      <td>Small</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>Latte</td>
+      <td>Medium</td>
+      <td>271</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>Mocha</td>
+      <td>Small</td>
+      <td>282</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>10</td>
+      <td>Latte</td>
+      <td>Small</td>
+      <td>257</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
+</div>
+<p>You can again use the <code class="docutils literal notranslate"><span class="pre">?</span></code> here to gather more information about your dataframe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dataframe<span class="o">?</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Bold -Color-Bold-Red">Type:</span>        DataFrame
+<span class=" -Color -Color-Bold -Color-Bold-Red">String form:</span>
+Customer_ID       Drink    Size  Time_to_prepare_sec
+           0            1    Espresso   Small        &lt;...&gt;        Mocha   Small                  282
+           9           10       Latte   Small                  257
+<span class=" -Color -Color-Bold -Color-Bold-Red">Length:</span>      10
+<span class=" -Color -Color-Bold -Color-Bold-Red">File:</span>        c:\users\janos\anaconda3\lib\site-packages\pandas\core\frame.py
+<span class=" -Color -Color-Bold -Color-Bold-Red">Docstring:</span>  
+Two-dimensional, size-mutable, potentially heterogeneous tabular data.
+
+Data structure also contains labeled axes (rows and columns).
+Arithmetic operations align on both row and column labels. Can be
+thought of as a dict-like container for Series objects. The primary
+pandas data structure.
+
+Parameters
+----------
+data : ndarray (structured or homogeneous), Iterable, dict, or DataFrame
+    Dict can contain Series, arrays, constants, dataclass or list-like objects. If
+    data is a dict, column order follows insertion-order. If a dict contains Series
+    which have an index defined, it is aligned by its index.
+
+    .. versionchanged:: 0.25.0
+       If data is a list of dicts, column order follows insertion-order.
+
+index : Index or array-like
+    Index to use for resulting frame. Will default to RangeIndex if
+    no indexing information part of input data and no index provided.
+columns : Index or array-like
+    Column labels to use for resulting frame when data does not have them,
+    defaulting to RangeIndex(0, 1, 2, ..., n). If data contains column labels,
+    will perform column selection instead.
+dtype : dtype, default None
+    Data type to force. Only a single dtype is allowed. If None, infer.
+copy : bool or None, default None
+    Copy data from inputs.
+    For dict data, the default of None behaves like ``copy=True``.  For DataFrame
+    or 2d ndarray input, the default of None behaves like ``copy=False``.
+
+    .. versionchanged:: 1.3.0
+
+See Also
+--------
+DataFrame.from_records : Constructor from tuples, also record arrays.
+DataFrame.from_dict : From dicts of Series, arrays, or dicts.
+read_csv : Read a comma-separated values (csv) file into DataFrame.
+read_table : Read general delimited file into DataFrame.
+read_clipboard : Read text from clipboard into DataFrame.
+
+Examples
+--------
+Constructing DataFrame from a dictionary.
+
+&gt;&gt;&gt; d = {&#39;col1&#39;: [1, 2], &#39;col2&#39;: [3, 4]}
+&gt;&gt;&gt; df = pd.DataFrame(data=d)
+&gt;&gt;&gt; df
+   col1  col2
+0     1     3
+1     2     4
+
+Notice that the inferred dtype is int64.
+
+&gt;&gt;&gt; df.dtypes
+col1    int64
+col2    int64
+dtype: object
+
+To enforce a single dtype:
+
+&gt;&gt;&gt; df = pd.DataFrame(data=d, dtype=np.int8)
+&gt;&gt;&gt; df.dtypes
+col1    int8
+col2    int8
+dtype: object
+
+Constructing DataFrame from a dictionary including Series:
+
+&gt;&gt;&gt; d = {&#39;col1&#39;: [0, 1, 2, 3], &#39;col2&#39;: pd.Series([2, 3], index=[2, 3])}
+&gt;&gt;&gt; pd.DataFrame(data=d, index=[0, 1, 2, 3])
+   col1  col2
+0     0   NaN
+1     1   NaN
+2     2   2.0
+3     3   3.0
+
+Constructing DataFrame from numpy ndarray:
+
+&gt;&gt;&gt; df2 = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]),
+...                    columns=[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
+&gt;&gt;&gt; df2
+   a  b  c
+0  1  2  3
+1  4  5  6
+2  7  8  9
+
+Constructing DataFrame from a numpy ndarray that has labeled columns:
+
+&gt;&gt;&gt; data = np.array([(1, 2, 3), (4, 5, 6), (7, 8, 9)],
+...                 dtype=[(&quot;a&quot;, &quot;i4&quot;), (&quot;b&quot;, &quot;i4&quot;), (&quot;c&quot;, &quot;i4&quot;)])
+&gt;&gt;&gt; df3 = pd.DataFrame(data, columns=[&#39;c&#39;, &#39;a&#39;])
+...
+&gt;&gt;&gt; df3
+   c  a
+0  3  1
+1  6  4
+2  9  7
+
+Constructing DataFrame from dataclass:
+
+&gt;&gt;&gt; from dataclasses import make_dataclass
+&gt;&gt;&gt; Point = make_dataclass(&quot;Point&quot;, [(&quot;x&quot;, int), (&quot;y&quot;, int)])
+&gt;&gt;&gt; pd.DataFrame([Point(0, 0), Point(0, 3), Point(2, 3)])
+   x  y
+0  0  0
+1  0  3
+2  2  3
+</pre></div>
+</div>
+</div>
 </div>
 <p>You can see, that this object is neatly organized. It has two columns, which corespond to the <code class="docutils literal notranslate"><span class="pre">keys</span></code> from our <code class="docutils literal notranslate"><span class="pre">reaction_time_dictionary</span></code>. With this dataframe, we now have the opportunity to do many differnt things. But, this would be pretty boring based on this dataframe. So we will load a different one in and check out pandas functionalities based on it.</p>
 <p>The code we are using to obtain this data is not in <code class="docutils literal notranslate"><span class="pre">python</span></code> but <a class="reference external" href="https://wiki.ubuntuusers.de/Bash/"><code class="docutils literal notranslate"><span class="pre">bash</span></code></a>.</p>
@@ -778,8 +1047,8 @@ This also means, that we can now load it into a pandas dataframe. The function w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_12532\2696070930.py:1: DtypeWarning: Columns (9,11,13,15,17,19,23,24,26,28,30,31,33,34,38,42,43,45,47,49,50,52,53,56,62,64,66,67,69,72,77,78,79,82,87,89,91,98,101,102,105,106,107,108,110,113,115,118,119,123,124,125,126,127,128,129,136,137,138,139,140,141,143,145,146,158,159,160,161,167,168,169,170,171,173,174) have mixed types. Specify dtype option on import or set low_memory=False.
-  koeln_stats = pd.read_csv(&quot;https://raw.githubusercontent.com/JNPauli/IntroductionToPython/refs/heads/main/content/datasets/Stadt_Koeln_Statistischer_Datenkatalog.csv&quot;,sep=&quot;;&quot;)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_5268\989657012.py:1: DtypeWarning: Columns (9,11,13,15,17,19,23,24,26,28,30,31,33,34,38,42,43,45,47,49,50,52,53,56,62,64,66,67,69,72,77,78,79,82,87,89,91,98,101,102,105,106,107,108,110,113,115,118,119,123,124,125,126,127,128,129,136,137,138,139,140,141,143,145,146,158,159,160,161,167,168,169,170,171,173,174) have mixed types. Specify dtype option on import or set low_memory=False.
+  koeln_stats = pd.read_csv(
 </pre></div>
 </div>
 </div>
@@ -1089,6 +1358,13 @@ This also means, that we can now load it into a pandas dataframe. The function w
 <p>10 rows × 175 columns</p>
 </div></div></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>As you can see here, a dataframe looks strikingly similar to a file you would expect in a excel sheet. It has a bunch of rows and columns, and in each column there is some information stored.</p>
 <p>We can further examine the type and shape (rows and columns) of our dataframe by using the <code class="docutils literal notranslate"><span class="pre">df.info</span></code> method.</p>
 <div class="cell docutils container">
@@ -1108,11 +1384,12 @@ memory usage: 11.0+ MB
 </div>
 </div>
 <p>This method gives us information about the number of columns, the datatype (Dtype) for each column and how many entries (rows) there are. This is super helpful to get an idea with what kind of data we are dealing with.</p>
+<p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">dtypes:</span> <span class="pre">float64(27),</span> <span class="pre">int64(7),</span> <span class="pre">object(141)</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. <code class="docutils literal notranslate"><span class="pre">Object</span></code> = Mixed Information (Strings and integers, for example)</p>
+<p>The datatype of a column <em>itself</em> is a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
 <p><img alt="Series" src="../_images/01_table_series.svg" /></p>
-<p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">dtypes:</span> <span class="pre">float64(27),</span> <span class="pre">int64(7),</span> <span class="pre">object(141)</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. The datatype of a column <em>itself</em> is a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
 <p>To access a column of the dataframe, we have two options.</p>
-<p>The first one being <code class="docutils literal notranslate"><span class="pre">df.column</span></code>. However this only works, if you column name has no spaces or extra characters!</p>
-<p>So we could use <code class="docutils literal notranslate"><span class="pre">koeln_stats.RAUM</span></code> but we can also use <code class="docutils literal notranslate"><span class="pre">koeln_stats[&quot;RAUM&quot;]</span></code>. The output of these operations is equivalent.</p>
+<p>The first one being <code class="docutils literal notranslate"><span class="pre">df.column</span></code> (replace <em>df</em> with your own dataframe!!). However this only works, if you column name has no spaces or extra characters!</p>
+<p>So we could use <code class="docutils literal notranslate"><span class="pre">koeln_stats.RAUM</span></code> but we can also use <code class="docutils literal notranslate"><span class="pre">koeln_stats[&quot;RAUM&quot;]</span></code>. The output of these operations is equivalent!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the datatype of the column RAUM is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">RAUM</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1125,7 +1402,7 @@ memory usage: 11.0+ MB
 </div>
 </div>
 </div>
-<p>We can seperately extract the column names by using the <code class="docutils literal notranslate"><span class="pre">dataframe.columns</span></code>.</p>
+<p>We can seperately extract the column names with <code class="docutils literal notranslate"><span class="pre">df.columns</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">columns</span>
@@ -1147,6 +1424,7 @@ memory usage: 11.0+ MB
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_list</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">columns_list</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1489,7 +1767,24 @@ memory usage: 11.0+ MB
 <p>8 rows × 34 columns</p>
 </div></div></div>
 </div>
-<p>Indexing and masking in pandas dataframes works a bit like in a numpy array.</p>
+<p>Indexing and masking in pandas dataframes works a bit like in a numpy array. We can also extract multiple columns at once</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="p">[[</span><span class="s2">&quot;S_RAUM&quot;</span><span class="p">,</span><span class="s2">&quot;S_JAHR&quot;</span><span class="p">,</span><span class="s2">&quot;S_RAUMEBENE&quot;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is equivalent to the snippet below, since its just lists after all!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">column_lists</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;S_RAUM&quot;</span><span class="p">,</span><span class="s2">&quot;S_JAHR&quot;</span><span class="p">,</span><span class="s2">&quot;S_RAUMEBENE&quot;</span><span class="p">]</span>
+
+<span class="n">koeln_stats</span><span class="p">[</span><span class="n">column_lists</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can also use <code class="docutils literal notranslate"><span class="pre">df.loc[rows,columns]</span></code> to index into our dataframe. <code class="docutils literal notranslate"><span class="pre">.loc</span></code> is used to index into the dataframe based on the <em>labels names</em>. Since rows are usually just numbers, we can pass an integer here.
 To get the column, we need to pass the column name as a string.</p>
 <section id="id4">
@@ -1505,10 +1800,15 @@ To get the column, we need to pass the column name as a string.</p>
 <p>Use these two integers to index in to the dataframe using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code></p>
 <p>We can also create a mask that is based on boolean values and use it to extract parts of the dataframe, where a given condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">S_Jahr</span></code> are the corresponding <em>years</em> stored, when the statistic was collected.</p>
-<p>mask = koeln_stats[“S_JAHR”] == 2012</p>
-<p>koeln_stats[mask].</p>
-<p>This is equivalent to</p>
-<p>koeln_stats[koeln_stats.S_JAHR == 2012]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      mask = koeln_stats[&quot;S_JAHR&quot;] == 2012
+
+      koeln_stats[mask].
+
+      This is equivalent to
+
+      koeln_stats[koeln_stats.S_JAHR == 2012]
+</pre></div>
+</div>
 </section>
 <section id="id6">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
@@ -1517,7 +1817,7 @@ To get the column, we need to pass the column name as a string.</p>
 <p>Since this information is stored in the <code class="docutils literal notranslate"><span class="pre">RAUM</span></code> column, we need to build the mask based on that column.</p>
 <p>Unfortunately, we cannot use simple <code class="docutils literal notranslate"><span class="pre">logical</span> <span class="pre">operator</span> <span class="pre">indexing</span></code> here. So we need to use <code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code></p>
 <p>Create a variable called <code class="docutils literal notranslate"><span class="pre">mask</span></code>. Apply the method (<code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code>) above.</p>
-<p><strong>Hint</strong>: Replace df with the actual name of the dataframe and column with the the RAUM column.</p>
+<p><strong>Hint</strong>: Replace <code class="docutils literal notranslate"><span class="pre">df</span></code> with the actual name of the dataframe ,<code class="docutils literal notranslate"><span class="pre">column</span></code> with the the RAUM column and <code class="docutils literal notranslate"><span class="pre">(str)</span></code> with the name of your vedel (as a string variable!)</p>
 <p>Create a new variable called <em>the name of your vedel</em>. This variable should have only the values of your vedel!</p>
 <p>For example, you want something like</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      mask = ....
@@ -1528,8 +1828,13 @@ To get the column, we need to pass the column name as a string.</p>
 </section>
 <section id="id7">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">koeln_stats_description</span></code> dataframe, look up a column code that you think is interesting. Access that code in the <code class="docutils literal notranslate"><span class="pre">your</span> <span class="pre">vedel</span></code> or the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">koeln_stats_description</span></code> dataframe, look up a column code that you think is interesting. Access that column in the <code class="docutils literal notranslate"><span class="pre">your</span> <span class="pre">vedel</span></code> or the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe.</p>
 <p><strong>Hint</strong>: Use koeln_stats_description.head(n=50) to see more column names stored in there.</p>
+<p><strong>Hint 2.0</strong>: Use this code</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      koeln_stats_description[[&quot;SCHLUESSEL&quot;,&quot;INHALT&quot;]].head(n=50).iloc[num_row,1]
+</pre></div>
+</div>
+<p>to get specific information about a given row!</p>
 <p>With that column in mind you can do some cool investigation. Maybe you are interested in, if the age of people above 80% differes between vedels?</p>
 <p>To get an idea of the mean <code class="docutils literal notranslate"><span class="pre">distribution</span></code> you can use the following syntax</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.groupby(&quot;Column you believe is interesting to sort by&quot;).&quot;OutComeColumn&quot;.mean()
@@ -1540,6 +1845,13 @@ To get the column, we need to pass the column name as a string.</p>
 <p><img alt="Errors" src="../_images/Error.gif" /></p>
 <p>Yep. Some values are just messed up in this dataframe. This is completely normal with unknown datasources, unfortunately. If you get an error during your <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operation, try the code I listed below.</p>
 <p>Just type the name of your column into <code class="docutils literal notranslate"><span class="pre">your_column</span></code> and switch the variable <code class="docutils literal notranslate"><span class="pre">error</span></code> from False to True</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#use this cell to apply the groupby operation</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -1568,12 +1880,39 @@ To get the column, we need to pass the column name as a string.</p>
 </div>
 </div>
 </div>
+<p>We can also infer distribution stats (Mean, Standard Deviation) directly from the column</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;A0002A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;A0002A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
-<section id="plotting">
-<h2><strong>Plotting</strong><a class="headerlink" href="#plotting" title="Link to this heading">#</a></h2>
+<section id="data-visualization-and-plotting">
+<h2><strong>Data Visualization and Plotting</strong><a class="headerlink" href="#data-visualization-and-plotting" title="Link to this heading">#</a></h2>
+<p>Now that we’ve taken a closer look at our data through basic descriptive statistics and data types, we’ll take the next step by exploring it visually. Basic data visualization offers a different perspective and can reveal key patterns or issues relevant for further analysis. In the following steps, we’ll use various Python libraries and functions to create visualizations that highlight different aspects of the data.</p>
 <p>What is Plotting?</p>
-<p>Plotting in data science and programming refers to the visual representation of data using charts or graphs. It helps us understand patterns, relationships, and trends in data more clearly and efficiently than raw numbers alone. By turning data into visual formats, such as line graphs, bar charts, histograms, or scatter plots, we can make more informed decisions, identify outliers, and communicate insights to others.</p>
+<p><em>Plotting in data science and programming refers to the visual representation of data using charts or graphs. It helps us understand patterns, relationships, and trends in data more clearly and efficiently than raw numbers alone. By turning data into visual formats, such as line graphs, bar charts, histograms, or scatter plots, we can make more informed decisions, identify outliers, and communicate insights to others.</em></p>
+<p>There are two very popular libraries in python, which are almost always used for visualizing data.</p>
+<p>That is <code class="docutils literal notranslate"><span class="pre">seaborn</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
+<p>Matplotlib is actually build based on <code class="docutils literal notranslate"><span class="pre">matlab</span></code> and is the most used plotting library in python</p>
+<p><img alt="plot" src="../_images/matplotlib.png" /></p>
+<p>Seaborn is build on top of <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> and is probably the second most popular library to visualize your data in python.</p>
+<p><img alt="plot" src="../_images/seaborn.png" /></p>
+<p>Once more, these libraries have their own commonly used abbreviations. Often times you want to import these libraries like this</p>
+<p>We can also combine different plots into one figure</p>
+<p>We can also create an interaction plot. This plot might be useful if we assume a difference between our independent variables. For example, does the size of the drink influence the time to prepare it?
+We indicate this with <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter.</p>
+<p>There are, obviously, many many more plotting styles. You can find all of them <a class="reference external" href="https://seaborn.pydata.org/tutorial/function_overview.html">here</a>.</p>
+<p>Anyways, after this short tutorial on plotting and data visualization, lets return to our koeln dataframe.</p>
+<section id="id8">
+<h3>Exercise<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Visualize the column you picked from earlier, using the seaborn library. Add xlabels, ylabels and a title to your plot. If you want to, you can choose multiple columns and plot something interactive, using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter.</p>
+<p>For example you might wonder, if the amount of people &gt; 80 years old increased over the time of years in specific vedel?</p>
+</section>
 </section>
 </section>
 
@@ -1656,7 +1995,10 @@ To get the column, we need to pass the column name as a string.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>Exercise</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting"><strong>Plotting</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-plotting"><strong>Data Visualization and Plotting</strong></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
