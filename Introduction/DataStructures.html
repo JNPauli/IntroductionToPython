@@ -477,10 +477,10 @@ document.write(`
 <h2>Numpy Arrays<a class="headerlink" href="#numpy-arrays" title="Link to this heading">#</a></h2>
 <p>An array is a datastructure we can use to store <code class="docutils literal notranslate"><span class="pre">numerical</span></code> information in. Arrays can be n-dimensional, but typically they are 1- or 2-Dimensional. 2-Dimensional Arrays are very often used to represent images (images are only a combination of 0 (black values) and 255 (white values)). The typical structure of an 2-D Array is something we call a <code class="docutils literal notranslate"><span class="pre">row</span></code> and a <code class="docutils literal notranslate"><span class="pre">column</span></code>.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      This is a 1-Dimensional Array
-      np.array([0,1,2,3])                     (1 Row, 4 columns; Data from 1 dog that evaluated her favorite snack)
+      np.array([0,1,2,3])                     (shape: (1 Row, 4 columns) ; Data from 1 dog that evaluated her favorite snack)
 
       This is a 2-Dimensional Array
-      np.array([[0,1,2,3],                    (2 Rows, 4 columns; Data from 2 dogs that evaluated their favorite snacks)
+      np.array([[0,1,2,3],                    (shape: (2 Rows, 4 columns); Data from 2 dogs that evaluated their favorite snacks)
                 [4,5,6,7]])
 </pre></div>
 </div>
@@ -492,27 +492,11 @@ document.write(`
 <p>We will not work with real data <em>yet</em>, but rather simulate our own numpy arrays to work with. Numpy offers some really useful functions we can use to generate our arrays.</p>
 <p>Lets start with the <code class="docutils literal notranslate"><span class="pre">numpy.random.rand</span></code> function.</p>
 <p>They key argument we need to pass to the function is the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the array we want to create. Lets start by creating a 1-Dimensional Array first.</p>
-<p>The first argument determines the number of <em>rows</em> we want our array to have, where as the second argument determines the number of columns.</p>
+<p>The first argument of <code class="docutils literal notranslate"><span class="pre">numpy.random.rand</span></code> function determines the number of <em>rows</em> we want our array to have, where as the second argument determines the number of <em>columns</em>.</p>
 <section id="exercise-15-0">
 <h3><strong>Exercise 15.0</strong><a class="headerlink" href="#exercise-15-0" title="Link to this heading">#</a></h3>
 <p>Create a 1-D numpy array using the <code class="docutils literal notranslate"><span class="pre">rand</span></code> function from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module (from the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package). Use it to create a numpy array with <strong>1</strong> Row and <strong>20</strong> Columns.</p>
 <p>Assign your array to a variable called “RandomArray”.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We can also create arrays with zeros or ones</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>The information about the <code class="docutils literal notranslate"><span class="pre">shape</span></code> (e.g, how many rows and colum we have) is actually stored within the array element itself. We can access it with <code class="docutils literal notranslate"><span class="pre">array.shape</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -526,7 +510,16 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Now in numpy, we can use the multiple methods to easily extract information</p>
+<p>We can also create arrays with zeros or ones</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now in numpy, we can use multiple methods to easily extract information</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RandomArray</span><span class="o">.</span><span class="n">min</span><span class="p">()</span> <span class="c1">#min value</span>
@@ -642,7 +635,10 @@ We can use this output of boolean values as a <code class="docutils literal notr
 </div>
 </div>
 </div>
-<p>Another example for that</p>
+<p>With the <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> function, we can pass a numpy array and get a back a random set of elements from that array. We can determine the number of iterations with the <code class="docutils literal notranslate"><span class="pre">size</span></code> parameter.</p>
+<p>But what’s really cool is what happens behind the scenes.</p>
+<p>Even though you’re writing Python code, a lot of NumPy’s operations — including random.choice — are actually powered by code written in C. That’s because Python is a high-level, interpreted language, which means it’s very readable and flexible, but not the fastest when it comes to number-crunching or looping over large datasets.</p>
+<p>On the other hand, C is a low-level, compiled language, which means it runs much faster. So to get the best of both worlds — Python’s simplicity and C’s speed — many libraries like NumPy are written in C or Cython (a Python-like language that compiles to C) under the hood, and then “wrapped” in Python. This way, you write code that looks and feels like Python, but it’s executed at C speed behind the scenes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">menu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;Espresso&quot;</span><span class="p">,</span> <span class="s2">&quot;Latte&quot;</span><span class="p">,</span> <span class="s2">&quot;Cappuccino&quot;</span><span class="p">,</span> <span class="s2">&quot;Americano&quot;</span><span class="p">,</span> <span class="s2">&quot;Mocha&quot;</span><span class="p">])</span>
@@ -651,6 +647,7 @@ We can use this output of boolean values as a <code class="docutils literal notr
 </div>
 </div>
 </div>
+<p>Under the hood, <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> is also using C-based loop. Eventhough vanilla python is slower than numpy, we can still show that the logic of our for loops apply here!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orders_loop</span> <span class="o">=</span> <span class="p">[]</span>
@@ -687,7 +684,6 @@ We can use this output of boolean values as a <code class="docutils literal notr
 </div>
 </div>
 </div>
-<p>So as you can see, its basically just a for loop, sort of! Most of numpy is actually written in the programming language <code class="docutils literal notranslate"><span class="pre">C</span></code>. TDLR: Python has the ability to call C functions (which are much faster, than vanilla Python Syntax). The C Functions are simply <code class="docutils literal notranslate"><span class="pre">wraped</span></code> in python functions, which makes them easy to use!</p>
 </section>
 <section id="exercise">
 <h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
@@ -748,9 +744,8 @@ Pandas dataframes are basically like an excel sheet, but way, way better.</p>
 <p>What we can now do is create a <code class="docutils literal notranslate"><span class="pre">dataframe</span></code> from this dictionary.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;This code cell created a dictionary called reaction_time_dictionary. It has two keys called Participant_number and Reaction_times. </span>
-<span class="sd">The values are created by using the np.arange function, which gives values from (start) to (stop). We randomly create reaction time values using the np.random.rand function. </span>
-<span class="sd">The array needs to be reshaped into a 1-D Vector, so it can be passed to the pd.DataFrame() method.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;This code cell created a dictionary called coffee_order_dictionary. It has four keys called Customer_ID, Drink, Size, Time_to_prepare_sec. </span>
+<span class="sd">The values are created by using the np.arange function, which gives values from (start) to (stop). We randomly create Drink, Size and time to prepare values using the np.random.choice function. </span>
 
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="n">coffee_order_dictionary</span> <span class="o">=</span> <span class="p">{</span>
@@ -1002,7 +997,7 @@ Constructing DataFrame from dataclass:
 </div>
 </div>
 </div>
-<p>You can see, that this object is neatly organized. It has two columns, which corespond to the <code class="docutils literal notranslate"><span class="pre">keys</span></code> from our <code class="docutils literal notranslate"><span class="pre">reaction_time_dictionary</span></code>. With this dataframe, we now have the opportunity to do many differnt things. But, this would be pretty boring based on this dataframe. So we will load a different one in and check out pandas functionalities based on it.</p>
+<p>You can see, that this object is neatly organized. It has two columns, which correspond to the <code class="docutils literal notranslate"><span class="pre">keys</span></code> from our <code class="docutils literal notranslate"><span class="pre">coffee_order_dictionary</span></code>. With this dataframe, we now have the opportunity to do many differnt things. But, this would be pretty boring based on this dataframe. So we will load a different one in and check out pandas functionalities based on it.</p>
 <p>The code we are using to obtain this data is not in <code class="docutils literal notranslate"><span class="pre">python</span></code> but <a class="reference external" href="https://wiki.ubuntuusers.de/Bash/"><code class="docutils literal notranslate"><span class="pre">bash</span></code></a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1387,17 +1382,31 @@ memory usage: 11.0+ MB
 <p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">dtypes:</span> <span class="pre">float64(27),</span> <span class="pre">int64(7),</span> <span class="pre">object(141)</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. <code class="docutils literal notranslate"><span class="pre">Object</span></code> = Mixed Information (Strings and integers, for example)</p>
 <p>The datatype of a column <em>itself</em> is a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
 <p><img alt="Series" src="../_images/01_table_series.svg" /></p>
-<p>To access a column of the dataframe, we have two options.</p>
-<p>The first one being <code class="docutils literal notranslate"><span class="pre">df.column</span></code> (replace <em>df</em> with your own dataframe!!). However this only works, if you column name has no spaces or extra characters!</p>
-<p>So we could use <code class="docutils literal notranslate"><span class="pre">koeln_stats.RAUM</span></code> but we can also use <code class="docutils literal notranslate"><span class="pre">koeln_stats[&quot;RAUM&quot;]</span></code>. The output of these operations is equivalent!</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the datatype of the column RAUM is </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">RAUM</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+</div>
+<p>To access a column of the dataframe, we have two options.</p>
+<p>The first one being <code class="docutils literal notranslate"><span class="pre">df.column</span></code> (replace <em>df</em> with your own dataframe!!). However this only works, if you column name has no spaces or extra characters!</p>
+<p>So we could use <code class="docutils literal notranslate"><span class="pre">koeln_stats.RAUM</span></code> but we can also use <code class="docutils literal notranslate"><span class="pre">koeln_stats[&quot;RAUM&quot;]</span></code>. The output of these operations is equivalent!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">RAUM</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>the datatype of the column RAUM is &lt;class &#39;pandas.core.series.Series&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;RAUM&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1800,14 +1809,22 @@ To get the column, we need to pass the column name as a string.</p>
 <p>Use these two integers to index in to the dataframe using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code></p>
 <p>We can also create a mask that is based on boolean values and use it to extract parts of the dataframe, where a given condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">S_Jahr</span></code> are the corresponding <em>years</em> stored, when the statistic was collected.</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      mask = koeln_stats[&quot;S_JAHR&quot;] == 2012
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;S_JAHR&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2012</span>
 
-      koeln_stats[mask].
-
-      This is equivalent to
-
-      koeln_stats[koeln_stats.S_JAHR == 2012]
+<span class="n">koeln_stats</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 </pre></div>
+</div>
+</div>
+</div>
+<p>This is equivalent to</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="p">[</span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">S_JAHR</span> <span class="o">==</span> <span class="mi">2012</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="id6">
@@ -1816,7 +1833,7 @@ To get the column, we need to pass the column name as a string.</p>
 <p>We now want to extract the data, that belongs to <code class="docutils literal notranslate"><span class="pre">my_vedel</span></code>.</p>
 <p>Since this information is stored in the <code class="docutils literal notranslate"><span class="pre">RAUM</span></code> column, we need to build the mask based on that column.</p>
 <p>Unfortunately, we cannot use simple <code class="docutils literal notranslate"><span class="pre">logical</span> <span class="pre">operator</span> <span class="pre">indexing</span></code> here. So we need to use <code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code></p>
-<p>Create a variable called <code class="docutils literal notranslate"><span class="pre">mask</span></code>. Apply the method (<code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code>) above.</p>
+<p>Create a variable called <code class="docutils literal notranslate"><span class="pre">mask</span></code>. Use the syntax (<code class="docutils literal notranslate"><span class="pre">df.column.str.contains(str).</span></code>) from above.</p>
 <p><strong>Hint</strong>: Replace <code class="docutils literal notranslate"><span class="pre">df</span></code> with the actual name of the dataframe ,<code class="docutils literal notranslate"><span class="pre">column</span></code> with the the RAUM column and <code class="docutils literal notranslate"><span class="pre">(str)</span></code> with the name of your vedel (as a string variable!)</p>
 <p>Create a new variable called <em>the name of your vedel</em>. This variable should have only the values of your vedel!</p>
 <p>For example, you want something like</p>
