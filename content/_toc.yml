@@ -13,6 +13,7 @@ chapters:
   - file: Introduction/FirstSummary.md
   - file: Introduction/DataStructures.ipynb
 - file: Introduction/OptionalHomeWork.ipynb
+- file: MachineLearning/IntroToML.ipynb
   
 
  # sections:
