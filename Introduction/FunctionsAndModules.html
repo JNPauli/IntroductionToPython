@@ -571,8 +571,9 @@ Too long!
 
 <span class="c1">#Step2: Loop through each list stored in combined_list and apply CompareLength here....</span>
 
-<span class="k">for</span> <span class="o">...</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
-          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">combined_list</span><span class="p">:</span>
+  <span class="n">CompareLength</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+         
 </pre></div>
 </div>
 </div>
@@ -597,12 +598,12 @@ Too long!
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">CompareLength</span><span class="p">(</span><span class="n">List</span><span class="p">,</span><span class="n">max_length</span><span class="p">):</span>
 <span class="w">          </span><span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">          Type your document string here. Try to very briefly describe, what your function actually does.</span>
+<span class="sd">          This function takes a list datatype and a integer as its input.</span>
+<span class="sd">          List = type(List)</span>
+<span class="sd">          max_length = type(integer)</span>
 
-<span class="sd">          Dont forget to add information about our arguments(keywords) that our function takes.</span>
-<span class="sd">          People should know what to expect from your function, just based on the doc string</span>
-<span class="sd">          List = ...</span>
-<span class="sd">          Max_length = ...</span>
+<span class="sd">          Then, the function compares the length of the list with the max_length parameter. </span>
+<span class="sd">          It either prints (&quot;too long&quot;) or &quot;not too long&quot;, respectively</span>
 <span class="sd">          &#39;&#39;&#39;</span>
           <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">List</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Too long!&quot;</span><span class="p">)</span>
@@ -621,9 +622,9 @@ Too long!
 <p>You usually want to very briefly explain, what your code cell actually does.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Your brief description of what this cell actually does</span>
-<span class="k">for</span> <span class="o">...</span> <span class="ow">in</span> <span class="o">...</span><span class="p">:</span>
-          <span class="o">...</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this cell loops through combined list and applies compare length</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">combined_list</span><span class="p">:</span>
+  <span class="n">CompareLength</span><span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -640,6 +641,23 @@ Too long!
 <section id="bonus">
 <h3><strong>Bonus</strong>:<a class="headerlink" href="#bonus" title="Link to this heading">#</a></h3>
 <p>What would you do to make sure, that your function only works if the age input is an integer? Do you have an idea, how you could penalize someone that tries to use a float value (e.g., 23.2) to the function?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">age_categorization</span><span class="p">(</span><span class="n">age</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  This function takes an integer as its input and applied a categorization decision. If the age is below 30, the function returns the string &quot;young&quot;.</span>
+<span class="sd">  Else, the function returns the string &quot;old&quot;.</span>
+<span class="sd">  &#39;&#39;&#39;</span>
+  <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Age should be an integer&quot;</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="n">age</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;Young&quot;</span>
+  <span class="k">elif</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">30</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;old&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id1">
 <h3><strong>Bonus</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -662,6 +680,31 @@ Too long!
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">age_categorization_list</span><span class="p">(</span><span class="n">age_list</span><span class="p">):</span>
+<span class="w">  </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">  This function takes an integer as its input and applied a categorization decision. If the age is below 30, the function returns the string &quot;young&quot;.</span>
+<span class="sd">  Else, the function returns the string &quot;old&quot;.</span>
+<span class="sd">  &#39;&#39;&#39;</span>
+  <span class="n">young</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">old</span> <span class="o">=</span> <span class="p">[]</span>
+
+  <span class="k">for</span> <span class="n">age</span> <span class="ow">in</span> <span class="n">age_list</span><span class="p">:</span>
+    <span class="n">dec</span> <span class="o">=</span> <span class="n">age_categorization</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dec</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">age</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">int</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Invalid datatype&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">dec</span> <span class="o">==</span> <span class="s2">&quot;Young&quot;</span><span class="p">:</span>
+      <span class="n">young</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="n">old</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">age</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">young</span><span class="p">,</span><span class="n">old</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id2">
 <h3><strong>Bonus</strong>:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
@@ -670,7 +713,7 @@ Too long!
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculation</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
           
-          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+          <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
 </pre></div>
 </div>
 </div>
@@ -683,8 +726,11 @@ Too long!
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">count_evens</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
-          
-          <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Solution Missing&quot;</span><span class="p">)</span>
+          <span class="n">evens</span> <span class="o">=</span> <span class="p">[]</span>
+          <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">List</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">element</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                              <span class="n">evens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+          <span class="k">return</span> <span class="n">evens</span>
 </pre></div>
 </div>
 </div>
@@ -741,6 +787,20 @@ Too long!
 <h3><strong>Exercise 14.0</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Import <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code> below and calculate the mean of the Lists we defined.</p>
 <p><strong>Hint</strong>: If you are unsure about which <code class="docutils literal notranslate"><span class="pre">arguments</span></code> to pass to the function, you can use <code class="docutils literal notranslate"><span class="pre">np.mean?</span></code> to get more information (i.e, the Docstring)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">Ages</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>So hopefully, you now have rough idea of what modules actually are. Remember: If you need to solve a problem and do not know, which module or function you should use, simply google it (“How to calculate the mean of a list in python”, “how to get the standard deviation of a list in python”…)
 It is near impossible to list all possible functions and modules in any course, and remembering all of them is just very tedious and unnecessary</p>
 </section>
