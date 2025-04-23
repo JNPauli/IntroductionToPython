@@ -61,7 +61,8 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'MachineLearning/IntroToML';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Optional Homework" href="../Introduction/OptionalHomeWork.html" />
+    <link rel="next" title="Optional Homework" href="../Introduction/OptionalHomeWork.html" />
+    <link rel="prev" title="Common Data Structures in Python" href="../Introduction/DataStructures.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -193,8 +194,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../LinksToNotebooks.html">Links to the notebooks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../Introduction/CourseExplain.html">How does this course work?</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="../Introduction/OptionalHomeWork.html">Optional Homework</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Introduction/OptionalHomeWork.html">Optional Homework</a></li>
 </ul>
 
     </div>
@@ -1308,7 +1309,7 @@ Name: target, dtype: int32
 <p>Now sometimes you may end up working with datasets, that have limited data available. Since sufficient data is crucial for machine learning models, splitting your data into a <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code> and <code class="docutils literal notranslate"><span class="pre">validation</span></code> set might really impair the predictive abilities of your model.</p>
 <p>Thats is a situation where you want to use <code class="docutils literal notranslate"><span class="pre">cross</span> <span class="pre">validation</span></code>. There are multiple ways to go on about <code class="docutils literal notranslate"><span class="pre">cross</span> <span class="pre">validation</span></code>, the most common one is implementing the <code class="docutils literal notranslate"><span class="pre">K-Fold</span></code> split.</p>
 <p>Here, the whole dataset is split into <code class="docutils literal notranslate"><span class="pre">k</span></code> different sets, the model is fit and evaluated on the remaining parts of the data. We repeat this procedure and report the average performance across all <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">splits</span></code>.</p>
-<p><img alt="crossval" src="static/crossval.png" /></p>
+<p><img alt="crossval" src="../_images/crossval.png" /></p>
 <p>Atlast, you still want to use a hold-out test set to evaluate your model, but you still save some time.</p>
 <p>Also, cross validation can help with overfitting, because you train your model not only on an arbitraty data split, but on multiple instances.</p>
 <p>This gives us a more robust and reliable model estimation.</p>
@@ -1385,13 +1386,22 @@ Name: target, dtype: int32
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../Introduction/OptionalHomeWork.html"
+       href="../Introduction/DataStructures.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Common Data Structures in Python</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../Introduction/OptionalHomeWork.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Optional Homework</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
