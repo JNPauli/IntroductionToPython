@@ -443,6 +443,13 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">Cross Validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -456,8 +463,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-machine-learning">
 <h1>Introduction to Machine Learning<a class="headerlink" href="#introduction-to-machine-learning" title="Link to this heading">#</a></h1>
-<p>Python is probably the most often used programming language to train and run machine learning models.</p>
 <p><img alt="sklearn" src="../_images/sklearn.png" /></p>
+<p>Python is probably the most often used programming language to train and run machine learning models.</p>
 <p>For shallow machine learning models, <a class="reference external" href="https://scikit-learn.org"><code class="docutils literal notranslate"><span class="pre">sklearn</span></code></a> is undoubtedly the most popular library you can use. Sklearn has tutorials (check this great <a class="reference external" href="https://scikit-learn.org/stable/getting_started.html"><em>getting started</em></a> and this <a class="reference external" href="https://scikit-learn.org/stable/common_pitfalls.html"><em>common pitfalls</em></a> tutorial!), toy-datasets, extensive descriptions for all models, algorithms and many more things. Its incredible and I highly highly recommed you to use this library, if you choose to continue working with machine learning.</p>
 <p>When it comes to deep learning, python also offers a lot of options. Personally, I prefer to use <a class="reference external" href="https://pytorch.org/"><code class="docutils literal notranslate"><span class="pre">PyTorch</span></code></a>, but there are other options.</p>
 <p>Anyway, we wont bother with deep learning in this course, so lets just skip straight to sklearn. As opposed to numpy, I prefer to directly import the classes and methods I use, instead of importing the whole module. I dont know why, but its what people just do, apparently.</p>
@@ -465,6 +472,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_breast_cancer</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1">#import for plotting</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
@@ -488,9 +498,11 @@ document.write(`
 </div>
 </div>
 <p>To make our data more intuitive, we can create a new variable called <code class="docutils literal notranslate"><span class="pre">diagnosis</span></code> which holds the actual labels that correspond to 0 and 1 in our y variable. We should not use this to train our model, but it makes sense to use this variable for data exploration.</p>
+<p>Before that, we should switch our 0 and 1s, so that a <code class="docutils literal notranslate"><span class="pre">malignant</span></code> tumor is the positive (1) class, and a <code class="docutils literal notranslate"><span class="pre">benignant</span></code> tumor is the negative (0) class.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diagnosis</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;Malignant&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="s2">&quot;Benignant&quot;</span><span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">-</span><span class="n">y</span>
+<span class="n">diagnosis</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">map</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span><span class="s2">&quot;Malignant&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="s2">&quot;Benignant&quot;</span><span class="p">})</span>
 </pre></div>
 </div>
 </div>
@@ -827,7 +839,7 @@ Name: target, dtype: int32
 </div>
 <section id="exercise">
 <h2><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h2>
-<p>It makes a lot of sense to exermine the data you are dealing with. Using the seaborn library, examine the distribution (how many entries) of the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable.</p>
+<p>It makes a lot of sense to exermine the data you are dealing with. Using the seaborn library, examine the distribution (how many entries there are) of the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable.</p>
 <p><strong>Hint</strong>:</p>
 <p>You want to use  <code class="docutils literal notranslate"><span class="pre">sns.histplot</span></code> here.</p>
 </section>
@@ -1148,6 +1160,197 @@ Name: target, dtype: int32
 <h2><strong>Exercise</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Using the np.mean() function, examine how the scaled and the non scaled arrays differ.</p>
 <p><strong>Hint</strong>: You can use the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument, to either view the mean of the samples (rows) or the features (columns). axis = 0 will give you the mean per column (average column across all samples)</p>
+<p>Now that our features are properly scaled, we can tend to our classification model. We already discussed a logistic regression classifier in more detail, but there are of course many more estimators. One could use.</p>
+<p>For example, there are <code class="docutils literal notranslate"><span class="pre">support</span> <span class="pre">vector</span> <span class="pre">machines</span></code>, <code class="docutils literal notranslate"><span class="pre">decision</span> <span class="pre">trees</span></code> or the <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">forest</span></code> classifier. We’ll start our model training with the logistic regression and then compare different classifiers.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.linear_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogisticRegression</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After loading the model <code class="docutils literal notranslate"><span class="pre">class</span></code> we need to first intiate it. We can pass several arguments to the LogisticRegression class (try LogisticRegression?), but for now we keep it simple and only pass <code class="docutils literal notranslate"><span class="pre">random_state</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With our data properly preprocessed and scaled, we are ready to train the model.</p>
+<p>Model training in <code class="docutils literal notranslate"><span class="pre">sklearn</span></code> works by calling the <code class="docutils literal notranslate"><span class="pre">model.fit()</span></code> method.</p>
+<p>What the <code class="docutils literal notranslate"><span class="pre">fit()</span></code> function does is finding the proper model coefficients (weights). We need to pass both <code class="docutils literal notranslate"><span class="pre">X_train_scaled</span></code> and <code class="docutils literal notranslate"><span class="pre">y_train</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(random_state=42)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now the first thing we want to do is check the achieved training accuracy. We do that with the <code class="docutils literal notranslate"><span class="pre">model.score()</span></code> function and need to pass both the X and the y variables.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.9868131868131869
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id5">
+<h2>Exercise<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
+<p>Calculate the test accuracy of the trained model instance</p>
+<p>While accuracy is certainly one metric to check after fitting a classifier, there is more to come. We can visualize our results per class using a <code class="docutils literal notranslate"><span class="pre">classification</span> <span class="pre">report</span></code>. This classification report not only returns us the accuracy, but also the precision, recall and f1-score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span><span class="p">,</span><span class="n">confusion_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To use the classification report, we need to pass both <code class="docutils literal notranslate"><span class="pre">y_true</span></code> and <code class="docutils literal notranslate"><span class="pre">y_pred</span></code>. We already have <code class="docutils literal notranslate"><span class="pre">y_true</span></code>, but we have not explicitly calculated <code class="docutils literal notranslate"><span class="pre">y_pred</span></code> yet. You can get the predicted values using <code class="docutils literal notranslate"><span class="pre">model.predict(X)</span></code>.</p>
+</section>
+<section id="id6">
+<h2>Exercise<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
+<p>Get the predicted y labels from your <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">data</span></code> and name it <code class="docutils literal notranslate"><span class="pre">y_pred_test</span></code>. Apply the <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> function and print the report afterwards.</p>
+<p>Explaination of the metrics:</p>
+<p>High <strong>precision</strong> means fewer false alarms (false positives). Of all the times we predicted positive, how many were actually positive?; Relates more to quality</p>
+<p><strong>Recall</strong> = Of all the actual positives, how many did we correctly predict?; Relates more to quantity</p>
+<p><strong>F1-Score</strong> = Harmonic mean of both metrics</p>
+<p>We can further visualize the performance of your classifier using a <code class="docutils literal notranslate"><span class="pre">confusion</span> <span class="pre">matrix</span></code>, which we display using seaborn.</p>
+</section>
+<section id="id7">
+<h2>Exercise<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
+<p>Insert your true and predicted y values in the <code class="docutils literal notranslate"><span class="pre">confusion_matrix('y</span> <span class="pre">true',</span> <span class="pre">'y</span> <span class="pre">test')</span></code> code snippet and run the cell. How did our classifier do?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#initiate the confusion matrix</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="s1">&#39;y true&#39;</span><span class="p">,</span> <span class="s1">&#39;y test&#39;</span><span class="p">)</span>
+
+<span class="c1"># Define class names and store it in a list</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Benign&#39;</span><span class="p">,</span> <span class="s1">&#39;Malignant&#39;</span><span class="p">]</span>
+
+<span class="c1"># Plot the confusion matrix using sns.heatmap</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">cm</span><span class="p">,</span> <span class="n">annot</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span> 
+            <span class="n">xticklabels</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span> 
+            <span class="n">yticklabels</span><span class="o">=</span><span class="n">class_names</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Predicted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Actual&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Confusion Matrix&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now while that is pretty interesting, we can also further investigate, how the training actually influenced and changed the weights of the model.</p>
+<p>Remember, that the weights were adapted using <code class="docutils literal notranslate"><span class="pre">gradient</span> <span class="pre">descent</span></code>. How would you interpret these coefficients?</p>
+<p><strong>Hint</strong>: The model equation for the logistic regression was</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      z = X(i) * w + b
+</pre></div>
+</div>
+<p>Try to answer the following questions:</p>
+<ol class="arabic simple">
+<li><p>What does a negative and a positive coefficient mean?</p></li>
+<li><p>Do you have an idea, why there is a dysbalance between positive and negative coefficients?</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">feature_names</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">columns</span>  
+<span class="n">coef_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;Feature&#39;</span><span class="p">:</span> <span class="n">feature_names</span><span class="p">,</span>
+    <span class="s1">&#39;Coefficient&#39;</span><span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">coef_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">coef_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;Coefficient&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)[:</span><span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                    Feature  Coefficient
+15        compactness error     0.685972
+19  fractal dimension error     0.613405
+5          mean compactness     0.542106
+18           symmetry error     0.499980
+8             mean symmetry     0.235713
+11            texture error     0.188640
+16          concavity error     0.180815
+9    mean fractal dimension     0.076701
+25        worst compactness     0.005207
+4           mean smoothness    -0.066754
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">coef_df</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;Feature&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;Coefficient&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6debcb3094cdc9ef3c42db92f6acdc2bae352d6f66945f7e5354178dd51395ec.png" src="../_images/6debcb3094cdc9ef3c42db92f6acdc2bae352d6f66945f7e5354178dd51395ec.png" />
+</div>
+</div>
+</section>
+<section id="cross-validation">
+<h2>Cross Validation<a class="headerlink" href="#cross-validation" title="Link to this heading">#</a></h2>
+<p>Now sometimes you may end up working with datasets, that have limited data available. Since sufficient data is crucial for machine learning models, splitting your data into a <code class="docutils literal notranslate"><span class="pre">train</span></code>, <code class="docutils literal notranslate"><span class="pre">test</span></code> and <code class="docutils literal notranslate"><span class="pre">validation</span></code> set might really impair the predictive abilities of your model.</p>
+<p>Thats is a situation where you want to use <code class="docutils literal notranslate"><span class="pre">cross</span> <span class="pre">validation</span></code>. There are multiple ways to go on about <code class="docutils literal notranslate"><span class="pre">cross</span> <span class="pre">validation</span></code>, the most common one is implementing the <code class="docutils literal notranslate"><span class="pre">K-Fold</span></code> split.</p>
+<p>Here, the whole dataset is split into <code class="docutils literal notranslate"><span class="pre">k</span></code> different sets, the model is fit and evaluated on the remaining parts of the data. We repeat this procedure and report the average performance across all <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">splits</span></code>.</p>
+<p><img alt="crossval" src="static/crossval.png" /></p>
+<p>Atlast, you still want to use a hold-out test set to evaluate your model, but you still save some time.</p>
+<p>Also, cross validation can help with overfitting, because you train your model not only on an arbitraty data split, but on multiple instances.</p>
+<p>This gives us a more robust and reliable model estimation.</p>
+<p>We import the <code class="docutils literal notranslate"><span class="pre">cross_val_score</span></code> function from <code class="docutils literal notranslate"><span class="pre">sklearn.model_selection</span></code>. We actually dont need to scale our data now, because this will happen implicitly, when we pass the Scaler to a <code class="docutils literal notranslate"><span class="pre">pipeline</span></code> element.</p>
+<p>What we also want to do is use something called <code class="docutils literal notranslate"><span class="pre">Stratified</span> <span class="pre">K-Fold</span></code>. This is especially helpful when dealing with imbalanced data. <code class="docutils literal notranslate"><span class="pre">Stratified</span> <span class="pre">K-Fold</span></code> makes sure, that in each K- split are approximately an equal number of labels (target classes).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">cross_val_score</span><span class="p">,</span><span class="n">StratifiedKFold</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.pipeline</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>After importing the modules, we initiate a Pipeline Object. We pass both a Scaler and a Classifier we want to evaluate. Then, we initiate the stratified K Fold. We define <code class="docutils literal notranslate"><span class="pre">K</span></code> with the <code class="docutils literal notranslate"><span class="pre">n_splits</span></code> argument.</p>
+<p>At last we simply call cross_val_score.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the pipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>        
+    <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())</span>  
+<span class="p">])</span>
+
+<span class="c1"># Set up Stratified K-Fold </span>
+<span class="n">stratified_kfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># call cross validation</span>
+<span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">stratified_kfold</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.96842105, 0.96842105, 0.98941799])
+</pre></div>
+</div>
+</div>
+</div>
+<section id="id8">
+<h3>Exercise<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<p>Try to fit the cross validation varying splits. Does the output change?</p>
+<p>Try to fit the cross validation function <em>without</em> the scaler in the Pipeline object. Does the behavior differ?</p>
+</section>
 </section>
 </section>
 
@@ -1211,6 +1414,13 @@ Name: target, dtype: int32
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-validation">Cross Validation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
