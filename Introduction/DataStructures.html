@@ -445,17 +445,18 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>Exercise</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-plotting"><strong>Data Visualization and Plotting</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-plotting">Data Visualization and Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Exercise</a></li>
 </ul>
 </li>
 </ul>
@@ -638,7 +639,7 @@ We can use this output of boolean values as a <code class="docutils literal notr
 </div>
 <p>With the <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> function, we can pass a numpy array and get a back a random set of elements from that array. We can determine the number of iterations with the <code class="docutils literal notranslate"><span class="pre">size</span></code> parameter.</p>
 <p>But what’s really cool is what happens behind the scenes.</p>
-<p>Even though you’re writing Python code, a lot of NumPy’s operations — including random.choice — are actually powered by code written in C. That’s because Python is a high-level, interpreted language, which means it’s very readable and flexible, but not the fastest when it comes to number-crunching or looping over large datasets.</p>
+<p>Even though you’re writing Python code, a lot of NumPys operations, like random.choice, are actually powered by code written in C. That’s because Python is a high-level, interpreted language, which means it’s very readable and flexible, but not the fastest when it comes to numerical operations or looping over large datasets.</p>
 <p>On the other hand, C is a low-level, compiled language, which means it runs much faster. So to get the best of both worlds — Python’s simplicity and C’s speed — many libraries like NumPy are written in C or Cython (a Python-like language that compiles to C) under the hood, and then “wrapped” in Python. This way, you write code that looks and feels like Python, but it’s executed at C speed behind the scenes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -648,60 +649,28 @@ We can use this output of boolean values as a <code class="docutils literal notr
 </div>
 </div>
 </div>
-<p>Under the hood, <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> is also using C-based loop. Eventhough vanilla python is slower than numpy, we can still show that the logic of our for loops apply here!</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orders_loop</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">50</span><span class="p">):</span>
-          <span class="n">ran</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">menu</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-          <span class="n">orders_loop</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">menu</span><span class="p">[</span><span class="n">ran</span><span class="p">])</span>
-<span class="n">orders_loop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">orders_loop</span><span class="p">)</span>
-<span class="n">orders_loop</span><span class="p">,</span><span class="n">orders</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([&#39;Latte&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Latte&#39;, &#39;Mocha&#39;,
-        &#39;Cappuccino&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;,
-        &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Mocha&#39;, &#39;Latte&#39;, &#39;Americano&#39;, &#39;Americano&#39;,
-        &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;,
-        &#39;Mocha&#39;, &#39;Espresso&#39;, &#39;Mocha&#39;, &#39;Mocha&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;,
-        &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Espresso&#39;,
-        &#39;Cappuccino&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;,
-        &#39;Latte&#39;, &#39;Cappuccino&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Cappuccino&#39;,
-        &#39;Latte&#39;, &#39;Cappuccino&#39;, &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;],
-       dtype=&#39;&lt;U10&#39;),
- array([&#39;Mocha&#39;, &#39;Latte&#39;, &#39;Latte&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Cappuccino&#39;,
-        &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;,
-        &#39;Latte&#39;, &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;,
-        &#39;Cappuccino&#39;, &#39;Mocha&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Americano&#39;,
-        &#39;Cappuccino&#39;, &#39;Americano&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Americano&#39;,
-        &#39;Latte&#39;, &#39;Espresso&#39;, &#39;Americano&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Mocha&#39;,
-        &#39;Latte&#39;, &#39;Americano&#39;, &#39;Espresso&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;,
-        &#39;Cappuccino&#39;, &#39;Americano&#39;, &#39;Cappuccino&#39;, &#39;Espresso&#39;, &#39;Americano&#39;,
-        &#39;Cappuccino&#39;, &#39;Latte&#39;, &#39;Mocha&#39;, &#39;Americano&#39;, &#39;Americano&#39;,
-        &#39;Espresso&#39;, &#39;Cappuccino&#39;], dtype=&#39;&lt;U10&#39;))
-</pre></div>
-</div>
-</div>
-</div>
+<p>Under the hood, <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> is using a C-based loop. Eventhough vanilla python is slower than numpy, we can still show that the logic of our for loops apply here!</p>
 </section>
 <section id="exercise">
 <h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
-<p>Using the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function, create one numpy array with values from 1 to 512 in steps of 2 and call the variable “all_scores”.</p>
+<p>Create a function called random_choice. The goal of the function is to return a similar output as <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code>. Since this function uses a loop under the hood, integrate a loop within your function as well. The output should be a numpy array. Try to use the same arguments as in <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> (array as its input and the size parameter, that defines the the number of iterations).</p>
+</section>
+<section id="id1">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">np.arange</span></code> function, create one numpy array with values from 1 to 512 in steps of 2 and call the array all_scores.</p>
 <p>Create another numpy array with values from 1 to 257 in steps of 1 and call it high_scores.</p>
 <p>Your task is to find out, which values from <code class="docutils literal notranslate"><span class="pre">high_scores</span></code> are actually in <code class="docutils literal notranslate"><span class="pre">all_scores</span></code>.</p>
 <p>Create a <code class="docutils literal notranslate"><span class="pre">mask</span></code> of boolen values, which should be True if an element of high_scores is in all_scores, and False otherwise. Use the <code class="docutils literal notranslate"><span class="pre">np.isin(firstarray,secondarray)</span></code> function to create the mask.
 Which array should you pass as the first argument, and which as the second? Use <code class="docutils literal notranslate"><span class="pre">np.isin?</span></code> to find out!</p>
 <p>Use this mask to create a new array called <code class="docutils literal notranslate"><span class="pre">valid_high_scores</span></code>. How do these array differ in their shape and distribution (mean+standard deviation)?</p>
 </section>
-<section id="id1">
-<h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<section id="id2">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Create a numpy array of 9 numbers using <code class="docutils literal notranslate"><span class="pre">np.arange</span></code>. Reshape it to a 2D matrix of the shape (3,3).</p>
 <p><strong>Hint</strong>: Use the <code class="docutils literal notranslate"><span class="pre">np.array.reshape()</span></code> method.</p>
 </section>
-<section id="id2">
-<h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<section id="id3">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   array([[ 1,  2,  3,  4],
           [ 5,  6,  7,  8],
           [ 9, 10, 11, 12]])
@@ -710,8 +679,8 @@ Which array should you pass as the first argument, and which as the second? Use 
 <p>What element woud you expect to see if we index into the array using (array[2,3]) ?</p>
 <p><strong>Type your answer here</strong></p>
 </section>
-<section id="id3">
-<h3><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<section id="id4">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Create a numpy array with random integers between 1 and 255, with the shape 64,64.</p>
 <p><strong>Hint</strong>: Use the <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> function</p>
 <p><img alt="pandas" src="../_images/Pandas.png" /></p>
@@ -735,7 +704,7 @@ Pandas dataframes are basically like an excel sheet, but way, way better.</p>
 </div>
 </div>
 <p>Before transitioning to the dataset, you should know a thing or two about <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
-<p>The cool thing here is that you actually <em>convert</em> <code class="docutils literal notranslate"><span class="pre">lists</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">arrays</span></code> to a <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>.</p>
+<p>The cool thing here is that you can actually <em>convert</em> <code class="docutils literal notranslate"><span class="pre">lists</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy</span> <span class="pre">arrays</span></code> to a <code class="docutils literal notranslate"><span class="pre">dataframe</span></code>.</p>
 <p>What you usually want to do is put your lists or arrays in to a <code class="docutils literal notranslate"><span class="pre">dictionary</span></code>. A dictionary is a further vanilla python datatype. Its syntax goes like this:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      dictionary = {&quot;Participant Number&quot;:[0,1,2,3,4],
                     &quot;Reaction times&quot;:[100,50,76,34,95]}      
@@ -1043,7 +1012,7 @@ This also means, that we can now load it into a pandas dataframe. The function w
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_5268\989657012.py:1: DtypeWarning: Columns (9,11,13,15,17,19,23,24,26,28,30,31,33,34,38,42,43,45,47,49,50,52,53,56,62,64,66,67,69,72,77,78,79,82,87,89,91,98,101,102,105,106,107,108,110,113,115,118,119,123,124,125,126,127,128,129,136,137,138,139,140,141,143,145,146,158,159,160,161,167,168,169,170,171,173,174) have mixed types. Specify dtype option on import or set low_memory=False.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\janos\AppData\Local\Temp\ipykernel_5584\989657012.py:1: DtypeWarning: Columns (9,11,13,15,17,19,23,24,26,28,30,31,33,34,38,42,43,45,47,49,50,52,53,56,62,64,66,67,69,72,77,78,79,82,87,89,91,98,101,102,105,106,107,108,110,113,115,118,119,123,124,125,126,127,128,129,136,137,138,139,140,141,143,145,146,158,159,160,161,167,168,169,170,171,173,174) have mixed types. Specify dtype option on import or set low_memory=False.
   koeln_stats = pd.read_csv(
 </pre></div>
 </div>
@@ -1360,7 +1329,638 @@ This also means, that we can now load it into a pandas dataframe. The function w
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S_JAHR</th>
+      <th>S_RAUM</th>
+      <th>RAUM</th>
+      <th>S_RAUMEBENE</th>
+      <th>RAUMEBENE</th>
+      <th>A0002A</th>
+      <th>A0002P</th>
+      <th>A0022S</th>
+      <th>A0025A</th>
+      <th>A0027A</th>
+      <th>...</th>
+      <th>H0051S</th>
+      <th>H0052S</th>
+      <th>B0003A</th>
+      <th>B0004A</th>
+      <th>B0009A</th>
+      <th>B0022S</th>
+      <th>B0023S</th>
+      <th>B0025A</th>
+      <th>B0026P</th>
+      <th>B0026A</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8198</th>
+      <td>2023</td>
+      <td>907030001</td>
+      <td>907030001 / Siedlung Klosterhof</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>557.0</td>
+      <td>21,514098</td>
+      <td>41,49510751</td>
+      <td>2589.0</td>
+      <td>158</td>
+      <td>...</td>
+      <td>91,377</td>
+      <td>442,255</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>8199</th>
+      <td>2023</td>
+      <td>907060001</td>
+      <td>907060001 / Siedlung Am Donewald</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>568.0</td>
+      <td>27,559437</td>
+      <td>38,91557496</td>
+      <td>2061.0</td>
+      <td>90</td>
+      <td>...</td>
+      <td>94,60204</td>
+      <td>361,475</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>571</td>
+    </tr>
+    <tr>
+      <th>8200</th>
+      <td>2023</td>
+      <td>908010001</td>
+      <td>908010001 / Stammheim-Nord</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>337.0</td>
+      <td>21,997389</td>
+      <td>40,79868364</td>
+      <td>1532.0</td>
+      <td>89</td>
+      <td>...</td>
+      <td>101,85955</td>
+      <td>1124,02</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8201</th>
+      <td>2023</td>
+      <td>908020001</td>
+      <td>908020001 / Stammheim-Süd - Adolf-Kober-Str.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>609.0</td>
+      <td>24,477492</td>
+      <td>43,19138532</td>
+      <td>2488.0</td>
+      <td>220</td>
+      <td>...</td>
+      <td>95,658613</td>
+      <td>430,466</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>8202</th>
+      <td>2023</td>
+      <td>908020002</td>
+      <td>908020002 / Stammheim-Süd - Ricarda-Huch-Str.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>399.0</td>
+      <td>26,181102</td>
+      <td>43,38019466</td>
+      <td>1524.0</td>
+      <td>116</td>
+      <td>...</td>
+      <td>88,834381</td>
+      <td>348,425</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>199</td>
+    </tr>
+    <tr>
+      <th>8203</th>
+      <td>2023</td>
+      <td>908030001</td>
+      <td>908030001 / Stammheim</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>367.0</td>
+      <td>14,864318</td>
+      <td>46,16612664</td>
+      <td>2469.0</td>
+      <td>196</td>
+      <td>...</td>
+      <td>92,187551</td>
+      <td>574,726</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>8204</th>
+      <td>2023</td>
+      <td>909010001</td>
+      <td>909010001 / Flittard</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>309.0</td>
+      <td>12,112897</td>
+      <td>45,61613093</td>
+      <td>2551.0</td>
+      <td>186</td>
+      <td>...</td>
+      <td>93,352664</td>
+      <td>589,964</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <th>8205</th>
+      <td>2023</td>
+      <td>909030001</td>
+      <td>909030001 / Bayer-Siedlung - Rungestr.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>285.0</td>
+      <td>21,348315</td>
+      <td>43,81292135</td>
+      <td>1335.0</td>
+      <td>86</td>
+      <td>...</td>
+      <td>93,488372</td>
+      <td>496,629</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8206</th>
+      <td>2023</td>
+      <td>909030002</td>
+      <td>909030002 / Bayer-Siedlung - Roggendorfstr.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>506.0</td>
+      <td>21,754084</td>
+      <td>44,40745916</td>
+      <td>2326.0</td>
+      <td>267</td>
+      <td>...</td>
+      <td>96,421722</td>
+      <td>490,541</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <th>8207</th>
+      <td>2023</td>
+      <td>909030003</td>
+      <td>909030003 / Bayer-Siedlung - Hufelandstr.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>384.0</td>
+      <td>20,210526</td>
+      <td>40,03061404</td>
+      <td>1900.0</td>
+      <td>89</td>
+      <td>...</td>
+      <td>97,498829</td>
+      <td>512,631</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 175 columns</p>
+</div></div></div>
 </div>
+<p>If we take a closer look at a column like <code class="docutils literal notranslate"><span class="pre">A0002P</span></code>, we actually see, that the values look like this:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      17,271948
+</pre></div>
+</div>
+<p>This is very problematic, because Python expects numbers to be seperated by a <code class="docutils literal notranslate"><span class="pre">.</span></code>  A comma seperated value will be interpreted as a string. Problems like this can always happen, especially when you deal with uncleaned data.</p>
+<p>Thats why we need to first define a function, that replaces the <code class="docutils literal notranslate"><span class="pre">,</span></code> with a <code class="docutils literal notranslate"><span class="pre">.</span></code>  The function converts this replaced value to a float. All other values will be converted to the <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">(Not</span> <span class="pre">a</span> <span class="pre">Number)</span></code> datatype.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_german_float</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">val</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">))</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="c1"># Apply to all object-type columns</span>
+<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">select_dtypes</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">2</span><span class="p">:]:</span>
+    <span class="n">koeln_stats</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">to_german_float</span><span class="p">)</span>
+
+<span class="n">koeln_stats</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>S_JAHR</th>
+      <th>S_RAUM</th>
+      <th>RAUM</th>
+      <th>S_RAUMEBENE</th>
+      <th>RAUMEBENE</th>
+      <th>A0002A</th>
+      <th>A0002P</th>
+      <th>A0022S</th>
+      <th>A0025A</th>
+      <th>A0027A</th>
+      <th>...</th>
+      <th>H0051S</th>
+      <th>H0052S</th>
+      <th>B0003A</th>
+      <th>B0004A</th>
+      <th>B0009A</th>
+      <th>B0022S</th>
+      <th>B0023S</th>
+      <th>B0025A</th>
+      <th>B0026P</th>
+      <th>B0026A</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2012</td>
+      <td>0</td>
+      <td>0 / Stadt Köln</td>
+      <td>0</td>
+      <td>Gesamtstadt</td>
+      <td>180415.0</td>
+      <td>17.271948</td>
+      <td>41.900138</td>
+      <td>1044555.0</td>
+      <td>46426.0</td>
+      <td>...</td>
+      <td>87.059374</td>
+      <td>483.255</td>
+      <td>5944.0</td>
+      <td>2941.0</td>
+      <td>3114.0</td>
+      <td>39.402392</td>
+      <td>75.570508</td>
+      <td>544630.0</td>
+      <td>7.522905</td>
+      <td>40972.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2012</td>
+      <td>1</td>
+      <td>1 / Innenstadt</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>21712.0</td>
+      <td>16.985457</td>
+      <td>40.869033</td>
+      <td>127827.0</td>
+      <td>4428.0</td>
+      <td>...</td>
+      <td>93.269732</td>
+      <td>458.447</td>
+      <td>566.0</td>
+      <td>296.0</td>
+      <td>193.0</td>
+      <td>40.395378</td>
+      <td>63.873777</td>
+      <td>80841.0</td>
+      <td>2.508628</td>
+      <td>2028.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2012</td>
+      <td>2</td>
+      <td>2 / Rodenkirchen</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>14788.0</td>
+      <td>14.337793</td>
+      <td>43.452531</td>
+      <td>103140.0</td>
+      <td>5331.0</td>
+      <td>...</td>
+      <td>91.860767</td>
+      <td>569.468</td>
+      <td>1187.0</td>
+      <td>450.0</td>
+      <td>348.0</td>
+      <td>44.272804</td>
+      <td>85.898851</td>
+      <td>53159.0</td>
+      <td>3.397355</td>
+      <td>1806.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2012</td>
+      <td>3</td>
+      <td>3 / Lindenthal</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>14132.0</td>
+      <td>9.872231</td>
+      <td>42.060319</td>
+      <td>143149.0</td>
+      <td>6787.0</td>
+      <td>...</td>
+      <td>91.920257</td>
+      <td>525.040</td>
+      <td>1172.0</td>
+      <td>689.0</td>
+      <td>848.0</td>
+      <td>45.807711</td>
+      <td>82.080487</td>
+      <td>79889.0</td>
+      <td>1.126563</td>
+      <td>900.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2012</td>
+      <td>4</td>
+      <td>4 / Ehrenfeld</td>
+      <td>1</td>
+      <td>Stadtbezirke</td>
+      <td>19811.0</td>
+      <td>18.779445</td>
+      <td>40.548310</td>
+      <td>105493.0</td>
+      <td>3935.0</td>
+      <td>...</td>
+      <td>83.775698</td>
+      <td>449.053</td>
+      <td>439.0</td>
+      <td>365.0</td>
+      <td>293.0</td>
+      <td>36.150313</td>
+      <td>69.387475</td>
+      <td>54961.0</td>
+      <td>12.574370</td>
+      <td>6911.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8203</th>
+      <td>2023</td>
+      <td>908030001</td>
+      <td>908030001 / Stammheim</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>367.0</td>
+      <td>14.864318</td>
+      <td>46.166127</td>
+      <td>2469.0</td>
+      <td>196.0</td>
+      <td>...</td>
+      <td>92.187551</td>
+      <td>574.726</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>8204</th>
+      <td>2023</td>
+      <td>909010001</td>
+      <td>909010001 / Flittard</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>309.0</td>
+      <td>12.112897</td>
+      <td>45.616131</td>
+      <td>2551.0</td>
+      <td>186.0</td>
+      <td>...</td>
+      <td>93.352664</td>
+      <td>589.964</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.0</td>
+    </tr>
+    <tr>
+      <th>8205</th>
+      <td>2023</td>
+      <td>909030001</td>
+      <td>909030001 / Bayer-Siedlung - Rungestr.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>285.0</td>
+      <td>21.348315</td>
+      <td>43.812921</td>
+      <td>1335.0</td>
+      <td>86.0</td>
+      <td>...</td>
+      <td>93.488372</td>
+      <td>496.629</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>8206</th>
+      <td>2023</td>
+      <td>909030002</td>
+      <td>909030002 / Bayer-Siedlung - Roggendorfstr.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>506.0</td>
+      <td>21.754084</td>
+      <td>44.407459</td>
+      <td>2326.0</td>
+      <td>267.0</td>
+      <td>...</td>
+      <td>96.421722</td>
+      <td>490.541</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>12.0</td>
+    </tr>
+    <tr>
+      <th>8207</th>
+      <td>2023</td>
+      <td>909030003</td>
+      <td>909030003 / Bayer-Siedlung - Hufelandstr.</td>
+      <td>3</td>
+      <td>Statistische Quartiere</td>
+      <td>384.0</td>
+      <td>20.210526</td>
+      <td>40.030614</td>
+      <td>1900.0</td>
+      <td>89.0</td>
+      <td>...</td>
+      <td>97.498829</td>
+      <td>512.631</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>8208 rows × 175 columns</p>
+</div></div></div>
+</div>
+<p>One last thing we need to do:</p>
+<p>Some numbers are actually quite large in that dataframe. Pandas tends to use scientific notation to shorten the output, but this makes it hard to interpret at times. So lets change that!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s1">&#39;display.float_format&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{:,.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>This wont influence the <code class="docutils literal notranslate"><span class="pre">to_german_float</span></code> function we used, as the <code class="docutils literal notranslate"><span class="pre">set_option</span></code> method only influences how the values are printed, but not how they are computed.</p>
 <p>As you can see here, a dataframe looks strikingly similar to a file you would expect in a excel sheet. It has a bunch of rows and columns, and in each column there is some information stored.</p>
 <p>We can further examine the type and shape (rows and columns) of our dataframe by using the <code class="docutils literal notranslate"><span class="pre">df.info</span></code> method.</p>
 <div class="cell docutils container">
@@ -1373,14 +1973,14 @@ This also means, that we can now load it into a pandas dataframe. The function w
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
 RangeIndex: 8208 entries, 0 to 8207
 Columns: 175 entries, S_JAHR to B0026A
-dtypes: float64(27), int64(7), object(141)
+dtypes: float64(166), int64(7), object(2)
 memory usage: 11.0+ MB
 </pre></div>
 </div>
 </div>
 </div>
 <p>This method gives us information about the number of columns, the datatype (Dtype) for each column and how many entries (rows) there are. This is super helpful to get an idea with what kind of data we are dealing with.</p>
-<p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">dtypes:</span> <span class="pre">float64(27),</span> <span class="pre">int64(7),</span> <span class="pre">object(141)</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. <code class="docutils literal notranslate"><span class="pre">Object</span></code> = Mixed Information (Strings and integers, for example)</p>
+<p>However, the returned datatype (<code class="docutils literal notranslate"><span class="pre">dtypes:</span> <span class="pre">float64(166),</span> <span class="pre">int64(7),</span> <span class="pre">object(2)</span></code>) refers to the <code class="docutils literal notranslate"><span class="pre">values</span></code> within each column. <code class="docutils literal notranslate"><span class="pre">Object</span></code> = Mixed Information (Strings and integers, for example)</p>
 <p>The datatype of a column <em>itself</em> is a <code class="docutils literal notranslate"><span class="pre">pandas.Series</span></code>.</p>
 <p><img alt="Series" src="../_images/01_table_series.svg" /></p>
 <div class="cell docutils container">
@@ -1435,6 +2035,11 @@ memory usage: 11.0+ MB
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">columns_list</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
 <span class="nb">type</span><span class="p">(</span><span class="n">columns_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>list
 </pre></div>
 </div>
 </div>
@@ -1560,23 +2165,23 @@ memory usage: 11.0+ MB
       <th>S_RAUM</th>
       <th>S_RAUMEBENE</th>
       <th>A0002A</th>
+      <th>A0002P</th>
+      <th>A0022S</th>
       <th>A0025A</th>
-      <th>A0109A</th>
-      <th>A0153A</th>
-      <th>A0213A</th>
-      <th>A0267A</th>
-      <th>A0273A</th>
+      <th>A0027A</th>
+      <th>A0027P</th>
+      <th>A0029A</th>
       <th>...</th>
-      <th>A0368A</th>
-      <th>A0371A</th>
-      <th>A0372A</th>
-      <th>D0011A</th>
-      <th>E0001A</th>
-      <th>H0001A</th>
-      <th>H0028A</th>
-      <th>H0035A</th>
-      <th>H0037A</th>
+      <th>H0051S</th>
+      <th>H0052S</th>
+      <th>B0003A</th>
+      <th>B0004A</th>
+      <th>B0009A</th>
+      <th>B0022S</th>
+      <th>B0023S</th>
       <th>B0025A</th>
+      <th>B0026P</th>
+      <th>B0026A</th>
     </tr>
   </thead>
   <tbody>
@@ -1586,23 +2191,23 @@ memory usage: 11.0+ MB
       <td>8.208000e+03</td>
       <td>8208.000000</td>
       <td>8196.000000</td>
+      <td>8196.000000</td>
+      <td>8196.000000</td>
       <td>8.196000e+03</td>
-      <td>8196.000000</td>
-      <td>8196.000000</td>
-      <td>8196.000000</td>
-      <td>8196.000000</td>
-      <td>8196.000000</td>
+      <td>8171.000000</td>
+      <td>8168.000000</td>
+      <td>8193.000000</td>
       <td>...</td>
-      <td>8196.000000</td>
-      <td>8196.000000</td>
-      <td>8196.000000</td>
-      <td>7521.000000</td>
-      <td>3585.000000</td>
       <td>8208.000000</td>
       <td>8208.000000</td>
-      <td>8208.000000</td>
-      <td>8208.000000</td>
+      <td>1291.000000</td>
+      <td>1207.000000</td>
+      <td>1139.000000</td>
       <td>1152.000000</td>
+      <td>1152.000000</td>
+      <td>1152.000000</td>
+      <td>1152.000000</td>
+      <td>8142.000000</td>
     </tr>
     <tr>
       <th>mean</th>
@@ -1610,23 +2215,23 @@ memory usage: 11.0+ MB
       <td>4.189774e+08</td>
       <td>2.869883</td>
       <td>1628.660200</td>
+      <td>18.953883</td>
+      <td>42.038425</td>
       <td>8.318157e+03</td>
-      <td>4065.875183</td>
-      <td>3316.983895</td>
-      <td>4252.281357</td>
-      <td>4305.391654</td>
-      <td>2170.981088</td>
+      <td>428.981642</td>
+      <td>5.217621</td>
+      <td>246.199194</td>
       <td>...</td>
-      <td>2091.822108</td>
-      <td>1544.880429</td>
-      <td>1929.161420</td>
-      <td>3121.976067</td>
-      <td>1914.584937</td>
-      <td>3569.965278</td>
-      <td>1145.536672</td>
-      <td>3678.312987</td>
-      <td>4162.920565</td>
+      <td>92.323871</td>
+      <td>507.989197</td>
+      <td>320.107668</td>
+      <td>147.967688</td>
+      <td>137.525900</td>
+      <td>40.370575</td>
+      <td>82.584000</td>
       <td>17469.364583</td>
+      <td>7.885326</td>
+      <td>316.908745</td>
     </tr>
     <tr>
       <th>std</th>
@@ -1634,23 +2239,23 @@ memory usage: 11.0+ MB
       <td>3.057064e+08</td>
       <td>0.448253</td>
       <td>10005.266938</td>
+      <td>10.583494</td>
+      <td>3.765539</td>
       <td>5.364302e+04</td>
-      <td>26190.671566</td>
-      <td>20466.568673</td>
-      <td>27453.609225</td>
-      <td>28116.264634</td>
-      <td>14466.672940</td>
+      <td>2808.928659</td>
+      <td>2.898831</td>
+      <td>1571.445516</td>
       <td>...</td>
-      <td>13533.776996</td>
-      <td>9915.131324</td>
-      <td>12597.687426</td>
-      <td>20452.365737</td>
-      <td>8033.686600</td>
-      <td>23691.875428</td>
-      <td>7631.040179</td>
-      <td>24474.817459</td>
-      <td>27692.863611</td>
+      <td>9.874286</td>
+      <td>274.522550</td>
+      <td>1014.343728</td>
+      <td>461.114190</td>
+      <td>426.184214</td>
+      <td>7.641356</td>
+      <td>17.648600</td>
       <td>58296.342893</td>
+      <td>10.581390</td>
+      <td>1923.361828</td>
     </tr>
     <tr>
       <th>min</th>
@@ -1658,23 +2263,23 @@ memory usage: 11.0+ MB
       <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
       <td>0.000000e+00</td>
       <td>0.000000</td>
       <td>0.000000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
       <td>...</td>
+      <td>61.800000</td>
       <td>0.000000</td>
-      <td>0.000000</td>
-      <td>0.000000</td>
-      <td>15.000000</td>
-      <td>26.000000</td>
-      <td>5.000000</td>
-      <td>0.000000</td>
-      <td>7.000000</td>
-      <td>10.000000</td>
+      <td>-52.000000</td>
+      <td>-53.000000</td>
+      <td>-7.000000</td>
+      <td>24.738025</td>
+      <td>59.646470</td>
       <td>477.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>25%</th>
@@ -1682,23 +2287,23 @@ memory usage: 11.0+ MB
       <td>1.050100e+08</td>
       <td>3.000000</td>
       <td>213.750000</td>
+      <td>11.275600</td>
+      <td>39.719668</td>
       <td>1.557000e+03</td>
-      <td>757.000000</td>
-      <td>494.000000</td>
-      <td>799.000000</td>
-      <td>794.750000</td>
-      <td>332.000000</td>
+      <td>62.500000</td>
+      <td>3.409433</td>
+      <td>42.000000</td>
       <td>...</td>
-      <td>376.000000</td>
-      <td>277.000000</td>
-      <td>347.000000</td>
-      <td>577.000000</td>
-      <td>289.000000</td>
-      <td>582.000000</td>
-      <td>193.000000</td>
-      <td>583.000000</td>
-      <td>667.000000</td>
+      <td>85.754317</td>
+      <td>363.451500</td>
+      <td>24.000000</td>
+      <td>9.000000</td>
+      <td>7.000000</td>
+      <td>36.579911</td>
+      <td>71.708031</td>
       <td>3192.750000</td>
+      <td>1.761331</td>
+      <td>0.000000</td>
     </tr>
     <tr>
       <th>50%</th>
@@ -1706,23 +2311,23 @@ memory usage: 11.0+ MB
       <td>4.010400e+08</td>
       <td>3.000000</td>
       <td>343.000000</td>
+      <td>16.527840</td>
+      <td>42.123683</td>
       <td>1.985500e+03</td>
-      <td>970.500000</td>
-      <td>724.000000</td>
-      <td>1011.000000</td>
-      <td>1036.000000</td>
-      <td>520.000000</td>
+      <td>99.000000</td>
+      <td>4.817014</td>
+      <td>57.000000</td>
       <td>...</td>
-      <td>498.000000</td>
-      <td>365.000000</td>
-      <td>460.000000</td>
-      <td>746.000000</td>
-      <td>489.000000</td>
-      <td>790.000000</td>
-      <td>280.000000</td>
-      <td>796.000000</td>
-      <td>910.000000</td>
+      <td>90.675546</td>
+      <td>458.891500</td>
+      <td>71.000000</td>
+      <td>26.000000</td>
+      <td>25.000000</td>
+      <td>39.630610</td>
+      <td>81.366647</td>
       <td>5510.000000</td>
+      <td>4.822360</td>
+      <td>30.000000</td>
     </tr>
     <tr>
       <th>75%</th>
@@ -1730,23 +2335,23 @@ memory usage: 11.0+ MB
       <td>7.062975e+08</td>
       <td>3.000000</td>
       <td>636.000000</td>
+      <td>23.971053</td>
+      <td>44.426587</td>
       <td>2.547000e+03</td>
-      <td>1258.000000</td>
-      <td>1250.000000</td>
-      <td>1300.000000</td>
-      <td>1347.000000</td>
-      <td>791.000000</td>
+      <td>164.000000</td>
+      <td>6.417112</td>
+      <td>82.000000</td>
       <td>...</td>
-      <td>670.250000</td>
-      <td>517.000000</td>
-      <td>613.000000</td>
-      <td>997.000000</td>
-      <td>1240.000000</td>
-      <td>1218.500000</td>
-      <td>406.000000</td>
-      <td>1263.250000</td>
-      <td>1438.250000</td>
+      <td>96.492498</td>
+      <td>578.956250</td>
+      <td>217.000000</td>
+      <td>98.000000</td>
+      <td>94.000000</td>
+      <td>44.327964</td>
+      <td>90.098877</td>
       <td>10561.500000</td>
+      <td>9.593492</td>
+      <td>137.000000</td>
     </tr>
     <tr>
       <th>max</th>
@@ -1754,27 +2359,27 @@ memory usage: 11.0+ MB
       <td>9.090300e+08</td>
       <td>4.000000</td>
       <td>228555.000000</td>
+      <td>82.587783</td>
+      <td>71.926288</td>
       <td>1.095520e+06</td>
-      <td>535040.000000</td>
-      <td>463966.000000</td>
-      <td>560480.000000</td>
-      <td>571643.000000</td>
-      <td>295808.000000</td>
+      <td>64063.000000</td>
+      <td>48.620911</td>
+      <td>34061.000000</td>
       <td>...</td>
-      <td>280662.000000</td>
-      <td>201187.000000</td>
-      <td>262040.000000</td>
-      <td>444241.000000</td>
-      <td>112580.000000</td>
-      <td>491747.000000</td>
-      <td>158808.000000</td>
-      <td>523797.000000</td>
-      <td>585118.000000</td>
+      <td>149.796886</td>
+      <td>4307.404000</td>
+      <td>9912.000000</td>
+      <td>4689.000000</td>
+      <td>3957.000000</td>
+      <td>92.464392</td>
+      <td>205.228320</td>
       <td>572090.000000</td>
+      <td>89.996014</td>
+      <td>40972.000000</td>
     </tr>
   </tbody>
 </table>
-<p>8 rows × 34 columns</p>
+<p>8 rows × 173 columns</p>
 </div></div></div>
 </div>
 <p>Indexing and masking in pandas dataframes works a bit like in a numpy array. We can also extract multiple columns at once</p>
@@ -1797,15 +2402,34 @@ memory usage: 11.0+ MB
 </div>
 <p>We can also use <code class="docutils literal notranslate"><span class="pre">df.loc[rows,columns]</span></code> to index into our dataframe. <code class="docutils literal notranslate"><span class="pre">.loc</span></code> is used to index into the dataframe based on the <em>labels names</em>. Since rows are usually just numbers, we can pass an integer here.
 To get the column, we need to pass the column name as a string.</p>
-<section id="id4">
-<h3><strong>Exercise</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
-<p>Show the every <em>second</em> row of the first 16 rows of the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe for the column <code class="docutils literal notranslate"><span class="pre">S_RAUM</span></code>.</p>
-<p><strong>Hint</strong>: Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> indexing. You can pass an integer to the row selection [row,column]. Use slicing <a class="reference external" href="https://www.datacamp.com/tutorial/python-slice">click here for a reminder</a> to get every 2nd row.</p>
-<p>To use integers for indexing, we need to use <code class="docutils literal notranslate"><span class="pre">df.iloc</span></code>. Now, we can simply pass integer values for both rows and columns.</p>
-</section>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="s2">&quot;A0002P&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>17.271948
+</pre></div>
+</div>
+</div>
+</div>
 <section id="id5">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
-<p>Define a random integer called <code class="docutils literal notranslate"><span class="pre">ran_col</span></code> using the <code class="docutils literal notranslate"><span class="pre">numpy.random.randin</span></code> function. It should not be larger than the number of columns in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
+<p>Show every <em>second</em> row of the first 16 rows of the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe for the column <code class="docutils literal notranslate"><span class="pre">S_RAUM</span></code>.</p>
+<p><strong>Hint</strong>: Use <code class="docutils literal notranslate"><span class="pre">.loc</span></code> indexing. You can pass an integer to the row selection and “S_RAUM” to the column selection <code class="docutils literal notranslate"><span class="pre">df.loc[row,column]</span></code>. Use slicing <a class="reference external" href="https://www.datacamp.com/tutorial/python-slice">click here for a reminder</a> to get every 2nd row.</p>
+<p>The general syntax for slicing is</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      [start:stop:step] -&gt; [index where the slicing starts : index where the slicing stops : Interval between slices]
+</pre></div>
+</div>
+<p>To use integers for indexing, we need to use <code class="docutils literal notranslate"><span class="pre">df.iloc</span></code>. Now, we can simply pass integer values for both rows and columns.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.iloc[0,1] -&gt; First row and second column of the dataframe
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>Define a random integer called <code class="docutils literal notranslate"><span class="pre">ran_col</span></code> using the <code class="docutils literal notranslate"><span class="pre">numpy.random.randint</span></code> function. It should not be larger than the number of columns in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
 <p>Define a second random integer called <code class="docutils literal notranslate"><span class="pre">ran_rows</span></code> using the same function. Make sure its not larger than the number of rows in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
 <p>Use these two integers to index in to the dataframe using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code></p>
 <p>We can also create a mask that is based on boolean values and use it to extract parts of the dataframe, where a given condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
@@ -1828,8 +2452,8 @@ To get the column, we need to pass the column name as a string.</p>
 </div>
 </div>
 </section>
-<section id="id6">
-<h3><strong>Exercise</strong><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<section id="id7">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
 <p>Create a new variable called <code class="docutils literal notranslate"><span class="pre">my_vedel</span></code>. Assign to it a <em>string</em> of the vedel you are living in (if you are comfortable with that, otherwise just use any other.)</p>
 <p>We now want to extract the data, that belongs to <code class="docutils literal notranslate"><span class="pre">my_vedel</span></code>.</p>
 <p>Since this information is stored in the <code class="docutils literal notranslate"><span class="pre">RAUM</span></code> column, we need to build the mask based on that column.</p>
@@ -1844,8 +2468,8 @@ To get the column, we need to pass the column name as a string.</p>
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h3><strong>Exercise</strong><a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<section id="id8">
+<h3><strong>Exercise</strong><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">koeln_stats_description</span></code> dataframe, look up a column code that you think is interesting. Access that column in the <code class="docutils literal notranslate"><span class="pre">your</span> <span class="pre">vedel</span></code> or the <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code> dataframe.</p>
 <p><strong>Hint</strong>: Use koeln_stats_description.head(n=50) to see more column names stored in there.</p>
 <p><strong>Hint 2.0</strong>: Use this code</p>
@@ -1859,50 +2483,19 @@ To get the column, we need to pass the column name as a string.</p>
 </pre></div>
 </div>
 <p>Try this now with your dataframe.</p>
-<p>But before that…</p>
-<p><img alt="Errors" src="../_images/Error.gif" /></p>
-<p>Yep. Some values are just messed up in this dataframe. This is completely normal with unknown datasources, unfortunately. If you get an error during your <code class="docutils literal notranslate"><span class="pre">groupby</span></code> operation, try the code I listed below.</p>
-<p>Just type the name of your column into <code class="docutils literal notranslate"><span class="pre">your_column</span></code> and switch the variable <code class="docutils literal notranslate"><span class="pre">error</span></code> from False to True</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#use this cell to apply the groupby operation</span>
+<p><strong>Hint</strong>: If you want to look at the mean across multiple columns you must pass these columns in a list to groupby.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.groupby[&quot;Column1&quot;,&quot;Column2&quot;].&quot;OutCome&quot;.mean()
 </pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<span class="c1"># Function to check if a value is numeric</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">is_numeric</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Try converting to float</span>
-        <span class="k">return</span> <span class="kc">True</span>
-    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-        <span class="k">return</span> <span class="kc">False</span>
-
-<span class="n">error</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="k">if</span> <span class="n">error</span><span class="p">:</span>
-    <span class="n">your_column</span> <span class="o">=</span> <span class="s2">&quot;Type the name of the column you want to investigate here&quot;</span>
-    <span class="c1"># Apply the function to the column, keeping only valid numeric values</span>
-    <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="k">if</span> <span class="n">is_numeric</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-
-    <span class="c1"># Drop rows where &#39;A0027A&#39; contains NaN values (i.e., invalid values)</span>
-    <span class="n">koeln_stats</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="n">your_column</span><span class="p">])</span>
-
-    <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">koeln_stats</span><span class="p">[</span><span class="n">your_column</span><span class="p">]]</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-</div>
-</div>
 </div>
 <p>We can also infer distribution stats (Mean, Standard Deviation) directly from the column</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;A0002A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;A0002A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;A0002P&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">koeln_stats</span><span class="p">[</span><span class="s2">&quot;A0002P&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(18.953883179111735, 10.583493602915325)
 </pre></div>
 </div>
 </div>
@@ -1910,7 +2503,7 @@ To get the column, we need to pass the column name as a string.</p>
 </section>
 </section>
 <section id="data-visualization-and-plotting">
-<h2><strong>Data Visualization and Plotting</strong><a class="headerlink" href="#data-visualization-and-plotting" title="Link to this heading">#</a></h2>
+<h2>Data Visualization and Plotting<a class="headerlink" href="#data-visualization-and-plotting" title="Link to this heading">#</a></h2>
 <p>Now that we’ve taken a closer look at our data through basic descriptive statistics and data types, we’ll take the next step by exploring it visually. Basic data visualization offers a different perspective and can reveal key patterns or issues relevant for further analysis. In the following steps, we’ll use various Python libraries and functions to create visualizations that highlight different aspects of the data.</p>
 <p>What is Plotting?</p>
 <p><em>Plotting in data science and programming refers to the visual representation of data using charts or graphs. It helps us understand patterns, relationships, and trends in data more clearly and efficiently than raw numbers alone. By turning data into visual formats, such as line graphs, bar charts, histograms, or scatter plots, we can make more informed decisions, identify outliers, and communicate insights to others.</em></p>
@@ -1969,8 +2562,8 @@ We indicate this with <code class="docutils literal notranslate"><span class="pr
 </div>
 <p>There are, obviously, many many more plotting styles. You can find all of them <a class="reference external" href="https://seaborn.pydata.org/tutorial/function_overview.html">here</a>.</p>
 <p>Anyways, after this short tutorial on plotting and data visualization, lets return to our koeln dataframe.</p>
-<section id="id8">
-<h3>Exercise<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<section id="id9">
+<h3>Exercise<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>Visualize the column you picked from earlier, using the seaborn library. Add xlabels, ylabels and a title to your plot. If you want to, you can choose multiple columns and plot something interactive, using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter.</p>
 <p>For example you might wonder, if the amount of people &gt; 80 years old increased over the time of years in specific vedel?</p>
 </section>
@@ -2047,17 +2640,18 @@ We indicate this with <code class="docutils literal notranslate"><span class="pr
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pandas">Pandas</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6"><strong>Exercise</strong></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7"><strong>Exercise</strong></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8"><strong>Exercise</strong></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-plotting"><strong>Data Visualization and Plotting</strong></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Exercise</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-visualization-and-plotting">Data Visualization and Plotting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">Exercise</a></li>
 </ul>
 </li>
 </ul>
