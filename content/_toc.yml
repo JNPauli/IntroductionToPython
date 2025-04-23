@@ -9,11 +9,13 @@ chapters:
   sections: 
   - file: Introduction/PythonBasics.ipynb
   - file: Introduction/Loops.ipynb
+  - file: Introduction/Recap.ipynb
   - file: Introduction/FunctionsAndModules.ipynb
   - file: Introduction/FirstSummary.md
   - file: Introduction/DataStructures.ipynb
-- file: Introduction/OptionalHomeWork.ipynb
 - file: MachineLearning/IntroToML.ipynb
+- file: Introduction/OptionalHomeWork.ipynb
+
   
 
  # sections:
