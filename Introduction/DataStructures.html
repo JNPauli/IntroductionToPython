@@ -491,6 +491,13 @@ document.write(`
 <p>Numpy arrays come with a <code class="docutils literal notranslate"><span class="pre">fixed</span> <span class="pre">size</span></code>!</p>
 <p>We will now start to explore the numpy environment and the numpy arrays.</p>
 <p>So first, start by <code class="docutils literal notranslate"><span class="pre">importing</span> <span class="pre">numpy</span> <span class="pre">as</span> <span class="pre">np</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We will not work with real data <em>yet</em>, but rather simulate our own numpy arrays to work with. Numpy offers some really useful functions we can use to generate our arrays.</p>
 <p>Lets start with the <code class="docutils literal notranslate"><span class="pre">numpy.random.rand</span></code> function.</p>
 <p>They key argument we need to pass to the function is the <code class="docutils literal notranslate"><span class="pre">shape</span></code> of the array we want to create. Lets start by creating a 1-Dimensional Array first.</p>
@@ -499,6 +506,13 @@ document.write(`
 <h3><strong>Exercise 15.0</strong><a class="headerlink" href="#exercise-15-0" title="Link to this heading">#</a></h3>
 <p>Create a 1-D numpy array using the <code class="docutils literal notranslate"><span class="pre">rand</span></code> function from the <code class="docutils literal notranslate"><span class="pre">random</span></code> module (from the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> package). Use it to create a numpy array with <strong>1</strong> Row and <strong>20</strong> Columns.</p>
 <p>Assign your array to a variable called “RandomArray”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RandomArray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>The information about the <code class="docutils literal notranslate"><span class="pre">shape</span></code> (e.g, how many rows and colum we have) is actually stored within the array element itself. We can access it with <code class="docutils literal notranslate"><span class="pre">array.shape</span></code></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -654,6 +668,20 @@ We can use this output of boolean values as a <code class="docutils literal notr
 <section id="exercise">
 <h3><strong>Exercise</strong><a class="headerlink" href="#exercise" title="Link to this heading">#</a></h3>
 <p>Create a function called random_choice. The goal of the function is to return a similar output as <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code>. Since this function uses a loop under the hood, integrate a loop within your function as well. The output should be a numpy array. Try to use the same arguments as in <code class="docutils literal notranslate"><span class="pre">np.random.choice</span></code> (array as its input and the size parameter, that defines the the number of iterations).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">random_choice</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span><span class="n">num_iterations</span><span class="p">):</span>
+  <span class="n">choice</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_iterations</span><span class="p">):</span>
+   <span class="n">ran</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nb">list</span><span class="p">))</span>
+   <span class="n">element</span> <span class="o">=</span> <span class="nb">list</span><span class="p">[</span><span class="n">ran</span><span class="p">]</span>
+   <span class="n">choice</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+
+  <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">choice</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id1">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
@@ -663,11 +691,30 @@ We can use this output of boolean values as a <code class="docutils literal notr
 <p>Create a <code class="docutils literal notranslate"><span class="pre">mask</span></code> of boolen values, which should be True if an element of high_scores is in all_scores, and False otherwise. Use the <code class="docutils literal notranslate"><span class="pre">np.isin(firstarray,secondarray)</span></code> function to create the mask.
 Which array should you pass as the first argument, and which as the second? Use <code class="docutils literal notranslate"><span class="pre">np.isin?</span></code> to find out!</p>
 <p>Use this mask to create a new array called <code class="docutils literal notranslate"><span class="pre">valid_high_scores</span></code>. How do these array differ in their shape and distribution (mean+standard deviation)?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">all_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">512</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">high_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">257</span><span class="p">)</span>
+
+<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">high_scores</span><span class="p">,</span><span class="n">all_scores</span><span class="p">)</span>
+
+<span class="n">valid_high_scores</span> <span class="o">=</span> <span class="n">high_scores</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id2">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <p>Create a numpy array of 9 numbers using <code class="docutils literal notranslate"><span class="pre">np.arange</span></code>. Reshape it to a 2D matrix of the shape (3,3).</p>
 <p><strong>Hint</strong>: Use the <code class="docutils literal notranslate"><span class="pre">np.array.reshape()</span></code> method.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id3">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
@@ -677,12 +724,24 @@ Which array should you pass as the first argument, and which as the second? Use 
 </pre></div>
 </div>
 <p>What element woud you expect to see if we index into the array using (array[2,3]) ?</p>
-<p><strong>Type your answer here</strong></p>
+<p>Answer: 12 (Row:3, Column:4)</p>
 </section>
 <section id="id4">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
 <p>Create a numpy array with random integers between 1 and 255, with the shape 64,64.</p>
 <p><strong>Hint</strong>: Use the <code class="docutils literal notranslate"><span class="pre">np.random.randint</span></code> function</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span><span class="mi">64</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3, 4)
+</pre></div>
+</div>
+</div>
+</div>
 <p><img alt="pandas" src="../_images/Pandas.png" /></p>
 </section>
 </section>
@@ -2421,6 +2480,13 @@ To get the column, we need to pass the column name as a string.</p>
 <p>The general syntax for slicing is</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      [start:stop:step] -&gt; [index where the slicing starts : index where the slicing stops : Interval between slices]
 </pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">loc</span><span class="p">[:</span><span class="mi">16</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;S_RAUM&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>To use integers for indexing, we need to use <code class="docutils literal notranslate"><span class="pre">df.iloc</span></code>. Now, we can simply pass integer values for both rows and columns.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.iloc[0,1] -&gt; First row and second column of the dataframe
