@@ -2499,6 +2499,18 @@ To get the column, we need to pass the column name as a string.</p>
 <p>Define a random integer called <code class="docutils literal notranslate"><span class="pre">ran_col</span></code> using the <code class="docutils literal notranslate"><span class="pre">numpy.random.randint</span></code> function. It should not be larger than the number of columns in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
 <p>Define a second random integer called <code class="docutils literal notranslate"><span class="pre">ran_rows</span></code> using the same function. Make sure its not larger than the number of rows in <code class="docutils literal notranslate"><span class="pre">koeln_stats</span></code>.</p>
 <p>Use these two integers to index in to the dataframe using <code class="docutils literal notranslate"><span class="pre">.iloc</span></code></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define random column and row indices</span>
+<span class="n">ran_col</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Random column index (0 to number of columns - 1)</span>
+<span class="n">ran_row</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Random row index (0 to number of rows - 1)</span>
+
+<span class="c1"># Use .iloc to index into the dataframe</span>
+<span class="n">random_value</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">ran_row</span><span class="p">,</span> <span class="n">ran_col</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>We can also create a mask that is based on boolean values and use it to extract parts of the dataframe, where a given condition is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">S_Jahr</span></code> are the corresponding <em>years</em> stored, when the statistic was collected.</p>
 <div class="cell docutils container">
@@ -2534,6 +2546,14 @@ To get the column, we need to pass the column name as a string.</p>
       ehrenfeld = koeln_stats[mask]
 </pre></div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_vedel</span> <span class="o">=</span> <span class="s2">&quot;Ehrenfeld&quot;</span>
+<span class="n">koeln_stats</span><span class="p">[</span><span class="n">koeln_stats</span><span class="o">.</span><span class="n">RAUM</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">my_vedel</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id8">
 <h3><strong>Exercise</strong><a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
@@ -2544,6 +2564,14 @@ To get the column, we need to pass the column name as a string.</p>
 </pre></div>
 </div>
 <p>to get specific information about a given row!</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered</span> <span class="o">=</span> <span class="n">koeln_stats</span><span class="p">[[</span><span class="s2">&quot;S_JAHR&quot;</span><span class="p">,</span><span class="s2">&quot;S_RAUM&quot;</span><span class="p">,</span><span class="s2">&quot;RAUM&quot;</span><span class="p">,</span><span class="s2">&quot;S_RAUMEBENE&quot;</span><span class="p">,</span><span class="s2">&quot;RAUMEBENE&quot;</span><span class="p">,</span><span class="s2">&quot;A0275A&quot;</span><span class="p">,</span><span class="s2">&quot;A0315A&quot;</span><span class="p">]]</span>
+<span class="n">filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;RAUM&quot;</span><span class="p">,</span><span class="s2">&quot;S_JAHR&quot;</span><span class="p">])[</span><span class="s2">&quot;A0275A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>With that column in mind you can do some cool investigation. Maybe you are interested in, if the age of people above 80% differes between vedels?</p>
 <p>To get an idea of the mean <code class="docutils literal notranslate"><span class="pre">distribution</span></code> you can use the following syntax</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.groupby(&quot;Column you believe is interesting to sort by&quot;).&quot;OutComeColumn&quot;.mean()
@@ -2553,6 +2581,13 @@ To get the column, we need to pass the column name as a string.</p>
 <p><strong>Hint</strong>: If you want to look at the mean across multiple columns you must pass these columns in a list to groupby.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.groupby[&quot;Column1&quot;,&quot;Column2&quot;].&quot;OutCome&quot;.mean()
 </pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;RAUM&quot;</span><span class="p">,</span><span class="s2">&quot;S_JAHR&quot;</span><span class="p">])[</span><span class="s2">&quot;A0275A&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
 </div>
 <p>We can also infer distribution stats (Mean, Standard Deviation) directly from the column</p>
 <div class="cell docutils container">
@@ -2633,6 +2668,20 @@ We indicate this with <code class="docutils literal notranslate"><span class="pr
 <h3>Exercise<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
 <p>Visualize the column you picked from earlier, using the seaborn library. Add xlabels, ylabels and a title to your plot. If you want to, you can choose multiple columns and plot something interactive, using the <code class="docutils literal notranslate"><span class="pre">hue</span></code> parameter.</p>
 <p>For example you might wonder, if the amount of people &gt; 80 years old increased over the time of years in specific vedel?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">filtered</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;S_JAHR&quot;</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s2">&quot;A0275A&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Anzahl drei Kinder Haushalte in Köln über die Jahre hinweg&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Jahr&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Anzahl an Haushalten&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">)</span>  <span class="c1"># Rotate x-axis labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 </section>
