@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>MAP &#8212; Introduction to Python</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'MAP';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Optional Homework" href="Introduction/OptionalHomeWork.html" />
+    <link rel="prev" title="Outro" href="Outro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/Logo.jpg" class="logo__image only-light" alt="Introduction to Python - Home"/>
+    <script>document.write(`<img src="_static/Logo.jpg" class="logo__image only-dark" alt="Introduction to Python - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    Welcome!
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="CoC.html">Code of Conduct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DEI.html">Diversity, Equity and Inclusion</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="BasicConcepts.html">Introduction Materials</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="LinksToNotebooks.html">Links to the notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Introduction/CourseExplain.html">How does this course work?</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="MachineLearning/IntroToML.html">Introduction to Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Outro.html">Outro</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">MAP</a></li>
+
+
+<li class="toctree-l1"><a class="reference internal" href="Introduction/OptionalHomeWork.html">Optional Homework</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/JNPauli/IntroductionToPython/blob/main/content/MAP.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/JNPauli/IntroductionToPython" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JNPauli/IntroductionToPython/edit/main/content/MAP.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/JNPauli/IntroductionToPython/issues/new?title=Issue%20on%20page%20%2FMAP.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/MAP.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>MAP</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MAP</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gliederung">Gliederung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatierung">Formatierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-und-co">Notebooks und co.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weiteres">Weiteres</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-beispiel-map-einfluss-von-bildschirmzeit-auf-schulleistung">MINI-Beispiel-MAP: Einfluss von Bildschirmzeit auf Schulleistung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">Einführung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodenteil">Methodenteil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse">Ergebnisse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion">Diskussion</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="map">
+<h1>MAP<a class="headerlink" href="#map" title="Link to this heading">#</a></h1>
+<p>Struktur der Modulabschlussprüfung</p>
+<ul class="simple">
+<li><p>Ihr sucht euch einen Datensatz inkl. Fragestellung, die im pädagogischen Bereich zu verorten ist (z.B., Unterscheidet sich die Lesefähigkeit von Schüler und Schülerinnen in Abhängigkeit der Anzahl von Büchern daheim, o.ä)</p></li>
+<li><p>Wenn ihr dies gemacht habt, schreibt ihr mir eine E-Mail. Wir treffen uns dann entweder in meinem Büro am Campus oder via Zoom. Dort besprechen wir Datensatz und Fragestellung und ich gebe euch eine Hilfestellung, wie ihr das ganze angehen könntet.</p></li>
+</ul>
+<section id="gliederung">
+<h2>Gliederung<a class="headerlink" href="#gliederung" title="Link to this heading">#</a></h2>
+<p>Für die MAP ist es empfehlenswert, dass ihr euch an der folgenden Gliederung entlang hangelt. Ihr könnt davon aber auch abweichen, solange alle wichtigen und relevanten Informationen in logischer Reihenfolge vorkommen.</p>
+<ul class="simple">
+<li><p><strong>Einführung</strong>: Hier sollte klar werden, welche theoretischen Hintergründe eure Fragestellung hat; Warum erwartet ihr, dass die Anzahl an Büchern daheim (X) einen Einfluss auf die Lesefähigkeit (y) hat? Warum ist es wichtig diese Konstrukte (X und y) zu untersuchen? Eine Fragestellung sollte klar, präzise und beantwortbar sein! Definiert die spezifischen Begriffe, die Teil eurer Fragestellung sind, insofern es sich um keine alltäglichen Begriffe handelt. Es sollte eindeutig sein, was gemeint ist. Versucht eure Fragestellung durch ein theoretisches Modell oder eine Erklärung zu motivieren. Das könnten zum Beispiel Theorien aus der Entwicklungspsychologie, Didaktik oder Lernpsychologie sein.
+Was für Ergebnisse erwartet ihr? Zum Ende des des Einführungsteils solltet ihr dann eine Fragestellung definiert haben. Ihr leitet also zunächst her, welche Konstrukte ihr untersuchen wollt, weshalb diese relevant sind und formuliert schlussendlich die Fragestellung.</p></li>
+</ul>
+<p>Beispiel: Hat die Hintergrundmusik während des Lesens einen Einfluss auf die Konzentration von Schülerinnen? -&gt; Mit Konzentration meinen wir, wie viele Fragen zum Text richtig beantwortet wurden -&gt; Laut der kognitiven Belastungstheorie kann zu viel Ablenkung die Verarbeitung von Informationen stören -&gt; Wir möchten wissen, ob sich das Lesen im Klassenzimmer durch Musik verändert – also: Beeinflusst Musik die Leseleistung?</p>
+<ul class="simple">
+<li><p><strong>Methodenteil</strong>: Hier solltet ihr beschreiben, mit welchen Mitteln ihr eure Fragestellung beantwortet. Welchen Datensatz habt ihr und woher? Was für Informationen stecken im Datensatz, wie lässt er sich charakterisieren (Mittelwerte, Standardabweichungen, Korrelationen zwischen Variablen) ? Wie groß ist die Stichprobe im Datensatz? Welche Variablen aus dem Datensatz benötigt ihr für die Beantwortung eurer Fragestellung? Mit Hilfe welcher Software wertet ihr die Fragestellung aus? Welche Module benutzt ihr hier für? Welches Machine Learning Model verwendet ihr? Was ist der Output des Models? ; Im Methodenteil ist also viel Platz, um eurer ganzes Vorhaben auf methodischer Art und Weise zu beschreiben. Hier bietet es sich auch an, eure Daten zu visualisieren (denkt unbedingt an Achsenbeschriftungen!)</p></li>
+</ul>
+<p>Beispiel:  Unser Datensatz enthält Antworten von 50 Schülerinnen auf einen Lesetest -&gt; Die Schülerinnen waren zwischen 8 und 10 Jahre (durchschnitt = .. )alt. Jeder hat denselben Text gelesen -&gt; Wir haben mit Python gearbeitet und das Modul pandas benutzt, um die Daten auszuwerten -&gt; Das Modell soll lernen, ob jemand den Text gut verstanden hat – nur auf Basis der Anzahl richtig beantworteter Fragen -&gt; Wir zeigen mit einem Balkendiagramm, wie viele Schülerinnen mit und ohne Musik gut abgeschnitten haben</p>
+<ul class="simple">
+<li><p><strong>Ergebnisteil</strong>: Hier solltet ihr eure Ergebnisse aufzählen und beschreiben. Was für Ergebnisse hat euer Model produziert? Visualisiert die Ergebnisse!</p></li>
+</ul>
+<p>Beispiel: Ein Genauigkeitswert von 0.85 bedeutet: Das Modell lag in 85 von 100 Fällen richtig -&gt; Die Schülerinnen, die ohne Musik gelesen haben, konnten sich besser konzentrieren -&gt; Mit Musik waren im Schnitt 3 Aufgaben mehr falsch als ohne Musik.</p>
+<ul class="simple">
+<li><p><strong>Diskussion</strong>: Hier solltet ihr beschreiben, wie sich die Ergebnisse in den theoretischen Rahmen einordnen und wie die Ergebnisse zur Fragestellung stehen. In der Diskussion solltet ihr euer Vorhaben reflektieren:  Was sind mögliche Gründe für (nicht) erwartete Ergebnisse? Was für folge Analysen würden sich anbieten? Was könnten eure Ergebnisse für die Praxis bedeuten? Was könnte man noch besser machen? Was könnte man noch erforschen?</p></li>
+</ul>
+<p>Beispiel: Die Ergebnisse ordnen sich in die Theorie zur kognitiven Belastungstheorie ein, dennoch ist die Stichprobe sehr selektiv (zum Beispiel wenn euer Datensatz nur die Daten von Kindern aus westlichen Schulen hat) und es steht offen, ob der Effekt in einer anderen Stichprobe übertragbar wäre…</p>
+<p>Ihr solltet dann jeweils die relevanten Code Zeilen als Bild mitaufnehmen (z.b. als Screenshot)</p>
+<p>Beispiel: Der hier verwendete Datensatz entstammt aus der Studie von Author et al. Der Datensatz wird mit dem Pandas Modul eingelesen.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      import pandas as pd
+      df = pd.read_csv(&quot;Datensatz.csv&quot;)
+</pre></div>
+</div>
+<p>Wir überprüfen wie hoch die Korrelationen zwischen den Variablen sind…</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>      df.corr()
+</pre></div>
+</div>
+<p>Es ist euch frei, ob ihr Tabellenoutputs aus google colab kopiert und zeigt, oder ob ihr eure eigenen Tabellen erstellt. Beides ist in Ordnung.</p>
+</section>
+<section id="formatierung">
+<h2>Formatierung<a class="headerlink" href="#formatierung" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Text auf deutsch oder englisch</p></li>
+<li><p>Schriftart im Text: Arial (11) oder Times New Roman (12)</p></li>
+<li><p>Schriftart Kapitelüberschriften: Arial (14) oder Times New Roman (15)</p></li>
+<li><p>Zeilenabstand 1.5</p></li>
+<li><p>Textausrichtung: Linksbündig</p></li>
+<li><p>Fortlaufende Kapitelnummerierungen</p></li>
+<li><p>Zitationsstil: Einer, mit dem ihr vertraut seid. Hier gibt es keine konkreten Vorgaben.</p></li>
+<li><p>Eurer finales Dokument sollte nicht über 20 Seiten (inkl code snippets und Abbildungen, Tabellen etc) haben. Es gibt keine Mindestanzahl, aber realistischerweise solltet ihr zwischen 10 und 15 Seiten (Bedeutet, inkl. Text, Abbildungen und Code Snippets) landen. Das Literaturverzeichnis zählt <strong>NICHT</strong> in die maximale Seitenanzahl mit rein, das Titelblatt und das Inhaltsverzeichnis ebenso wenig.</p></li>
+</ul>
+</section>
+<section id="notebooks-und-co">
+<h2>Notebooks und co.<a class="headerlink" href="#notebooks-und-co" title="Link to this heading">#</a></h2>
+<p>Für die MAP werde ich euch kein eigenes Notebook schicken. Ihr könnt einfach über euren Google Account eine eigene google colab session starten. Hierfür klickt ihr auf <a class="reference external" href="https://colab.research.google.com">diesen Link</a>. Ihr solltet dann so was in der Art sehen</p>
+<p><img alt="image.png" src="attachment:image.png" /></p>
+<ul class="simple">
+<li><p>Klickt einfach auf <code class="docutils literal notranslate"><span class="pre">Neues</span> <span class="pre">Notebook</span></code> und schon habt ihr eure eigene Python Session gestartet. In aller Regel wird dieses Notebook dann automatisch in eurem <code class="docutils literal notranslate"><span class="pre">google</span> <span class="pre">drive</span></code> gespeichert. Denkt dennoch dran, es lieber einmal mehr als einmal zu wenig local herunterzuladen.</p></li>
+<li><p>Am besten wäre es, wenn ihr den Text in Word schreibt und dann Visualisierungen etc. und eure Codezellen als Bild einfügt. Wenn ihr die MAP abgebt schickt ihr mir bitte dann das Notebook <strong>und</strong> das Dokument als PDF Datei! Bewertungsgrundlage der MAP wird der von euch geschrieben Text, die gewählten Analysen und die Interpretation und Diskussion der Ergebnisse sein. Die Qualität eures Codes bzw der Code als solcher wird <strong>nicht</strong> bewertet.</p></li>
+</ul>
+</section>
+</section>
+<section id="weiteres">
+<h1>Weiteres<a class="headerlink" href="#weiteres" title="Link to this heading">#</a></h1>
+<p>Solltet ihr noch Fragen haben, schreibt mir eine E-Mail! Ich werde das Dokument fortlaufend aktualisieren.</p>
+<p>Ich wünsche euch viel Spaß und Erfolg beim Bearbeiten der MAP ! :)</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="mini-beispiel-map-einfluss-von-bildschirmzeit-auf-schulleistung">
+<h1>MINI-Beispiel-MAP: Einfluss von Bildschirmzeit auf Schulleistung<a class="headerlink" href="#mini-beispiel-map-einfluss-von-bildschirmzeit-auf-schulleistung" title="Link to this heading">#</a></h1>
+<section id="einfuhrung">
+<h2>Einführung<a class="headerlink" href="#einfuhrung" title="Link to this heading">#</a></h2>
+<p>Digitale Medien sind fester Bestandteil des Alltags von Kindern und Jugendlichen. Einige Studien (Quelle) zeigen einen negativen Zusammenhang zwischen Bildschirmzeit und schulischer Leistung, andere wiederum (Quelle) betonen den Einfluss von Art und Inhalt der Nutzung.<br />
+<strong>Fragestellung</strong>: Hat die tägliche Bildschirmzeit einen Einfluss auf die Noten von Schüler*innen?</p>
+</section>
+<section id="methodenteil">
+<h2>Methodenteil<a class="headerlink" href="#methodenteil" title="Link to this heading">#</a></h2>
+<p>Wir nutzen einen zufällig erzeugten Datensatz mit folgenden Variablen:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">screen_time</span></code> (in Stunden pro Tag)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">grade</span></code> (Durchschnittsnote auf einer Skala von 1 bis 6)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gender</span></code> (weiblich/männlich/divers)</p></li>
+</ul>
+<p>Die Daten werden in Python (pandas, seaborn) verarbeitet und visualisiert.</p>
+<p>In diesem Datensatz sind N Schüler vertreten (x% weiblich, x% männlich, x% divers); Durchschnittsnote ist xyz, durchschnittliche screen time ist ….</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sns</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Zufallsdaten erzeugen</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s2">&quot;screen_time&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+    <span class="s2">&quot;grade&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">n</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span>
+    <span class="s2">&quot;gender&quot;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s2">&quot;weiblich&quot;</span><span class="p">,</span> <span class="s2">&quot;männlich&quot;</span><span class="p">,</span> <span class="s2">&quot;divers&quot;</span><span class="p">],</span> <span class="n">n</span><span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="ergebnisse">
+<h2>Ergebnisse<a class="headerlink" href="#ergebnisse" title="Link to this heading">#</a></h2>
+<p>Wir betrachten zunächst den Zusammenhang zwischen Bildschirmzeit und Noten</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;screen_time&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;grade&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;gender&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Zusammenhang zwischen Bildschirmzeit und Noten&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Bildschirmzeit (h/Tag)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Durchschnittsnote&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/74376f30133764f44e48bac53eebfcbed5e007cfc2b6f1060a4d52116f7ac517.png" src="_images/74376f30133764f44e48bac53eebfcbed5e007cfc2b6f1060a4d52116f7ac517.png" />
+</div>
+</div>
+</section>
+<section id="diskussion">
+<h2>Diskussion<a class="headerlink" href="#diskussion" title="Link to this heading">#</a></h2>
+<p>In der Visualisierung zeigt sich ein leichter positiver Zusammenhang zwischen Bildschirmzeit und schlechteren Noten. Dies entspricht bestehenden Annahmen, sollte aber differenziert betrachtet werden, zum Beispiel mit einem Machine Learning Model.</p>
+<ul class="simple">
+<li><p>Keine Aussagen über Kausalität sind möglich</p></li>
+<li><p>Zusätzlich informative Variablen wie Lernzeit oder Medientyp fehlen (siehe Theorie xyz von Author abc (1890))</p></li>
+<li><p>Keine repräsentative Stichprobe</p></li>
+</ul>
+<p>Ausblick: Weitere Analysen könnten Unterschiede zwischen Geschlechtern oder Altersgruppen betrachten oder die Bildschirmzeit nach Aktivitätstypen differenzieren (z. B. Lernen vs. Social Media).</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Outro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Outro</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Introduction/OptionalHomeWork.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Optional Homework</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">MAP</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gliederung">Gliederung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#formatierung">Formatierung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notebooks-und-co">Notebooks und co.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#weiteres">Weiteres</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#mini-beispiel-map-einfluss-von-bildschirmzeit-auf-schulleistung">MINI-Beispiel-MAP: Einfluss von Bildschirmzeit auf Schulleistung</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einfuhrung">Einführung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methodenteil">Methodenteil</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ergebnisse">Ergebnisse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diskussion">Diskussion</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Janos Pauli based on the course template by Felix Koerber and Michael Ernst
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
