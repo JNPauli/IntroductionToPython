@@ -15,6 +15,7 @@ chapters:
   - file: Introduction/DataStructures.ipynb
 - file: MachineLearning/IntroToML.ipynb
 - file: Outro.ipynb
+- file: MAP.ipynb
 - file: Introduction/OptionalHomeWork.ipynb
 
   
