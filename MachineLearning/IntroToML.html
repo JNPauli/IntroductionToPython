@@ -845,12 +845,26 @@ Name: target, dtype: int32
 <p>It makes a lot of sense to exermine the data you are dealing with. Using the seaborn library, examine the distribution (how many entries there are) of the <code class="docutils literal notranslate"><span class="pre">y</span></code> variable.</p>
 <p><strong>Hint</strong>:</p>
 <p>You want to use  <code class="docutils literal notranslate"><span class="pre">sns.histplot</span></code> here.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">discrete</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id1">
 <h2><strong>Exercise</strong><a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">sns.boxplot()</span></code> function to plot a distribution plot of a feature of your choice (e.g., a column from <strong>X</strong>), given the labels stored in <code class="docutils literal notranslate"><span class="pre">diagnosis</span></code>.</p>
 <p><strong>Hint</strong>:</p>
 <p>Pass diagnosis to the <code class="docutils literal notranslate"><span class="pre">x</span></code> argument and the column of your choice to the <code class="docutils literal notranslate"><span class="pre">y</span></code> argument. Dont forget to be very explicit when passing the arguments to seaborn.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sns</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">diagnosis</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">X</span><span class="p">[</span><span class="s2">&quot;mean radius&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="id2">
 <h2><strong>Exercise</strong><a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
@@ -1146,6 +1160,13 @@ Name: target, dtype: int32
 <section id="id3">
 <h2><strong>Exercise</strong><a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>Inspect the shape of your training and test data to see, if your split worked as intended. You want to see less samples in your test data and more samples in your training data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">X_test</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">y_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Now with this out of the way, we can now actually scale our data. We want to call the <code class="docutils literal notranslate"><span class="pre">Scaler.fit_transform</span></code> on our training data and <code class="docutils literal notranslate"><span class="pre">Scaler.transform</span></code> on our test data.</p>
 <p>This way, we make sure, that the test data is scaled using the training distribution, and there is no leakage beforehand.</p>
 <div class="cell docutils container">
@@ -1163,6 +1184,13 @@ Name: target, dtype: int32
 <h2><strong>Exercise</strong><a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Using the np.mean() function, examine how the scaled and the non scaled arrays differ.</p>
 <p><strong>Hint</strong>: You can use the <code class="docutils literal notranslate"><span class="pre">axis</span></code> argument, to either view the mean of the samples (rows) or the features (columns). axis = 0 will give you the mean per column (average column across all samples)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">X_train_scaled</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Now that our features are properly scaled, we can tend to our classification model. We already discussed a logistic regression classifier in more detail, but there are of course many more estimators. One could use.</p>
 <p>For example, there are <code class="docutils literal notranslate"><span class="pre">support</span> <span class="pre">vector</span> <span class="pre">machines</span></code>, <code class="docutils literal notranslate"><span class="pre">decision</span> <span class="pre">trees</span></code> or the <code class="docutils literal notranslate"><span class="pre">random</span> <span class="pre">forest</span></code> classifier. We’ll start our model training with the logistic regression and then compare different classifiers.</p>
 <div class="cell docutils container">
@@ -1212,6 +1240,13 @@ Name: target, dtype: int32
 <section id="id5">
 <h2>Exercise<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>Calculate the test accuracy of the trained model instance</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">,</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>While accuracy is certainly one metric to check after fitting a classifier, there is more to come. We can visualize our results per class using a <code class="docutils literal notranslate"><span class="pre">classification</span> <span class="pre">report</span></code>. This classification report not only returns us the accuracy, but also the precision, recall and f1-score.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1225,6 +1260,15 @@ Name: target, dtype: int32
 <section id="id6">
 <h2>Exercise<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>Get the predicted y labels from your <code class="docutils literal notranslate"><span class="pre">test</span> <span class="pre">data</span></code> and name it <code class="docutils literal notranslate"><span class="pre">y_pred_test</span></code>. Apply the <code class="docutils literal notranslate"><span class="pre">classification_report</span></code> function and print the report afterwards.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred_test</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test_scaled</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Explaination of the metrics:</p>
 <p>High <strong>precision</strong> means fewer false alarms (false positives). Of all the times we predicted positive, how many were actually positive?; Relates more to quality</p>
 <p><strong>Recall</strong> = Of all the actual positives, how many did we correctly predict?; Relates more to quantity</p>
@@ -1237,7 +1281,7 @@ Name: target, dtype: int32
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#initiate the confusion matrix</span>
-<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="s1">&#39;y true&#39;</span><span class="p">,</span> <span class="s1">&#39;y test&#39;</span><span class="p">)</span>
+<span class="n">cm</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred_test</span><span class="p">)</span>
 
 <span class="c1"># Define class names and store it in a list</span>
 <span class="n">class_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Benign&#39;</span><span class="p">,</span> <span class="s1">&#39;Malignant&#39;</span><span class="p">]</span>
@@ -1353,6 +1397,39 @@ Name: target, dtype: int32
 <h3>Exercise<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
 <p>Try to fit the cross validation varying splits. Does the output change?</p>
 <p>Try to fit the cross validation function <em>without</em> the scaler in the Pipeline object. Does the behavior differ?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the pipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;scaler&#39;</span><span class="p">,</span> <span class="n">StandardScaler</span><span class="p">()),</span>        
+    <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())</span>  
+<span class="p">])</span>
+
+<span class="c1"># Set up Stratified K-Fold </span>
+<span class="n">stratified_kfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># call cross validation</span>
+<span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">stratified_kfold</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create the pipeline</span>
+<span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>       
+    <span class="p">(</span><span class="s1">&#39;classifier&#39;</span><span class="p">,</span> <span class="n">LogisticRegression</span><span class="p">())</span>  
+<span class="p">])</span>
+
+<span class="c1"># Set up Stratified K-Fold </span>
+<span class="n">stratified_kfold</span> <span class="o">=</span> <span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="c1"># call cross validation</span>
+<span class="n">cross_val_score</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="n">stratified_kfold</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="beyond-classification-regression">
 <h3>Beyond Classification: Regression<a class="headerlink" href="#beyond-classification-regression" title="Link to this heading">#</a></h3>
