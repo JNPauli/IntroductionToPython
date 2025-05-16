@@ -877,6 +877,15 @@ Name: target, dtype: int32
 <p>Create a variable called <code class="docutils literal notranslate"><span class="pre">corr</span></code> and store in that variable the correlation scores. Then, use <code class="docutils literal notranslate"><span class="pre">sns.heatmap()</span></code> to plot the correlation scores. Do you notice any interesting trends?</p>
 <p><strong>Hint</strong>:</p>
 <p>Try to pass the <code class="docutils literal notranslate"><span class="pre">cmap=&quot;coolwarm&quot;</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">sns.heatmap</span></code> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">corr</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">heatmap</span><span class="p">(</span><span class="n">corr</span><span class="p">,</span><span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;coolwarm&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>You can exclude features before you actually train your model, especially if you suspect that they might influence the performance of your model. Since we only have 32 features, we can still go on with this dataset.</p>
 <p>One very very important thing you want to do before you train your model is to <code class="docutils literal notranslate"><span class="pre">normalize</span></code> your features! Non-normalized features can heavily influence the performance of your model. You dont want that to happen to you.</p>
 <p>Using the <code class="docutils literal notranslate"><span class="pre">df.describe()</span></code> method, we see that all features differ heavily in their mean, min, max and std value.</p>
